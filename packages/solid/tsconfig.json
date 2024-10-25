@@ -8,4 +8,5 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
   },
+  "include": ["src", "tsup.config.ts"],
 }

@@ -1,11 +1,15 @@
 {
-  "name": "@tmol4/star-monorepo",
-  "packageManager": "yarn@4.5.0",
+  "name": "@star4/monorepo",
+  "packageManager": "yarn@4.5.1",
   "workspaces": [
+    "examples/*",
     "apps/*",
     "packages/*"
   ],
   "scripts": {
     ":": "yarn workspace"
+  },
+  "devDependencies": {
+    "@star4/config": "workspace:^"
   }
 }

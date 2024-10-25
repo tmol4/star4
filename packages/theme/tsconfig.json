@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "@star4/config/tsconfig/module",
+    "@star4/config/tsconfig/web",
+    "@star4/config/tsconfig/strict",
+  ],
+}

@@ -1,0 +1,8 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/*.code-search": true,
+    "**/yarn.lock": true,
+    "**/.yarn": true,
+  }
+}

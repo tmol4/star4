@@ -7,7 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    ":": "yarn workspace"
+    ":": "yarn workspace",
+    "packages:build": "turbo build --filter=\"./packages/*\""
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",

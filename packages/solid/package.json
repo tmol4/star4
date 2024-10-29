@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "@star4/config": "workspace:^",
-    "@types/node": "^22.7.9",
+    "@types/node": "^22.8.2",
     "esbuild-plugin-solid": "^0.6.0",
-    "tsup": "^8.3.4",
+    "tsup": "^8.3.5",
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.6.3"
   },

@@ -8,6 +8,11 @@
   ],
   "scripts": {
     ":": "yarn workspace",
+    "docs:dev": "turbo dev --filter=@star4/docs",
+    "docs:build": "turbo build --filter=@star4/docs",
+    "docs:preview": "turbo preview --filter=@star4/docs",
+    "examples:build": "turbo build --filter=\"./examples/*\"",
+    "examples:preview": "turbo preview --filter=\"./examples/*\"",
     "packages:build": "turbo build --filter=\"./packages/*\""
   },
   "devDependencies": {

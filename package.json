@@ -10,6 +10,7 @@
     ":": "yarn workspace"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
     "@star4/config": "workspace:^",
     "turbo": "^2.2.3"
   }

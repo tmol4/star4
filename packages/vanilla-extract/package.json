@@ -4,6 +4,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmol4/star4.git",
+    "directory": "packages/vanilla-extract"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

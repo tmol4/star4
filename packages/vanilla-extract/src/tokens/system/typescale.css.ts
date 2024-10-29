@@ -1,6 +1,6 @@
 import { createThemeContract } from "@vanilla-extract/css";
-import type { ValueToken, ResolveTokens, CSSVarFunction } from "../utils";
-import { TYPEFACE_TOKENS } from "./typeface.css";
+import type { ValueToken, ResolveTokens, CSSVarFunction } from "../../utils";
+import { TYPEFACE_TOKENS } from "../reference/typeface.css";
 
 
 
@@ -159,7 +159,9 @@ const _SCALE = {
   small: _SIZE
 }
 
-export const TYPESCALE_TOKENS: ResolveTokens<TypescaleTokens, CSSVarFunction> = createThemeContract({
+export const TYPESCALE_TOKENS = createThemeContract<
+  ResolveTokens<TypescaleTokens, string>
+>({
   display: _SCALE,
   headline: _SCALE,
   title: _SCALE,

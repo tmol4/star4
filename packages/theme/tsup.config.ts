@@ -24,7 +24,7 @@ import { defineConfig } from "tsup";
 export default defineConfig(config => {
   const watching = !!config.watch;
   return {
-    target: 'esnext',
+    target: "esnext",
     platform: "browser",
     format: watching ? "esm" : ["esm", "cjs"],
     clean: !watching, // && i === 0 for the first config

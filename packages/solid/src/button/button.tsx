@@ -1,66 +1,76 @@
-import { createEffect, createSignal, splitProps, type Component, type JSX, type Signal } from "solid-js";
-import { background, button, host } from "./button.css";
-import type { Ref } from "@solid-primitives/refs";
+import { Show, splitProps, type Component, type JSX, type Ref } from "solid-js";
+import { FocusRing } from "../focus";
+import clsx from "clsx/lite";
+import { styles } from "./button.css";
+import { Ripple } from "../ripple";
+import { MaterialSymbol } from "../icon-old";
 
 export namespace Button {
-  export type Props =
-    & ProtectedProps
-    & PublicProps;
+  export type Props = PublicProps & ProtectedProps;
   export type ProtectedProps = {
+    background?: JSX.Element;
     overlay?: JSX.Element;
   }
-
   export type PublicProps =
     & Omit<
-      JSX.ButtonHTMLAttributes<HTMLElement> | JSX.AnchorHTMLAttributes<HTMLElement>,
-      "children"
+      JSX.ButtonHTMLAttributes<HTMLButtonElement>,
+      "ref" | "children"
     >
     & {
       ref?: Ref<Element>;
       icon?: JSX.Element;
-      label?: JSX.Element;
+      label: JSX.Element;
     };
 
-  export interface Element extends HTMLElement {
-    refs: {
-      button: HTMLButtonElement;
-    };
+  export interface Element extends HTMLElement {}
+
+
+
+  export namespace Background {
+    export type Props = JSX.HTMLAttributes<HTMLElement>;
   }
 }
 
-// export type StyledComponent<T> = JSX.Element | ComponentBuilder<T>;
-// export type ComponentBuilder<T> = (value: T) => JSX.Element;
-
 export const Button: Component<Button.Props> = (props) => {
-  const [, local] = splitProps(props, []);
+  const [local, others] = splitProps(
+    props,
+    ["ref", "class", "background", "overlay", "icon", "label"],
+  );
+
   let ref!: HTMLElement;
-  const [buttonRef, setButtonRef] = createSignal() as Signal<HTMLElement>;
 
-  createEffect(() => {
-    const callback = local.ref as (element: HTMLElement) => void | undefined;
-    callback?.(ref);
-  });
-
-  const content = (
-    <>
-      <span class="touch"></span>
-      {local.icon}
-      <span class="label">
-        {local.label}
-      </span>
-    </>
+  const icon = (
+    <Show when={local.icon}>{
+      (icon) => (
+        <MaterialSymbol.Slot class={styles.icon}>
+          {icon()}
+        </MaterialSymbol.Slot>
+      )
+    }</Show>
   );
 
   return (
-    <div ref={ref as HTMLDivElement} class={host}>
+    <div
+      ref={ref as HTMLDivElement}
+      class={clsx(
+        styles.container({
+          hasIcon: !!local.icon,
+        }),
+        local.class,
+      )}>
       {local.overlay}
       <div class={
-        background
+        styles.background()
       } />
-      <button
-        ref={setButtonRef}
-        class={button}
-        children={content} />
+      <Ripple for={ref} />
+      <FocusRing for={ref} />
+      <button class={styles.control()}>
+        <div class={styles.touchTarget()} />
+        {icon}
+        <span>
+          {local.label}
+        </span>
+      </button>
     </div>
   );
 }

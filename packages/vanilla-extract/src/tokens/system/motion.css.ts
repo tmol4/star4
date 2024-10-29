@@ -1,5 +1,5 @@
 import { createThemeContract } from "@vanilla-extract/css";
-import type { CSSVarFunction, ResolveTokens, ValueToken } from "../utils";
+import type { CSSVarFunction, ResolveTokens, ValueToken } from "../../utils";
 
 export type MotionEasing =
   | "linear"
@@ -326,7 +326,9 @@ export const MOTION_DEFAULTS: ResolveTokens<MotionTokens, string> = {
   },
 };
 
-export const MOTION_TOKENS: ResolveTokens<MotionTokens, CSSVarFunction> = createThemeContract({
+export const MOTION_TOKENS = createThemeContract<
+  ResolveTokens<MotionTokens, string>
+>({
   easing: {
     linear: "",
     emphasized: "",

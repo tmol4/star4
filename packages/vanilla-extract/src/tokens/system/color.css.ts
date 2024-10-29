@@ -1,10 +1,12 @@
 import { type ColorRole } from "@star4/theme/material";
-import { type CSSVarFunction, type ResolveTokens, type ValueToken } from "../utils";
+import { type CSSVarFunction, type ResolveTokens, type ValueToken } from "../../utils";
 import { createThemeContract } from "@vanilla-extract/css";
 
 export type ColorTokens = Record<ColorRole, ValueToken>;
 
-export const COLOR_TOKENS: ResolveTokens<ColorTokens, CSSVarFunction> = createThemeContract({
+export const COLOR_TOKENS = createThemeContract<
+  ResolveTokens<ColorTokens, string>
+>({
   highestSurface: "",
   surface: "",
   surfaceDim: "",

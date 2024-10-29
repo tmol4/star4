@@ -36,17 +36,41 @@ import { vanillaExtractPlugin as vanillaExtract } from "@vanilla-extract/esbuild
 
 export default defineConfig(config => {
   const watching = !!config.watch;
-  return {
-    target: 'esnext',
-    platform: "browser",
-    format: watching ? "esm" : ["esm", "cjs"],
-    clean: !watching, // && i === 0 for the first config
-    dts: true,
-    entry: ["src/**/*.ts"],
-    outDir: "dist",
-    treeshake: watching ? false : { preset: "safest" },
-    replaceNodeEnv: true,
-    bundle: false,
-    minify: !watching,
-  };
+  return [
+    {
+      target: "esnext",
+      platform: "browser",
+      format: watching ? "esm" : ["esm", "cjs"],
+      clean: !watching, // && i === 0 for the first config
+      dts: true,
+      // entry: ["src/**/*.ts", "!src/tokens/**/*.ts"],
+      entry: ["src/**/*.ts"],
+      outDir: "dist",
+      treeshake: watching ? false : { preset: "safest" },
+      replaceNodeEnv: true,
+      bundle: false,
+      minify: !watching,
+    },
+    // {
+    //   target: "esnext",
+    //   platform: "browser",
+    //   format: watching ? "esm" : ["esm", "cjs"],
+    //   clean: false,
+    //   dts: true,
+    //   entry: {
+    //     "tokens/index": "src/tokens/index.ts"
+    //   },
+    //   outDir: "dist",
+    //   outExtension: ({ format }) => {
+    //     const js = format === "esm" ? ".css.js" : ".css.cjs";
+    //     const ts = format === "esm" ? "css.d.ts" : ".css.d.cts";
+    //     return { js, ts };
+    //   },
+    //   treeshake: watching ? false : { preset: "safest" },
+    //   replaceNodeEnv: true,
+    //   bundle: true,
+    //   // splitting: false,
+    //   minify: !watching,
+    // },
+  ];
 });

@@ -1,5 +1,5 @@
 import { createThemeContract } from "@vanilla-extract/css";
-import type { ValueToken, ResolveTokens, CSSVarFunction } from "../utils";
+import type { ValueToken, ResolveTokens, CSSVarFunction } from "../../utils";
 
 
 // These are special values, because their representation might change
@@ -37,7 +37,9 @@ export const SHAPE_DEFAULTS: ResolveTokens<ShapeTokens, string> = {
     full: BORDER_RADIUS_FULL,
   },
 };
-export const SHAPE_TOKENS: ResolveTokens<ShapeTokens, CSSVarFunction> = createThemeContract({
+export const SHAPE_TOKENS = createThemeContract<
+  ResolveTokens<ShapeTokens, string>
+>({
   corner: {
     none: "",
     extraSmall: "",

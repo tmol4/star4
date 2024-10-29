@@ -1,5 +1,5 @@
 import { createThemeContract } from "@vanilla-extract/css";
-import type { ValueToken, ResolveTokens, CSSVarFunction } from "../utils";
+import type { ValueToken, ResolveTokens, CSSVarFunction } from "../../utils";
 
 
 
@@ -22,7 +22,9 @@ export const TYPEFACE_DEFAULTS: ResolveTokens<TypefaceTokens, string> = {
     bold: "700",
   },
 };
-export const TYPEFACE_TOKENS: ResolveTokens<TypefaceTokens, CSSVarFunction> = createThemeContract({
+export const TYPEFACE_TOKENS = createThemeContract<
+  ResolveTokens<TypefaceTokens, string>
+>({
   plain: "",
   brand: "",
   weight: {

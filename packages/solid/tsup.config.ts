@@ -40,10 +40,10 @@ import { vanillaExtractPlugin as vanillaExtract } from "@vanilla-extract/esbuild
 export default defineConfig(config => {
   const watching = !!config.watch;
   return {
-    target: 'esnext',
+    target: "esnext",
     platform: "browser",
     format: watching ? "esm" : ["esm", "cjs"],
-    clean: !watching, // && i === 0 for the first config
+    clean: !watching, // && i === 0 (for the first config)
     dts: true,
     entry: ["src/**/*.{ts,tsx}"],
     outDir: "dist",
@@ -51,29 +51,7 @@ export default defineConfig(config => {
     bundle: false,
     minify: !watching,
     replaceNodeEnv: true,
-    esbuildOptions(options) {
-      // es_options.define = {
-      //     ...es_options.define,
-      //     'process.env.NODE_ENV': type.dev ? `"development"` : `"production"`,
-      //     'process.env.PROD': type.dev ? 'false' : 'true',
-      //     'process.env.DEV': type.dev ? 'true' : 'false',
-      //     'process.env.SSR': type.server ? 'true' : 'false',
-      //     'import.meta.env.NODE_ENV': type.dev ? `"development"` : `"production"`,
-      //     'import.meta.env.PROD': type.dev ? 'false' : 'true',
-      //     'import.meta.env.DEV': type.dev ? 'true' : 'false',
-      //     'import.meta.env.SSR': type.server ? 'true' : 'false',
-      // }
-      options.jsx = "preserve";
-
-      options.chunkNames = "[name]/[hash]";
-
-      // if (!type.dev && options.drop_console) options.drop = ['console', 'debugger']
-
-      // return options.modify_esbuild_options(options, item)
-    },
-    outExtension: ({ format }) => ({}),
     esbuildPlugins: [
-      // vanillaExtract(),
       solid({ solid: { generate: "dom" } }),
       ...config.esbuildPlugins ?? [],
     ],

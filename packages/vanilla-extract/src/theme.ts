@@ -1,9 +1,15 @@
 import { createDynamicColorScheme, createStaticColorScheme, hexFromArgb, type Brightness, type DynamicColorScheme, type DynamicColorSchemeVariant, type StaticColorScheme } from "@star4/theme/material";
-import { SHAPE_DEFAULTS, THEME, type ColorTokens, type ThemeTokens } from "./tokens";
-import { resolveHct, type MaybeHct, type ResolveTokens } from "./utils";
-import { TYPEFACE_DEFAULTS } from "./tokens/typeface.css";
-import { TYPESCALE_DEFAULTS } from "./tokens/typescale.css";
-import { MOTION_DEFAULTS } from "./tokens/motion.css";
+import { SHAPE_DEFAULTS, THEME, type ColorTokens, type ShapeTokens, type ThemeTokens } from "./tokens";
+import { resolveHct, type DeepPartial, type MaybeHct, type ResolveTokens } from "./utils";
+import { TYPEFACE_DEFAULTS, type TypefaceTokens } from "./tokens/reference/typeface.css";
+import { TYPESCALE_DEFAULTS } from "./tokens/system/typescale.css";
+import { MOTION_DEFAULTS } from "./tokens/system/motion.css";
+import { STATE_DEFAULTS, type StateTokens } from "./tokens/system/state.css";
+import { COMPONENT_DEFAULTS } from "./tokens/components";
+import { ICON_DEFAULTS } from "./tokens/components/icon.css";
+import { MATERIAL_SYMBOL_DEFAULTS } from "./tokens/components/material-symbols.css";
+import { RIPPLE_DEFAULTS } from "./tokens/components/ripple.css";
+import { RADIO_DEFAULTS, RADIO_TOKENS } from "./tokens/components/radio.css";
 
 export type CreateContractOptions = {
 
@@ -34,9 +40,24 @@ export type DynamicColorSchemeOptions = {
 
 export type CreateThemeOptions = {
   color: StaticColorSchemeOptions | DynamicColorSchemeOptions;
+  typeface?: DeepPartial<ResolveTokens<TypefaceTokens, string>>;
+  shape?: DeepPartial<ResolveTokens<ShapeTokens, string>>;
+  state?: DeepPartial<ResolveTokens<StateTokens, string>>;
+  component: {
+    materialSymbol: {
+      font: string;
+    };
+  };
 }
 
-export const createTheme = (options: CreateThemeOptions) => {
+export const createTheme = (
+  {
+    typeface,
+    state,
+    shape,
+    ...options
+  }: CreateThemeOptions,
+) => {
   return {
     contract: () => {
       return THEME;
@@ -108,10 +129,36 @@ export const createTheme = (options: CreateThemeOptions) => {
 
       const defaults: ResolveTokens<ThemeTokens, string> = {
         color,
-        shape: SHAPE_DEFAULTS,
+        shape: {
+          corner: {
+            ...SHAPE_DEFAULTS.corner,
+            ...shape?.corner,
+          }
+        },
         motion: MOTION_DEFAULTS,
-        typeface: TYPEFACE_DEFAULTS,
+        typeface: typeface ? {
+          plain: typeface.plain ?? TYPEFACE_DEFAULTS.plain,
+          brand: typeface.brand ?? TYPEFACE_DEFAULTS.brand,
+          weight: {
+            regular: typeface.weight?.regular ?? TYPEFACE_DEFAULTS.weight.regular,
+            medium: typeface.weight?.medium ?? TYPEFACE_DEFAULTS.weight.medium,
+            bold: typeface.weight?.bold ?? TYPEFACE_DEFAULTS.weight.bold,
+          },
+        } : TYPEFACE_DEFAULTS,
         typescale: TYPESCALE_DEFAULTS,
+        state: {
+          ...STATE_DEFAULTS,
+          ...state,
+        },
+        component: {
+          ripple: RIPPLE_DEFAULTS,
+          icon: ICON_DEFAULTS,
+          materialSymbol: {
+            ...MATERIAL_SYMBOL_DEFAULTS,
+            font: options.component.materialSymbol.font,
+          },
+          radio: RADIO_DEFAULTS,
+        },
       };
       return defaults;
     },

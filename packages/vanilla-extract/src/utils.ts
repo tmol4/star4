@@ -1,4 +1,4 @@
-import { argbFromRgb } from "@material/material-color-utilities";
+import { argbFromHex, argbFromRgb } from "@material/material-color-utilities";
 import { Hct } from "@star4/theme/material";
 
 declare const TYPE_VALUE: unique symbol;
@@ -13,10 +13,29 @@ export type ResolveTokens<T, U> = {
     : ResolveTokens<T[K], U>;
 }
 
+export type ResolveContract<T> = ResolveTokens<DeepRequired<T>, string>;
+
 export type CSSVarFunction = `var(--${string})` | `var(--${string}, ${string | number})`;
 
+export type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+}
+export type DeepRequired<T> = {
+  [P in keyof T]-?: DeepRequired<T[P]>;
+}
 
+type OptionalKeys<T> = {
+  [K in keyof T]-?: undefined extends { [K2 in keyof T]: K2 }[K] ? K : never
+}[keyof T]
+type RequiredKeys<T> = Exclude<keyof T, OptionalKeys<T>>
 
+export type DeepInvert<T> =
+  & {
+    [K in OptionalKeys<T>]-?: NonNullable<T[K]>
+  }
+  & {
+    [K in RequiredKeys<T>]+?: T[K]
+  };
 
 export type MaybeHct = string | Hct;
 
@@ -24,6 +43,11 @@ export const resolveHct = (value: MaybeHct): Hct => {
   if(value instanceof Hct) return value;
 
   if(typeof value === "string") {
+    if(value.startsWith("#")) {
+      const argb = argbFromHex(value);
+      return Hct.fromInt(argb);
+    }
+
     const color = parseRgbColor(value);
     const argb = argbFromRgb(color[0], color[1], color[2]);
     return Hct.fromInt(argb);

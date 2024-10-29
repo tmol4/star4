@@ -1,14 +1,20 @@
 import { splitProps, type Component } from "solid-js";
 import { Button } from "./button";
-import { outline } from "./outline.css";
+import { styles } from "./outlined-button.css";
+import clsx from "clsx/lite";
 
 export const OutlinedButton: Component<Button.PublicProps> = (props) => {
-  const [, local] = splitProps(props, []);
+  const [local, others] = splitProps(props, ["class"]);
+
   return (
     <Button
-      {...local}
+      class={clsx(
+        styles.container,
+        local.class,
+      )}
       overlay={
-        <div class={outline()} />
-      } />
+        <div class={styles.outline()} />
+      }
+      {...others} />
   );
 }

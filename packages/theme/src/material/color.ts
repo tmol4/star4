@@ -220,7 +220,7 @@ export type DynamicColorSchemeVariant =
   | "fidelity"
   | "content"
   | "rainbow"
-  | "fruitSald";
+  | "fruitSalad";
 
 type SchemeConstructor = new(sourceColorHct: Hct, isDark: boolean, contrastLevel: number) => DynamicScheme;
 
@@ -233,7 +233,7 @@ const SCHEMES: Record<DynamicColorSchemeVariant, SchemeConstructor> = {
   fidelity: SchemeFidelity,
   content: SchemeContent,
   rainbow: SchemeRainbow,
-  fruitSald: SchemeFruitSalad,
+  fruitSalad: SchemeFruitSalad,
 };
 
 export type DynamicColorSchemeOptions = {

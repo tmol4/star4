@@ -1,12 +1,10 @@
-<div align="center">
-  <h3>✨ Star</h3>
-  <p>
-    <a href="https://github">Report an issue</a>
-    ·
-    <a href="https://github">Request a feature</a>
-  </p>
+<div>
+  <img src=".github/images/sparkles.svg" align="left" width="64" height="64" />
+  <h3>star4</h3>
+  <p>Our official design system and UI library</p>
 </div>
 
+[Documentation](#) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
 <details>
 <summary><h3>Table of contents</h3></summary>
 
@@ -52,3 +50,5 @@ Library implementing Material Design 3 components
 - [@deminearchiver](https://github.com/deminearchiver)
 
 ## License
+
+This project is licensed under the [**MIT License**](LICENSE).

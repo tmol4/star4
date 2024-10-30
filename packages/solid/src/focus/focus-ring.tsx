@@ -9,7 +9,7 @@ import { createStore } from "solid-js/store";
 
 import { styles } from "./focus-ring.css";
 import { Portal } from "solid-js/web";
-import { Popover } from "../popover";
+import { Popover } from "../native";
 
 
 export namespace FocusRing {

@@ -1597,6 +1597,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solidjs/meta@npm:^0.29.4":
+  version: 0.29.4
+  resolution: "@solidjs/meta@npm:0.29.4"
+  peerDependencies:
+    solid-js: ">=1.8.4"
+  checksum: 10c0/53e21923337844d8ac9b47621ae5e868f7f89187f942e7d71bf957a8c276e6bd37d21f7fbb4662cec42c9d0e97aa05ab27556e9d817fbc9f7b7a7b5e27401cb9
+  languageName: node
+  linkType: hard
+
+"@solidjs/router@npm:^0.14.10":
+  version: 0.14.10
+  resolution: "@solidjs/router@npm:0.14.10"
+  peerDependencies:
+    solid-js: ^1.8.6
+  checksum: 10c0/0bb8febcc097aa11d3e40fe6e9824bfe2bb622a42c52ec6663cafe9f26922570cdf0c35aea60c50ae1cde3c42db26bbd92bc14691f0b0085cd69d9157cd70f27
+  languageName: node
+  linkType: hard
+
 "@star4/config@workspace:^, @star4/config@workspace:packages/config":
   version: 0.0.0-use.local
   resolution: "@star4/config@workspace:packages/config"
@@ -1616,13 +1634,17 @@ __metadata:
     "@fontsource-variable/open-sans": "npm:^5.1.0"
     "@fontsource-variable/raleway": "npm:^5.1.0"
     "@fontsource-variable/roboto-flex": "npm:^5.1.0"
+    "@solidjs/meta": "npm:^0.29.4"
+    "@solidjs/router": "npm:^0.14.10"
     "@star4/config": "workspace:^"
     "@star4/solid": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
+    "@types/node": "npm:^22.8.2"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
+    "@vanilla-extract/vite-plugin": "npm:^4.0.17"
     solid-js: "npm:^1.9.3"
     typescript: "npm:^5.6.3"
     vite: "npm:^5.4.10"

@@ -16,7 +16,7 @@ export * from "./video";
 // Other
 
 export * from "./slot";
-export * from "./popover";
+export * from "./native";
 export * from "./utils";
 
 export * from "./lenis";

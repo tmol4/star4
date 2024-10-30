@@ -13,6 +13,7 @@
     "docs:preview": "turbo preview --filter=@star4/docs",
     "examples:build": "turbo build --filter=\"./examples/*\"",
     "examples:preview": "turbo preview --filter=\"./examples/*\"",
+    "packages:dev": "turbo dev --filter=\"./packages/*\"",
     "packages:build": "turbo build --filter=\"./packages/*\""
   },
   "devDependencies": {

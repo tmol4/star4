@@ -13,8 +13,8 @@ export namespace Modal {
     >
     & {
       ref?: Ref<Element>;
-      show: boolean;
-      onShowChange?: (value: boolean) => void;
+      open: boolean;
+      onOpenChange?: (value: boolean) => void;
       children: JSX.Element;
     };
   export interface Element extends HTMLElement {}
@@ -22,12 +22,12 @@ export namespace Modal {
 
 const PortalModal: FlowComponent<Modal.Props> = (props) => {
   const mergedProps = mergeProps(
-    { show: false },
+    { open: false },
     props,
   );
   const [local, others] = splitProps(
     mergedProps,
-    ["ref", "class", "show", "onShowChange", "children"],
+    ["ref", "class", "open", "onOpenChange", "children"],
   );
 
   let ref!: HTMLElement;
@@ -39,7 +39,7 @@ const PortalModal: FlowComponent<Modal.Props> = (props) => {
   });
 
   return (
-    <Show when={props.show}>
+    <Show when={props.open}>
       <Portal
         ref={mergeRefs(element => ref = element, local.ref)}
         mount={document.body}>
@@ -51,19 +51,19 @@ const PortalModal: FlowComponent<Modal.Props> = (props) => {
 
 const NativeModal: FlowComponent<Modal.Props> = (props) => {
   const mergedProps = mergeProps(
-    { show: false },
+    { open: false },
     props,
   );
   const [local, others] = splitProps(
     mergedProps,
-    ["ref", "class", "show", "onShowChange", "children"],
+    ["ref", "class", "open", "onOpenChange", "children"],
   );
   let ref!: HTMLDialogElement;
 
   createEffect(on(
-    () => local.show,
-    (show) => {
-      if(show) {
+    () => local.open,
+    (open) => {
+      if(open) {
         ref.showModal();
       } else {
         ref.close();
@@ -73,7 +73,7 @@ const NativeModal: FlowComponent<Modal.Props> = (props) => {
 
   const onCancel: JSX.EventHandler<HTMLDialogElement, Event> = (event) => {
     event.preventDefault();
-    local.onShowChange?.(false);
+    local.onOpenChange?.(false);
   }
 
   return (
@@ -82,6 +82,9 @@ const NativeModal: FlowComponent<Modal.Props> = (props) => {
         element => ref = element as HTMLDialogElement,
         local.ref
       )}
+      class={
+        clsx(styles.native, local.class)
+      }
       onCancel={onCancel}
       {...others}>
         {local.children}
@@ -92,8 +95,6 @@ const NativeModal: FlowComponent<Modal.Props> = (props) => {
 
 const SUPPORTS_NATIVE =
   "HTMLDialogElement" in window &&
-  typeof HTMLDialogElement === "function" &&
-  "showModal" in HTMLDialogElement.prototype &&
-  typeof HTMLDialogElement.prototype.showModal === "function";
+  typeof HTMLDialogElement === "function";
 
-export const Dialog = SUPPORTS_NATIVE ? NativeModal : PortalModal;
+export const Modal = SUPPORTS_NATIVE ? NativeModal : PortalModal;

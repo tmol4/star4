@@ -8,8 +8,10 @@ export * from "./icon";
 export * from "./button";
 export * from "./floating-action-button";
 
-export * from "./tabs";
 export * from "./radio";
+
+export * from "./tabs";
+export * from "./dialog";
 
 export * from "./video";
 

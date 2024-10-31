@@ -1,8 +1,15 @@
 /* @refresh reload */
-import { render } from 'solid-js/web'
-import './index.css'
-import App from './App.tsx'
+import { render } from "solid-js/web";
+import { App } from "./app";
 
-const root = document.getElementById('root')
+import "@fontsource-variable/material-symbols-rounded/full.css";
+import "@fontsource-variable/open-sans";
+import "@fontsource-variable/raleway";
 
-render(() => <App />, root!)
+import "~/styles/theme.css";
+import "~/styles/reset.css";
+
+render(
+  () => <App />,
+  document.getElementById("root")!,
+);

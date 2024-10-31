@@ -1463,6 +1463,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solid-primitives/map@npm:^0.4.13":
+  version: 0.4.13
+  resolution: "@solid-primitives/map@npm:0.4.13"
+  dependencies:
+    "@solid-primitives/trigger": "npm:^1.1.0"
+  peerDependencies:
+    solid-js: ^1.6.12
+  checksum: 10c0/eaaea822349d82a56d47adebbeec12b4d95fc0245e8fff1dc29cfae7c5afd9a18752718cbb0070dd0f942f2f352a9b84064b9f97316ea41ef20e02406317c32c
+  languageName: node
+  linkType: hard
+
 "@solid-primitives/media@npm:^2.2.9":
   version: 2.2.9
   resolution: "@solid-primitives/media@npm:2.2.9"
@@ -1485,6 +1496,17 @@ __metadata:
   peerDependencies:
     solid-js: ^1.6.12
   checksum: 10c0/3c7a3831e14bca63708232595e52b8153772c05d1b06911787fc168ed8d36a180ec3dbcca030ec90c890b3cc67f42992efbfc42b50cf715ab9ab410600e2a2c2
+  languageName: node
+  linkType: hard
+
+"@solid-primitives/presence@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@solid-primitives/presence@npm:0.0.6"
+  dependencies:
+    "@solid-primitives/utils": "npm:^6.2.3"
+  peerDependencies:
+    solid-js: ^1.6.12
+  checksum: 10c0/f3cc4115543ef078a4415fa1180496ae801066dadb52697be1a358bc04dc67fd1a3a17799f841c3b49a0e1ccbcde3f531f2c29931f2e65fc4dba6f40aa346a02
   languageName: node
   linkType: hard
 
@@ -1695,8 +1717,10 @@ __metadata:
     "@floating-ui/dom": "npm:^1.6.11"
     "@solid-primitives/event-listener": "npm:^2.3.3"
     "@solid-primitives/jsx-tokenizer": "npm:^1.0.10"
+    "@solid-primitives/map": "npm:^0.4.13"
     "@solid-primitives/media": "npm:^2.2.9"
     "@solid-primitives/mutation-observer": "npm:^1.1.17"
+    "@solid-primitives/presence": "npm:^0.0.6"
     "@solid-primitives/refs": "npm:^1.0.8"
     "@solid-primitives/resize-observer": "npm:^2.0.26"
     "@solid-primitives/rootless": "npm:^1.4.5"

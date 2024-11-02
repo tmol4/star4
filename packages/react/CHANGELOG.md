@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.0.8
+
+### Patch Changes
+
+- Added avatar component
+
 ## 0.0.7
 
 ### Patch Changes

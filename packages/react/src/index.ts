@@ -6,6 +6,7 @@ export * from "./dialog";
 export * from "./focus";
 export * from "./ripple";
 export * from "./icon";
+export * from "./avatar";
 
 // Utility components
 export * from "./modal";

@@ -18,7 +18,7 @@ const enter = keyframes({
 const exit = keyframes({
   to: {
     transform: "translateY(-50px)",
-    clipPath: `inset(0 0 75% 0 round ${THEME.shape.corner.extraLarge})`,
+    clipPath: `inset(0 0 65% 0 round ${THEME.shape.corner.extraLarge})`,
   },
 });
 

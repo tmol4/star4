@@ -1,6 +1,6 @@
 {
   "name": "@star4/vanilla-extract",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "publishConfig": {
     "access": "public"
   },

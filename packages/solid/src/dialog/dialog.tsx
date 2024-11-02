@@ -1,7 +1,7 @@
 import { createSignal, type Component, type JSX, type Ref } from "solid-js";
 import { createPresence } from "@solid-primitives/presence";
 import { Modal } from "../native";
-import { makePromise } from "../utils/promise";
+// import { makePromise } from "../utils";
 import { styles } from "./dialog.css";
 
 export namespace Dialog {

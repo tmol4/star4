@@ -14,6 +14,8 @@
     "examples:dev": "turbo dev --filter=\"./examples/*\"",
     "examples:build": "turbo build --filter=\"./examples/*\"",
     "examples:preview": "turbo preview --filter=\"./examples/*\"",
+    "example:solid:dev": "turbo dev --filter=@star4/example-solid...",
+    "example:react:dev": "turbo dev --filter=@star4/example-react...",
     "packages:dev": "turbo dev --filter=\"./packages/*\"",
     "packages:build": "turbo build --filter=\"./packages/*\""
   },

@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "@star4/config/tsconfig/module",
+    "@star4/config/tsconfig/web",
+    "@star4/config/tsconfig/strict",
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+  },
+  "include": ["src", "tsup.config.ts"],
+}

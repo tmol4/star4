@@ -10,8 +10,8 @@ export type StateTokens = {
 
 export const STATE_DEFAULTS: ResolveTokens<StateTokens, string> = {
   hoverStateLayerOpacity: "0.08",
-  focusStateLayerOpacity: "0.1",
-  pressedStateLayerOpacity: "0.1",
+  focusStateLayerOpacity: "0.12",
+  pressedStateLayerOpacity: "0.12",
   draggedStateLayerOpacity: "0.16",
 }
 

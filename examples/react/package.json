@@ -1,11 +1,12 @@
 {
   "private": true,
-  "name": "@star4/example-solid",
+  "name": "@star4/example-react",
   "type": "module",
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -15,20 +16,23 @@
     "@fontsource-variable/open-sans": "^5.1.0",
     "@fontsource-variable/raleway": "^5.1.0",
     "@fontsource-variable/roboto-flex": "^5.1.0",
-    "@star4/solid": "workspace:^",
+    "@star4/react": "workspace:^",
     "@star4/theme": "workspace:^",
     "@star4/vanilla-extract": "workspace:^",
     "@vanilla-extract/css": "^1.16.0",
     "@vanilla-extract/dynamic": "^2.1.2",
     "@vanilla-extract/recipes": "^0.5.5",
-    "solid-js": "^1.9.3"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@star4/config": "workspace:^",
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "@vanilla-extract/vite-plugin": "^4.0.17",
-    "typescript": "^5.6.3",
-    "vite": "^5.4.10",
-    "vite-plugin-solid": "^2.10.2"
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10"
   }
 }

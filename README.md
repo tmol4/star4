@@ -4,18 +4,13 @@
   <p>Our official design system and UI library</p>
 </div>
 
-[Documentation](#) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
+[~~Documentation~~](#) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
+
 <details>
 <summary><h3>Table of contents</h3></summary>
 
 - [Features](#features)
 - [Acknowledgements](#acknowledgements)
-  - [Solid Primitives](#solid-primitives)
-        - [Website: primitives.solidjs.community](#website-primitivessolidjscommunity)
-        - [GitHub: solidjs-community/solid-primitives](#github-solidjs-communitysolid-primitives)
-  - [Material Web](#material-web)
-        - [Website: material-web.dev](#website-material-webdev)
-        - [GitHub: material-components/material-web](#github-material-componentsmaterial-web)
 - [Contributing](#contributing)
   - [Working group](#working-group)
 - [License](#license)
@@ -25,25 +20,30 @@
 
 ## Features
 
-- 🎨 Design based on [Material Design 3](https://m3.material.io)
--
-- ~~🧰 Multi-framework support~~
+- 🧰 Multi-framework support
+  - [React](packages/react/README.md)
+  - [SolidJS](packages/react/README.md)
+- 🎨 Design based on [Material Design 3](https://m3.material.io "m3.material.io")
+- 🧱 Primitive and complex components
+- 🧩 Modular structure
 
 ## Acknowledgements
 
-### Solid Primitives
-###### Website: [primitives.solidjs.community](https://primitives.solidjs.community)
-###### GitHub: [solidjs-community/solid-primitives](https://github.com/solidjs-community/solid-primitives/tree/main/packages/active-element)
 
+
+- [**Solid Primitives**](https://primitives.solidjs.community "primitives.solidjs.community") - [GitHub](https://github.com/solidjs-community/solid-primitives/tree/main/packages/active-element)\
 The swiss army knife for SolidJS.
+<!-- ###### GitHub: [solidjs-community/solid-primitives](https://github.com/solidjs-community/solid-primitives/tree/main/packages/active-element) -->
 
-### Material Web
-###### Website: [material-web.dev](https://material-web.dev)
-###### GitHub: [material-components/material-web](https://github.com/material-components/material-web)
+- [**Material Web**](https://material-web.dev "material-web.dev") - [GitHub](https://github.com/solidjs-community/solid-primitives/tree/main/packages/active-element)\
+Official Material Design 3 web components library.
 
-Library implementing Material Design 3 components
+- [**usehooks-ts**](https://usehooks-ts.com "usehooks-ts.com") - [GitHub](https://github.com/juliencrn/usehooks-ts)\
+Awesome React hooks library.
 
 ## Contributing
+
+See [**CONTRIBUTING.md**](CONTRIBUTING.md).
 
 ### Working group
 

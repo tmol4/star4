@@ -1125,13 +1125,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.6.11":
-  version: 1.6.11
-  resolution: "@floating-ui/dom@npm:1.6.11"
+"@floating-ui/dom@npm:^1.6.12":
+  version: 1.6.12
+  resolution: "@floating-ui/dom@npm:1.6.12"
   dependencies:
     "@floating-ui/core": "npm:^1.6.0"
     "@floating-ui/utils": "npm:^0.2.8"
-  checksum: 10c0/02ef34a75a515543c772880338eea7b66724997bd5ec7cd58d26b50325709d46d480a306b84e7d5509d734434411a4bcf23af5680c2e461e6e6a8bf45d751df8
+  checksum: 10c0/c67b39862175b175c6ac299ea970f17a22c7482cfdf3b1bc79313407bf0880188b022b878953fa69d3ce166ff2bd9ae57c86043e5dd800c262b470d877591b7d
   languageName: node
   linkType: hard
 
@@ -1628,12 +1628,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.14.10":
-  version: 0.14.10
-  resolution: "@solidjs/router@npm:0.14.10"
+"@solidjs/router@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "@solidjs/router@npm:0.15.0"
   peerDependencies:
     solid-js: ^1.8.6
-  checksum: 10c0/0bb8febcc097aa11d3e40fe6e9824bfe2bb622a42c52ec6663cafe9f26922570cdf0c35aea60c50ae1cde3c42db26bbd92bc14691f0b0085cd69d9157cd70f27
+  checksum: 10c0/1d1b92c89823aeb1ab9075a66ede739c0e17e29457446122897788691398e070e9e8f00c033b15d7ea346b11af1951451cc29c63d94c8184750757eb959c0a1d
   languageName: node
   linkType: hard
 
@@ -1657,12 +1657,12 @@ __metadata:
     "@fontsource-variable/raleway": "npm:^5.1.0"
     "@fontsource-variable/roboto-flex": "npm:^5.1.0"
     "@solidjs/meta": "npm:^0.29.4"
-    "@solidjs/router": "npm:^0.14.10"
+    "@solidjs/router": "npm:^0.15.0"
     "@star4/config": "workspace:^"
     "@star4/solid": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.2"
+    "@types/node": "npm:^22.8.6"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
@@ -1695,10 +1695,10 @@ __metadata:
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
     "@vanilla-extract/vite-plugin": "npm:^4.0.17"
-    "@vitejs/plugin-react-swc": "npm:^3.5.0"
+    "@vitejs/plugin-react-swc": "npm:^3.7.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    typescript: "npm:~5.6.2"
+    typescript: "npm:^5.6.3"
     vite: "npm:^5.4.10"
   languageName: unknown
   linkType: soft
@@ -1717,7 +1717,7 @@ __metadata:
     "@star4/solid": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.2"
+    "@types/node": "npm:^22.8.6"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
@@ -1743,10 +1743,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@star4/react@workspace:packages/react"
   dependencies:
-    "@floating-ui/dom": "npm:^1.6.11"
+    "@floating-ui/dom": "npm:^1.6.12"
     "@star4/config": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.2"
+    "@types/node": "npm:^22.8.6"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vanilla-extract/css": "npm:^1.16.0"
@@ -1765,7 +1765,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@star4/solid@workspace:packages/solid"
   dependencies:
-    "@floating-ui/dom": "npm:^1.6.11"
+    "@floating-ui/dom": "npm:^1.6.12"
     "@solid-primitives/event-listener": "npm:^2.3.3"
     "@solid-primitives/jsx-tokenizer": "npm:^1.0.10"
     "@solid-primitives/map": "npm:^0.4.13"
@@ -1783,7 +1783,7 @@ __metadata:
     "@solid-primitives/utils": "npm:^6.2.3"
     "@star4/config": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.2"
+    "@types/node": "npm:^22.8.6"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/esbuild-plugin": "npm:^2.3.11"
@@ -2019,15 +2019,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.8.2":
-  version: 22.8.2
-  resolution: "@types/node@npm:22.8.2"
-  dependencies:
-    undici-types: "npm:~6.19.8"
-  checksum: 10c0/c6fa6c54c23e61015cace1517c4101602cae0ff3c4f6604f6cdb89875143921830e5602cabe8b4f90f90363451687a0497f1d07d30be8104fee758d6d44c90ac
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^22.8.6":
   version: 22.8.6
   resolution: "@types/node@npm:22.8.6"
@@ -2162,7 +2153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react-swc@npm:^3.5.0":
+"@vitejs/plugin-react-swc@npm:^3.7.1":
   version: 3.7.1
   resolution: "@vitejs/plugin-react-swc@npm:3.7.1"
   dependencies:
@@ -4744,7 +4735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.6.3, typescript@npm:~5.6.2":
+"typescript@npm:^5.6.3":
   version: 5.6.3
   resolution: "typescript@npm:5.6.3"
   bin:
@@ -4754,7 +4745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.6.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.6.3
   resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
   bin:

@@ -1,6 +1,6 @@
 {
   "name": "@star4/solid",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publishConfig": {
     "access": "public"
   },
@@ -35,14 +35,14 @@
   },
   "devDependencies": {
     "@star4/config": "workspace:^",
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.6",
     "esbuild-plugin-solid": "^0.6.0",
     "tsup": "^8.3.5",
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.6.11",
+    "@floating-ui/dom": "^1.6.12",
     "@solid-primitives/event-listener": "^2.3.3",
     "@solid-primitives/jsx-tokenizer": "^1.0.10",
     "@solid-primitives/map": "^0.4.13",

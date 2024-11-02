@@ -1,5 +1,11 @@
 # @star4/solid
 
+## 0.0.9
+
+### Patch Changes
+
+- Update dependencies
+
 ## 0.0.8
 
 ### Patch Changes

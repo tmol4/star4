@@ -4,6 +4,7 @@ import solid from "vite-plugin-solid";
 import { resolve } from "path";
 
 export default defineConfig({
+  base: "/star4/",
   plugins: [
     vanillaExtract(),
     solid(),

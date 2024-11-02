@@ -1,3 +1,14 @@
+> [!WARNING]
+> Since the library is in active development, many developer-friendly and organizational features are not yet present, for example:
+> - **Documentation website**:\
+> *It takes great time to build a docs website for a multi-framework library, you know?*
+> - **Documentation comments**:\
+> *Unstable APIs may change frequently, so we would have to rewrite JSDoc comments without a break.*
+> - **Examples**:\
+> *Projects in the [examples](examples) directory are actively used during development, but they do not yet serve as actual example projects.*
+> - **Development pipeline**
+> - **Developer workflow**
+
 <div>
   <img src=".github/images/sparkles.svg" align="left" width="64" height="64" />
   <h3>star4</h3>

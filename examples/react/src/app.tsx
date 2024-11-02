@@ -1,4 +1,4 @@
-import { Dialog, FocusRing, Ripple, Button, Radio } from "@star4/react";
+import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol } from "@star4/react";
 import { forwardRef, useRef, useState, type FC } from "react";
 
 export const App: FC = () => {
@@ -10,12 +10,13 @@ export const App: FC = () => {
     <div>
       <Button
         variant="filled"
-        onClick={() => setOpen(true)} disabled={open}
+        onClick={() => setOpen(true)}
+        disabled={open}
         label="Open" />
       <Dialog
         open={open}
         onCancel={() => setOpen(false)}
-        icon={"Delete"}
+        icon={<MaterialSymbol name="delete" />}
         headline="Permanently delete?"
         content="Deleting the selected photos will also remove them from all synced devices."
         actions={
@@ -35,6 +36,12 @@ export const App: FC = () => {
       <Radio groupValue={value} value={2} onChange={setValue as any} />
       <Radio groupValue={value} value={3} onChange={setValue as any} />
       <Radio groupValue={value} value={4} onChange={setValue as any} />
+
+      <Radio disabled groupValue={value} value={0} />
+      <Radio disabled groupValue={value} value={1} />
+      <Radio disabled groupValue={value} value={2} />
+      <Radio disabled groupValue={value} value={3} />
+      <Radio disabled groupValue={value} value={4} />
     </div>
   );
 }

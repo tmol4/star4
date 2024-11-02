@@ -15,8 +15,14 @@ const enter = keyframes({
     transform: "translateY(-50px)",
     clipPath: `inset(0 0 100% 0 round ${THEME.shape.corner.extraLarge})`,
   },
+  to: {
+    clipPath: `inset(0 0 0 0 round ${THEME.shape.corner.extraLarge})`,
+  },
 });
 const exit = keyframes({
+  from: {
+    clipPath: `inset(0 0 0 0 round ${THEME.shape.corner.extraLarge})`,
+  },
   to: {
     transform: "translateY(-50px)",
     clipPath: `inset(0 0 65% 0 round ${THEME.shape.corner.extraLarge})`,
@@ -24,10 +30,8 @@ const exit = keyframes({
 });
 const fadeIn = keyframes({
   from: { opacity: 0 },
-  // to: { opacity: 1 },
 });
 const fadeOut = keyframes({
-  // from: { opacity: 1 },
   to: { opacity: 0 },
 });
 
@@ -35,6 +39,24 @@ const scrim = recipe({
   base: {
     backgroundColor: THEME.color.scrim,
     opacity: 0.32,
+  },
+  variants: {
+    entering: {
+      true: {
+        animationName: fadeIn,
+        animationDuration: THEME.motion.duration.long2,
+        animationTimingFunction: THEME.motion.easing.linear,
+        animationFillMode: "both",
+      },
+    },
+    exiting: {
+      true: {
+        animationName: fadeOut,
+        animationDuration: THEME.motion.duration.short3,
+        animationTimingFunction: THEME.motion.easing.linear,
+        animationFillMode: "forwards",
+      },
+    },
   },
 });
 
@@ -53,9 +75,10 @@ const container = recipe({
     flexDirection: "column",
     overflow: "hidden",
 
+    borderRadius: THEME.shape.corner.extraLarge,
     backgroundColor: THEME.color.surfaceContainerHighest,
 
-    clipPath: `inset(0 0 0 0 round ${THEME.shape.corner.extraLarge})`,
+    // clipPath: `inset(0 0 0 0 round ${THEME.shape.corner.extraLarge})`,
 
     // TODO: doesn't work because of clip-path
     // boxShadow: `
@@ -93,6 +116,7 @@ const headline = recipe({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    paddingBlockEnd: 16,
 
     ...THEME.typescale.headline.small,
     color: THEME.color.onSurface,
@@ -147,8 +171,19 @@ const headlineText = style({
 
 const content = recipe({
   base: {
+    position: "relative",
+    height: "min-content",
+    flex: 1,
+
+    paddingInline: 24,
+
     ...THEME.typescale.body.medium,
     color: THEME.color.onSurfaceVariant,
+
+
+    // flex: 1;
+    // height: min-content; // Needed for Safari
+    // position: relative;
   },
   variants: {
     entering: {
@@ -192,7 +227,7 @@ const actions = recipe({
     gap: 8,
 
     paddingInline: 24,
-    paddingBlock: "16px 24px",
+    paddingBlock: 24,
   },
   variants: {
     entering: {

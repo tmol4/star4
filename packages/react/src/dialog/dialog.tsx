@@ -38,7 +38,7 @@ export const Dialog: FC<Dialog.Props> = ({
 
   return (
     <Modal open={isMounted} onCancel={onCancel} className={styles.modal()}>
-      <Modal.Backdrop className={styles.scrim()} />
+      <Modal.Backdrop className={styles.scrim({ entering, exiting })} />
       <div
         className={
           styles.container({ entering, exiting })
@@ -51,14 +51,14 @@ export const Dialog: FC<Dialog.Props> = ({
             {headline && (
               <h2 className={styles.headlineText}>{headline}</h2>
             )}
-            <Divider />
+            {/* <Divider /> */}
           </div>
           <div className={styles.content({ entering, exiting })}>
             {content}
           </div>
           {actions && (
             <div className={styles.actions({ entering, exiting })}>
-              <Divider />
+              {/* <Divider /> */}
               {actions}
             </div>
           )}

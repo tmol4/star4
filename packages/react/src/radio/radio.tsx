@@ -9,6 +9,7 @@ export namespace Radio {
       value: Value;
       groupValue: Value;
       onChange?: (value: Value) => void;
+      disabled?: boolean;
     };
 
   export type Value = string | number | symbol;
@@ -22,6 +23,7 @@ export const Radio = forwardRef<Radio.Element, Radio.Props>(
       groupValue,
       value,
       onChange,
+      disabled,
     },
     forwardedRef,
   ) => {
@@ -49,7 +51,7 @@ export const Radio = forwardRef<Radio.Element, Radio.Props>(
     return (
       <div
         ref={ref}
-        className={styles.container({ checked })}
+        className={styles.container({ checked, disabled })}
         role="radio"
         onClick={() => onChange?.(value)}
         tabIndex={0}>
@@ -59,7 +61,7 @@ export const Radio = forwardRef<Radio.Element, Radio.Props>(
             className={styles.icon({
               checked,
               animate,
-              disabled: false,
+              disabled,
             })} />
       </div>
     );

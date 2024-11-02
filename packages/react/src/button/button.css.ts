@@ -23,6 +23,7 @@ const container = recipe({
     background: "transparent",
     border: "none",
     outline: "none",
+    userSelect: "none",
 
     position: "relative",
     minWidth: 64,
@@ -41,6 +42,11 @@ const container = recipe({
     transitionProperty: "box-shadow",
     transitionDuration: "280ms",
     transitionTimingFunction: THEME.motion.easing.emphasized,
+
+    vars: {
+      [THEME.component.icon.size]: "18px",
+      [THEME.component.materialSymbol.opticalSize]: "18",
+    },
 
     // Touch target
     "::before": {
@@ -136,6 +142,59 @@ const container = recipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variants: {
+        variant: "elevated",
+        disabled: true,
+      },
+      style: {
+        backgroundColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
+        color: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+
+      },
+    },
+    {
+      variants: {
+        variant: "filled",
+        disabled: true,
+      },
+      style: {
+        backgroundColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
+        color: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+
+      },
+    },
+    {
+      variants: {
+        variant: "filledTonal",
+        disabled: true,
+      },
+      style: {
+        backgroundColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
+        color: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+
+      },
+    },
+    {
+      variants: {
+        variant: "outlined",
+        disabled: true,
+      },
+      style: {
+        color: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+      },
+    },
+    {
+      variants: {
+        variant: "text",
+        disabled: true,
+      },
+      style: {
+        color: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+      },
+    },
+  ],
   defaultVariants: {
     disabled: false,
   },
@@ -151,7 +210,7 @@ const outline = recipe({
   },
   variants: {
     disabled: {
-
+      borderColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
     },
   },
 });

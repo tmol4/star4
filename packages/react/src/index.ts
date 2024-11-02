@@ -5,6 +5,7 @@ export * from "./radio";
 export * from "./dialog";
 export * from "./focus";
 export * from "./ripple";
+export * from "./icon";
 
 // Utility components
 export * from "./modal";

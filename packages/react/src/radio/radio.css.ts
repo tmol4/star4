@@ -14,7 +14,6 @@ const container = recipe({
 
     borderRadius: THEME.shape.corner.full,
 
-    cursor: "pointer",
     outline: "none",
     WebkitTapHighlightColor: "transparent",
 
@@ -43,10 +42,19 @@ const container = recipe({
           [THEME.component.ripple.pressedOpacity]: THEME.component.radio.selectedPressedStateLayerOpacity,
         }
       },
+    },
+    disabled: {
+      false: {
+        cursor: "pointer",
+      },
+      true: {
+        pointerEvents: "none",
+      },
     }
   },
   defaultVariants: {
     checked: false,
+    disabled: false,
   },
 });
 
@@ -139,8 +147,14 @@ const icon = recipe({
       true: {},
     },
     disabled: {
-      false: {},
-      true: {},
+      true: {
+        "::before": {
+          borderColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+        },
+        "::after": {
+          backgroundColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 38%)`,
+        },
+      },
     }
   },
   compoundVariants: [
@@ -148,7 +162,6 @@ const icon = recipe({
       variants: {
         checked: true,
         animate: true,
-        disabled: false,
       },
       style: {
         "::after": {

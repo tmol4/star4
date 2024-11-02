@@ -44,6 +44,7 @@ export const Button = forwardRef<Button.Element, Button.Props>(
         className={clsx(
           styles.container({
             variant,
+            disabled,
           }),
           className,
         )}

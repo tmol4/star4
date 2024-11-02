@@ -1,6 +1,6 @@
 {
   "name": "@star4/theme",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "publishConfig": {
     "access": "public"
   },
@@ -38,7 +38,8 @@
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "publish": "yarn npm publish"
   },
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0"

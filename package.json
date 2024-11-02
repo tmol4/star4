@@ -17,7 +17,9 @@
     "example:solid:dev": "turbo dev --filter=@star4/example-solid...",
     "example:react:dev": "turbo dev --filter=@star4/example-react...",
     "packages:dev": "turbo dev --filter=\"./packages/*\"",
-    "packages:build": "turbo build --filter=\"./packages/*\""
+    "packages:build": "turbo build --filter=\"./packages/*\"",
+
+    "packages:publish": "changeset version && turbo publish && changeset tag"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",

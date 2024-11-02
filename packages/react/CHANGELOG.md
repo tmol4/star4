@@ -1,5 +1,21 @@
 # @star4/react
 
+## 0.0.10
+
+### Patch Changes
+
+- Fixed workspaces ONCE AGAIN
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.8
+
+## 0.0.9
+
+### Patch Changes
+
+- Fix workspace resolution again
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.7
+
 ## 0.0.8
 
 ### Patch Changes

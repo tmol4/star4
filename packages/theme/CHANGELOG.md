@@ -1,5 +1,17 @@
 # @star4/theme
 
+## 0.0.8
+
+### Patch Changes
+
+- Fixed workspaces ONCE AGAIN
+
+## 0.0.7
+
+### Patch Changes
+
+- Fix workspace resolution again
+
 ## 0.0.6
 
 ### Patch Changes

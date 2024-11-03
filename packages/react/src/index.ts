@@ -13,3 +13,5 @@ export * from "./modal";
 
 // Non-components
 export * from "./utils";
+
+export * from "@star4/react-utils";

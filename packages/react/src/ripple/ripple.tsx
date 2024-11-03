@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState, type HTMLAttributes, type RefObject } from "react";
 import { styles } from "./ripple.css";
 import clsx from "clsx/lite";
-import { useMediaQuery } from "../utils";
+import { useMediaQuery } from "@star4/react-utils";
 
 const wait = (timeout: number) => new Promise<void>(resolve => setTimeout(resolve, timeout));
 

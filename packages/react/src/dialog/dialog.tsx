@@ -1,6 +1,6 @@
 import { useEffect, type FC, type ReactNode } from "react";
 import { Modal } from "../modal"
-import { usePresence } from "../utils";
+import { usePresence } from "@star4/react-utils";
 import clsx from "clsx";
 import { styles } from "./dialog.css";
 import { Divider } from "../divider";

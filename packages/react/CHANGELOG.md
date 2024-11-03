@@ -1,5 +1,15 @@
 # @star4/react
 
+## 0.0.12
+
+### Patch Changes
+
+- Add "files" field to exclude src from publishing
+- Add @star4/react-utils dependency
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.9
+  - @star4/react-utils@0.0.2
+
 ## 0.0.11
 
 ### Patch Changes

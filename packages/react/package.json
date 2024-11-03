@@ -1,6 +1,6 @@
 {
   "name": "@star4/react",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "publishConfig": {
     "access": "public"
   },
@@ -9,6 +9,10 @@
     "url": "https://github.com/tmol4/star4.git",
     "directory": "packages/react"
   },
+  "homepage": "https://tmol4.github.io/star4",
+  "files": [
+    "dist/**/*"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -43,6 +47,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.12",
+    "@star4/react-utils": "workspace:^",
     "@star4/vanilla-extract": "workspace:^",
     "@vanilla-extract/css": "^1.16.0",
     "@vanilla-extract/dynamic": "^2.1.2",

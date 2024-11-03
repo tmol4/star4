@@ -1,5 +1,13 @@
 # @star4/vanilla-extract
 
+## 0.0.9
+
+### Patch Changes
+
+- Add "files" field to exclude src from publishing
+- Updated dependencies
+  - @star4/theme@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes

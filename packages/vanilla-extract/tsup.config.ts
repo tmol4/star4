@@ -1,5 +1,5 @@
 import { defineConfig } from "tsup";
-import { vanillaExtractPlugin as vanillaExtract } from "@vanilla-extract/esbuild-plugin";
+// import { vanillaExtractPlugin as vanillaExtract } from "@vanilla-extract/esbuild-plugin";
 // import { generatePackageExports, generateTsupOptions, parsePresetOptions, writePackageJson, type PresetOptions } from "tsup-preset-solid";
 
 // const PRESET_OPTIONS: PresetOptions = {

@@ -1,5 +1,11 @@
 # @star4/theme
 
+## 0.0.9
+
+### Patch Changes
+
+- Add "files" field to exclude src from publishing
+
 ## 0.0.8
 
 ### Patch Changes

@@ -1674,6 +1674,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@star4/dom@workspace:packages/dom":
+  version: 0.0.0-use.local
+  resolution: "@star4/dom@workspace:packages/dom"
+  dependencies:
+    "@floating-ui/dom": "npm:^1.6.12"
+    "@star4/config": "workspace:^"
+    "@types/node": "npm:^22.8.6"
+    clsx: "npm:^2.1.1"
+    tsup: "npm:^8.3.5"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@star4/example-react@workspace:examples/react":
   version: 0.0.0-use.local
   resolution: "@star4/example-react@workspace:examples/react"
@@ -1739,12 +1752,31 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@star4/react-utils@workspace:^, @star4/react-utils@workspace:packages/react-utils":
+  version: 0.0.0-use.local
+  resolution: "@star4/react-utils@workspace:packages/react-utils"
+  dependencies:
+    "@floating-ui/dom": "npm:^1.6.12"
+    "@star4/config": "workspace:^"
+    "@star4/vanilla-extract": "workspace:^"
+    "@types/node": "npm:^22.8.6"
+    "@types/react": "npm:^18.3.12"
+    "@types/react-dom": "npm:^18.3.1"
+    clsx: "npm:^2.1.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    tsup: "npm:^8.3.5"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@star4/react@workspace:^, @star4/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@star4/react@workspace:packages/react"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.12"
     "@star4/config": "workspace:^"
+    "@star4/react-utils": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
     "@types/node": "npm:^22.8.6"
     "@types/react": "npm:^18.3.12"
@@ -1786,14 +1818,12 @@ __metadata:
     "@types/node": "npm:^22.8.6"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
-    "@vanilla-extract/esbuild-plugin": "npm:^2.3.11"
     "@vanilla-extract/recipes": "npm:^0.5.5"
     clsx: "npm:^2.1.1"
     esbuild-plugin-solid: "npm:^0.6.0"
     lenis: "npm:^1.1.14"
     solid-js: "npm:^1.9.3"
     tsup: "npm:^8.3.5"
-    tsup-preset-solid: "npm:^2.2.0"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -1817,7 +1847,6 @@ __metadata:
     "@star4/config": "workspace:^"
     "@star4/theme": "workspace:^"
     "@vanilla-extract/css": "npm:^1.16.0"
-    "@vanilla-extract/esbuild-plugin": "npm:^2.3.11"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
   languageName: unknown
@@ -2089,20 +2118,6 @@ __metadata:
   dependencies:
     "@vanilla-extract/private": "npm:^1.0.6"
   checksum: 10c0/7361863bbc1260fda447be80e888e3ad5dea09957651288d7aba81ba7f59594d11476a840c9162adc452f9a43dbc379b58621b5b500a49f537b0efc7737aac9c
-  languageName: node
-  linkType: hard
-
-"@vanilla-extract/esbuild-plugin@npm:^2.3.11":
-  version: 2.3.11
-  resolution: "@vanilla-extract/esbuild-plugin@npm:2.3.11"
-  dependencies:
-    "@vanilla-extract/integration": "npm:^7.1.10"
-  peerDependencies:
-    esbuild: ">=0.17.6"
-  peerDependenciesMeta:
-    esbuild:
-      optional: true
-  checksum: 10c0/05fc0c8ba5b6343d53bb0c8914129161d8f9c713766407b4ec7959293691f7280e4b43361a3eec3730dc1838b843221a8f69a2a905acc5184ea6fa91b3d92110
   languageName: node
   linkType: hard
 
@@ -2667,20 +2682,6 @@ __metadata:
   version: 2.0.3
   resolution: "err-code@npm:2.0.3"
   checksum: 10c0/b642f7b4dd4a376e954947550a3065a9ece6733ab8e51ad80db727aaae0817c2e99b02a97a3d6cecc648a97848305e728289cf312d09af395403a90c9d4d8a66
-  languageName: node
-  linkType: hard
-
-"esbuild-plugin-solid@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "esbuild-plugin-solid@npm:0.5.0"
-  dependencies:
-    "@babel/core": "npm:^7.20.12"
-    "@babel/preset-typescript": "npm:^7.18.6"
-    babel-preset-solid: "npm:^1.6.9"
-  peerDependencies:
-    esbuild: ">=0.12"
-    solid-js: ">= 1.0"
-  checksum: 10c0/f50e4f3b3b659c3666bf4b856740db44f8001191b1caa9c06a783a6bbb315cf5c4e4879a2ce4d4a81fc23ee16abcbae210bb907bf2aa40723537eab3a61b5691
   languageName: node
   linkType: hard
 
@@ -4609,17 +4610,6 @@ __metadata:
   version: 0.1.13
   resolution: "ts-interface-checker@npm:0.1.13"
   checksum: 10c0/232509f1b84192d07b81d1e9b9677088e590ac1303436da1e92b296e9be8e31ea042e3e1fd3d29b1742ad2c959e95afe30f63117b8f1bc3a3850070a5142fea7
-  languageName: node
-  linkType: hard
-
-"tsup-preset-solid@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "tsup-preset-solid@npm:2.2.0"
-  dependencies:
-    esbuild-plugin-solid: "npm:^0.5.0"
-  peerDependencies:
-    tsup: ^8.0.0
-  checksum: 10c0/755849a683db18586f42d8a27a9386c04181a5cbec7dd9c2098b47204eee75284e808728c591df3642fb5f6315588d8281085f7985a553cfd1e3acc331234ab4
   languageName: node
   linkType: hard
 

@@ -1,13 +1,13 @@
 {
-  "name": "@star4/theme",
-  "version": "0.0.9",
+  "name": "@star4/dom",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/tmol4/star4.git",
-    "directory": "packages/theme"
+    "directory": "packages/dom"
   },
   "homepage": "https://tmol4.github.io/star4",
   "files": [
@@ -17,6 +17,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "browser": {},
   "exports": {
     ".": {
       "import": {
@@ -27,30 +28,23 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
-    },
-    "./material": {
-      "import": {
-        "types": "./dist/material.d.ts",
-        "default": "./dist/material.js"
-      },
-      "require": {
-        "types": "./dist/material.d.cts",
-        "default": "./dist/material.cjs"
-      }
     }
   },
+  "typesVersions": {},
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
     "publish": "yarn npm publish"
   },
-  "dependencies": {
-    "@material/material-color-utilities": "^0.3.0"
-  },
   "devDependencies": {
     "@star4/config": "workspace:^",
+    "@types/node": "^22.8.6",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.6.12",
+    "clsx": "^2.1.1"
   }
 }

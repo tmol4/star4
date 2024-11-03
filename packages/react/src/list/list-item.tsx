@@ -28,7 +28,7 @@ export namespace ListItem {
        * @remarks
        * If explicitly set to `false`, the item will not be able to become multi-line
        *
-       * @see {@link https://m3.material.io/components/lists|Lists - Material Design 3}
+       * @see {@link https://m3.material.io/components/lists/specs|Lists - Material Design 3}
        */
       multiline?: boolean;
       leading?: ReactNode;

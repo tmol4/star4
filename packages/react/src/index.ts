@@ -8,9 +8,11 @@ export * from "./ripple";
 export * from "./icon";
 export * from "./avatar";
 export * from "./list";
+export * from "./tooltip";
 
 // Utility components
 export * from "./modal";
+export * from "./popover";
 
 // Non-components
 export * from "./utils";

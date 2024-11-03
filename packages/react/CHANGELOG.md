@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.0.14
+
+### Patch Changes
+
+- Started the process of adding TypeDoc documentation comments
+
 ## 0.0.13
 
 ### Patch Changes

@@ -5,23 +5,6 @@ export const useFocusVisible = <T extends HTMLElement>(
 ): boolean => {
   const [visible, setVisible] = useState(false);
 
-  // createEffect(() => {
-  //   createEventListenerMap(
-  //     target,
-  //     {
-  //       focusin: (event) => {
-  //         setVisible((event.currentTarget as Element).matches(":focus-visible"));
-  //       },
-  //       focusout: () => {
-  //         setVisible(false);
-  //       },
-  //       pointerdown: () => {
-  //         setVisible(false)
-  //       },
-  //     }
-  //   );
-  // });
-
   const onFocusIn = (event: FocusEvent) => {
     setVisible(
       (event.currentTarget as HTMLElement).matches(":focus-visible"),

@@ -1,5 +1,6 @@
-import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol } from "@star4/react";
+import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol, ListItem, Avatar } from "@star4/react";
 import { forwardRef, useRef, useState, type FC } from "react";
+import { THEME } from "~/theme";
 
 export const App: FC = () => {
   const [open, setOpen] = useState(false);
@@ -7,7 +8,7 @@ export const App: FC = () => {
   const [value, setValue] = useState(0);
 
   return (
-    <div>
+    <div style={{ padding: 24 }}>
       <Button
         variant="filled"
         onClick={() => setOpen(true)}
@@ -42,6 +43,17 @@ export const App: FC = () => {
       <Radio disabled groupValue={value} value={2} />
       <Radio disabled groupValue={value} value={3} />
       <Radio disabled groupValue={value} value={4} />
+
+      <div style={{ maxWidth: 360, borderRadius: 8, outline: `1px solid ${THEME.color.outline}`, width: "100%", paddingBlock: 8 }}>
+        <ListItem
+          headline="Headline"
+          supportingText="Supporting text" />
+        <ListItem
+          leading={<Avatar><MaterialSymbol name="account_circle" /></Avatar>}
+          headline="Manage account"
+          supportingText="your_name"
+          trailing={<MaterialSymbol name="navigate_next" />} />
+      </div>
     </div>
   );
 }

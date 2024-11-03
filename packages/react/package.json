@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.12",
+    "@floating-ui/react": "^0.26.27",
     "@star4/react-utils": "workspace:^",
     "@star4/vanilla-extract": "workspace:^",
     "@vanilla-extract/css": "^1.16.0",

@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef, type HTMLAttributes, type ReactNode } from "react";
+import { forwardRef, useImperativeHandle, useMemo, useRef, type HTMLAttributes, type ReactNode } from "react";
 import { Ripple } from "../ripple";
 import { FocusRing } from "../focus";
 import clsx from "clsx";
@@ -11,6 +11,7 @@ export namespace Avatar {
       "children"
     >
     & {
+      type?: "button";
       children?: ReactNode;
     };
 
@@ -20,28 +21,43 @@ export namespace Avatar {
 export const Avatar = forwardRef<Avatar.Element, Avatar.Props>(
   (
     {
+      type,
       className,
       children,
       ...rest
     },
     forwardedRef,
   ) => {
-    const ref = useRef<HTMLButtonElement>(null);
+    const ref = useRef<HTMLElement>(null);
     useImperativeHandle(
       forwardedRef,
       () => ref.current!,
       [],
     );
 
+    const interactive = useMemo(
+      () => type === "button",
+      [type],
+    );
+
+    const Tag = useMemo(
+      () => type === "button" ? "button" : "div",
+      [type],
+    );
+
     return (
-      <button
-        ref={ref}
+      <Tag
+        ref={ref as any}
         className={clsx(styles.container, className)}
         {...rest}>
-          <Ripple for={ref} />
-          <FocusRing for={ref} />
+          {interactive && (
+            <>
+              <Ripple for={ref} />
+              <FocusRing for={ref} />
+            </>
+          )}
           {children}
-      </button>
+      </Tag>
     );
   },
 );

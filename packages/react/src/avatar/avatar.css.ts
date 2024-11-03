@@ -5,7 +5,7 @@ const container = style({
   WebkitTapHighlightColor: "transparent",
   border: "none",
   outline: "none",
-  cursor: "pointer",
+  // cursor: "pointer",
 
   position: "relative",
   width: 40,

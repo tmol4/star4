@@ -7,6 +7,7 @@ export * from "./focus";
 export * from "./ripple";
 export * from "./icon";
 export * from "./avatar";
+export * from "./list";
 
 // Utility components
 export * from "./modal";

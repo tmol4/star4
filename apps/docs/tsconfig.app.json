@@ -10,9 +10,11 @@
     "moduleResolution": "Bundler",
     "isolatedModules": true,
     "moduleDetection": "force",
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "tsBuildInfoFile": "tsconfig.app.tsbuildinfo",
 
     /* Linting */
     "strict": true,

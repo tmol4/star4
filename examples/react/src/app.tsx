@@ -32,11 +32,11 @@ export const App: FC = () => {
               label="Cancel" />
           </>
         } />
-      <Radio groupValue={value} value={0} onChange={setValue as any} />
-      <Radio groupValue={value} value={1} onChange={setValue as any} />
-      <Radio groupValue={value} value={2} onChange={setValue as any} />
-      <Radio groupValue={value} value={3} onChange={setValue as any} />
-      <Radio groupValue={value} value={4} onChange={setValue as any} />
+      <Radio groupValue={value} value={0} onChange={setValue} />
+      <Radio groupValue={value} value={1} onChange={setValue} />
+      <Radio groupValue={value} value={2} onChange={setValue} />
+      <Radio groupValue={value} value={3} onChange={setValue} />
+      <Radio groupValue={value} value={4} onChange={setValue} />
 
       <Radio disabled groupValue={value} value={0} />
       <Radio disabled groupValue={value} value={1} />

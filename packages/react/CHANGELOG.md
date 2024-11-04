@@ -1,5 +1,13 @@
 # @star4/react
 
+## 0.0.15
+
+### Patch Changes
+
+- Add value type parameter to the radio button
+- Updated dependencies
+  - @star4/react-utils@0.0.4
+
 ## 0.0.14
 
 ### Patch Changes

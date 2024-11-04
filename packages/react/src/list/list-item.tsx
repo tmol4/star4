@@ -99,6 +99,7 @@ export const ListItem = forwardRef<ListItem.Element, ListItem.Props>(
       <Tag
         ref={ref as any}
         className={clsx(styles.container({ lines }), className)}
+        role="listitem"
         {...rest}>
           <Ripple for={ref} />
           <FocusRing for={ref} className={styles.focusRing} />

@@ -1,4 +1,4 @@
-import { useEffect, type FC, type ReactNode } from "react";
+import { isValidElement, useEffect, useId, useMemo, type FC, type ReactNode } from "react";
 import { Modal } from "../modal"
 import { usePresence } from "@star4/react-utils";
 import clsx from "clsx";
@@ -83,6 +83,7 @@ export const Dialog: FC<Dialog.Props> = ({
   content,
   actions,
 }) => {
+  const headlineId = useId();
   const {
     isMounted,
     isEntering: entering,
@@ -101,13 +102,15 @@ export const Dialog: FC<Dialog.Props> = ({
         className={
           styles.container({ entering, exiting })
         }
-        role="dialog">
+        role="dialog"
+        aria-modal
+        aria-labelledby={headlineId}>
           <div className={styles.headline({ entering, exiting })}>
             {icon && (
               <div className={styles.icon}>{icon}</div>
             )}
             {headline && (
-              <h2 className={styles.headlineText}>{headline}</h2>
+              <h2 id={headlineId} className={styles.headlineText({ hasIcon: !!icon })}>{headline}</h2>
             )}
             {/* <Divider /> */}
           </div>

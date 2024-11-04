@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.0.16
+
+### Patch Changes
+
+- Improve accessibility
+
 ## 0.0.15
 
 ### Patch Changes

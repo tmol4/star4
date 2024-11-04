@@ -1,25 +1,50 @@
 import { Ripple } from "../ripple";
 import { styles } from "./radio.css";
 import { FocusRing } from "../focus";
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState, type ReactNode } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
 import type { ComposableForwardRefExoticComponent, ForwardRefExoticComponentProps } from "@star4/react-utils";
+import clsx from "clsx/lite";
 
 export namespace Radio {
+  export type AutomaticControlledProps<T extends Value> = {
+    checked?: never;
+    /**
+     * The current value of the radio button group
+     */
+    groupValue: T;
+    /**
+     * The current value of the radio button
+     */
+    value: T;
+    /**
+     * Callback that fires when the radio button is clicked.
+     * @param value - {@link AutomaticControlledProps.value|value} of the radio button.
+     * @eventProperty
+     */
+    onValueChange?: (value: T) => void;
+  };
+  export type ManualControlledProps = {
+    /**
+     * Whether this radio is checked.
+     * @defaultValue `false`
+     */
+    checked?: boolean;
+    groupValue?: never;
+    value?: never;
+    /**
+     * Callback that fires when the radio button is clicked.
+     * @param value - always `true`
+     * @eventProperty
+     */
+    onValueChange?: (value: boolean) => void;
+  };
   export type Props<T extends Value> =
+    & Omit<
+      HTMLAttributes<HTMLElement>,
+      "role" | "aria-checked" | "children"
+    >
+    & (AutomaticControlledProps<T> | ManualControlledProps)
     & {
-      /**
-       * The current value of the radio button
-       */
-      value: T;
-      /**
-       * The current value of the radio button group
-       */
-      groupValue: T;
-      /**
-       * Callback that fires when {@link Props.value|value} changes
-       * @eventProperty
-       */
-      onChange?: (value: T) => void;
       /**
        * Prevents the user from interacting with the radio button: it cannot be pressed or focused.
        *
@@ -40,25 +65,35 @@ export namespace Radio {
 }
 
 /**
- * Radio button
+ * Radio buttons let people select one option from a set of options
  *
  * @remarks
- * Radio buttons let people select one option from a set of options
+ * This component provides two operation modes: automatic and controlled.
  *
  * @see {@link https://m3.material.io/components/radio-button/overview|Radio button - Material Design 3}
  *
  * @typeParam T - the value type of the radio button group
  *
  * @example
- * Use strings as values
+ * Use primitives values
  * ```
- * const Example = () => {
+ * const StringsExample = () => {
  *   const [value, setValue] = useState("apple");
  *   return (
  *     <div>
  *       <Radio groupValue={value} value="apple" onChange={setValue} />
  *       <Radio groupValue={value} value="banana" onChange={setValue} />
  *       <Radio groupValue={value} value="cucumber" onChange={setValue} />
+ *     </div>
+ *   );
+ * }
+ * const NumbersExample = () => {
+ *   const [value, setValue] = useState(0);
+ *   return (
+ *     <div>
+ *       <Radio groupValue={value} value={0} onChange={setValue} />
+ *       <Radio groupValue={value} value={1} onChange={setValue} />
+ *       <Radio groupValue={value} value={2} onChange={setValue} />
  *     </div>
  *   );
  * }
@@ -75,7 +110,7 @@ export namespace Radio {
  *   ORANGE,
  * }
  *
- * const Example = () => {
+ * const CustomValueTypeExample = () => {
  *   const [fruit, setFruit] = useState<Fruit>(Fruit.APPLE);
  *   return (
  *     <div>
@@ -88,14 +123,28 @@ export namespace Radio {
  *   );
  * }
  * ```
+ *
+ * @example
+ * Controlled radio button
+ * ```tsx
+ * const ControlledExample = () => {
+ *   const [checked, setChecked] = useState(false);
+ *   return (
+ *     <Radio checked={checked} onChange={setChecked} />
+ *   );
+ * }
+ * ```
  */
 export const Radio = forwardRef<Radio.Element, Radio.Props<Radio.Value>>(
   (
     {
+      className,
+      checked,
       groupValue,
       value,
-      onChange,
+      onValueChange,
       disabled,
+      ...rest
     },
     forwardedRef,
   ) => {
@@ -106,7 +155,11 @@ export const Radio = forwardRef<Radio.Element, Radio.Props<Radio.Value>>(
       [],
     );
 
-    const checked = useMemo(() => value === groupValue, [value, groupValue]);
+    const manual = useMemo(() => checked !== undefined, [checked]);
+    const isChecked = useMemo(
+      () => manual ? checked! : value === groupValue,
+      [manual, checked, value, groupValue],
+    );
 
     const render = useRef(0);
     const [animate, setAnimate] = useState(false);
@@ -116,22 +169,31 @@ export const Radio = forwardRef<Radio.Element, Radio.Props<Radio.Value>>(
         if(render.current < 2) render.current++;
         else if(!animate) setAnimate(true);
       },
-      [checked],
+      [isChecked],
     );
 
 
     return (
       <div
         ref={ref}
-        className={styles.container({ checked, disabled })}
+        className={clsx(
+          styles.container({ checked: isChecked, disabled }),
+          className,
+        )}
+        onClick={
+          () => (
+            onValueChange as (value: boolean | Radio.Value) => void
+          )?.(manual || value!)
+        }
         role="radio"
-        onClick={() => onChange?.(value)}
-        tabIndex={0}>
+        aria-checked={isChecked}
+        tabIndex={0}
+        {...rest}>
           <Ripple for={ref} />
           <FocusRing for={ref} />
           <div
             className={styles.icon({
-              checked,
+              checked: isChecked,
               animate,
               disabled,
             })} />

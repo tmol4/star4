@@ -151,22 +151,24 @@ const icon = style({
   fill: "currentcolor",
 });
 
-const headlineText = style({
-  all: "unset",
-  alignSelf: "stretch",
+const headlineText = recipe({
+  base: {
+    all: "unset",
+    alignSelf: "stretch",
 
-  display: "flex",
-  alignItems: "center",
-  gap: 8,
-  paddingInline: 24,
-  paddingBlockStart: 24,
-
-  // align-items: center;
-  // align-self: stretch;
-  // box-sizing: border-box;
-  // display: flex;
-  // gap: 8px;
-  // padding: 24px 24px 0;
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    paddingInline: 24,
+    paddingBlockStart: 24,
+  },
+  variants: {
+    hasIcon: {
+      true: {
+        justifyContent: "center",
+      },
+    },
+  }
 });
 
 const content = recipe({

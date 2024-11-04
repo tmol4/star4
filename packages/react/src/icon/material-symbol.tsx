@@ -26,11 +26,12 @@ export namespace MaterialSymbol {
  * @see {@link https://m3.material.io/styles/icons/overview|Icons - Material Design 3}
  */
 export const MaterialSymbol = forwardRef<MaterialSymbol.Element, MaterialSymbol.Props>(
-  ({ name, className, ...rest }, forwardedRef) => {
+  ({ name, className, "aria-hidden": ariaHidden, ...rest }, forwardedRef) => {
     return (
       <span
         ref={forwardedRef}
         className={clsx(styles.icon, className)}
+        aria-hidden={ariaHidden !== false}
         {...rest}
         children={name} />
     )

@@ -1,6 +1,6 @@
 {
   "name": "@star4/react",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "publishConfig": {
     "access": "public"
   },

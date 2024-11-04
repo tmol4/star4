@@ -1,4 +1,4 @@
-import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol, ListItem, Avatar } from "@star4/react";
+import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol, ListItem, Avatar, RadioListItem } from "@star4/react";
 import { forwardRef, useRef, useState, type FC } from "react";
 import { THEME } from "~/theme";
 
@@ -25,18 +25,18 @@ export const App: FC = () => {
             <Button
               variant="text"
               onClick={() => setOpen(false)}
-              label="Delete" />
-            <Button
-              variant="filledTonal"
-              onClick={() => setOpen(false)}
               label="Cancel" />
+            <Button
+              variant="text"
+              onClick={() => setOpen(false)}
+              label="Delete" />
           </>
         } />
-      <Radio groupValue={value} value={0} onChange={setValue} />
-      <Radio groupValue={value} value={1} onChange={setValue} />
-      <Radio groupValue={value} value={2} onChange={setValue} />
-      <Radio groupValue={value} value={3} onChange={setValue} />
-      <Radio groupValue={value} value={4} onChange={setValue} />
+      <Radio groupValue={value} value={0} onValueChange={setValue} />
+      <Radio groupValue={value} value={1} onValueChange={setValue} />
+      <Radio groupValue={value} value={2} onValueChange={setValue} />
+      <Radio groupValue={value} value={3} onValueChange={setValue} />
+      <Radio groupValue={value} value={4} onValueChange={setValue} />
 
       <Radio disabled groupValue={value} value={0} />
       <Radio disabled groupValue={value} value={1} />
@@ -44,7 +44,7 @@ export const App: FC = () => {
       <Radio disabled groupValue={value} value={3} />
       <Radio disabled groupValue={value} value={4} />
 
-      <div style={{ maxWidth: 360, borderRadius: 8, outline: `1px solid ${THEME.color.outline}`, width: "100%", paddingBlock: 8 }}>
+      <div role="list" style={{ maxWidth: 360, borderRadius: 8, outline: `1px solid ${THEME.color.outline}`, width: "100%", paddingBlock: 8 }}>
         <ListItem
           headline="Headline"
           supportingText="Supporting text" />
@@ -53,6 +53,21 @@ export const App: FC = () => {
           headline="Manage account"
           supportingText="your_name"
           trailing={<MaterialSymbol name="navigate_next" />} />
+        <RadioListItem
+          groupValue={value}
+          value={0}
+          onValueChange={setValue}
+          headline="Apple" />
+        <RadioListItem
+          groupValue={value}
+          value={1}
+          onValueChange={setValue}
+          headline="Apricot" />
+        <RadioListItem
+          groupValue={value}
+          value={2}
+          onValueChange={setValue}
+          headline="Avocado" />
       </div>
     </div>
   );

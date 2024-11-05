@@ -8,8 +8,11 @@ const fontVariationSettings = (values: Record<string, string | number>) => {
 }
 
 const icon = style({
-  fontFamily: fallbackVar(THEME.component.materialSymbol.font, `"Material Symbols Outlined"`),
   fontSize: fallbackVar(THEME.component.icon.size, "24px"),
+  inlineSize: fallbackVar(THEME.component.icon.size, "24px"),
+  blockSize: fallbackVar(THEME.component.icon.size, "24px"),
+
+  fontFamily: fallbackVar(THEME.component.materialSymbol.font, `"Material Symbols Outlined"`),
 
   fontWeight: "normal",
   fontStyle: "normal",
@@ -27,8 +30,6 @@ const icon = style({
 
   color: "currentcolor",
 
-  inlineSize: fallbackVar(THEME.component.icon.size, "24px"),
-  blockSize: fallbackVar(THEME.component.icon.size, "24px"),
   userSelect: "none",
 
   transitionProperty: "font-variation-settings",

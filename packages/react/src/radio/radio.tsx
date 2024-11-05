@@ -136,7 +136,7 @@ export namespace Radio {
  * ```
  */
 export const Radio = forwardRef<Radio.Element, Radio.Props<Radio.Value>>(
-  (
+  function Radio(
     {
       className,
       checked,
@@ -147,7 +147,7 @@ export const Radio = forwardRef<Radio.Element, Radio.Props<Radio.Value>>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLDivElement>(null);
     useImperativeHandle(
       forwardedRef,

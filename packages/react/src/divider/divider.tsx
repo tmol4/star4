@@ -15,13 +15,13 @@ export namespace Divider {
 }
 
 export const Divider = forwardRef<Divider.Element, Divider.Props>(
-  (
+  function Divider(
     {
       className,
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     return (
       <div
         ref={forwardedRef as ForwardedRef<HTMLDivElement>}

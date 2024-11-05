@@ -9,6 +9,11 @@ export * from "./icon";
 export * from "./avatar";
 export * from "./list";
 export * from "./tooltip";
+export * from "./tabs";
+
+export * from "./menu";
+export * from "./switch";
+export * from "./checkbox";
 
 // Utility components
 export * from "./modal";

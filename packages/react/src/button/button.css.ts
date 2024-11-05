@@ -210,7 +210,9 @@ const outline = recipe({
   },
   variants: {
     disabled: {
-      borderColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
+      true: {
+        borderColor: `color-mix(in srgb, transparent, ${THEME.color.onSurface} 12%)`,
+      }
     },
   },
 });

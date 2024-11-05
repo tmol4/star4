@@ -15,7 +15,7 @@
     "@fontsource-variable/raleway": "^5.1.0",
     "@fontsource-variable/roboto-flex": "^5.1.0",
     "@solidjs/meta": "^0.29.4",
-    "@solidjs/router": "^0.15.0",
+    "@solidjs/router": "^0.15.1",
     "@star4/solid": "workspace:^",
     "@star4/theme": "workspace:^",
     "@star4/vanilla-extract": "workspace:^",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@star4/config": "workspace:^",
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.9.0",
     "@vanilla-extract/vite-plugin": "^4.0.17",
     "typescript": "^5.6.3",
     "vite": "^5.4.10",

@@ -1,8 +1,11 @@
-import { forwardRef, useImperativeHandle, useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { forwardRef, isValidElement, useImperativeHandle, useRef, type ButtonHTMLAttributes, type ReactElement, type ReactNode } from "react";
 import { FocusRing } from "../focus";
 import { Ripple } from "../ripple";
 import clsx from "clsx";
 import { styles } from "./button.css";
+import { createIdentifiableElement } from "@star4/react-utils";
+
+export const IS_BUTTON = Symbol("button");
 
 export namespace Button {
   export type Variant = "elevated" | "filled" | "filledTonal" | "outlined" | "text";
@@ -19,8 +22,8 @@ export namespace Button {
   export interface Element extends HTMLButtonElement {}
 }
 
-export const Button = forwardRef<Button.Element, Button.Props>(
-  (
+const Component = forwardRef<Button.Element, Button.Props>(
+  function Button(
     {
       className,
       disabled,
@@ -30,7 +33,7 @@ export const Button = forwardRef<Button.Element, Button.Props>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLButtonElement>(null);
     useImperativeHandle(
       forwardedRef,
@@ -54,16 +57,17 @@ export const Button = forwardRef<Button.Element, Button.Props>(
           <FocusRing for={ref} />
           {variant === "outlined" && (
             <div className={
-              styles.outline({})
+              styles.outline({ disabled })
             } />
           )}
-          {icon && (
-            <div>
-              {icon}
-            </div>
-          )}
+          {icon}
           <span>{label}</span>
       </button>
     )
   },
+);
+
+export const Button = Object.assign(
+  Component,
+  createIdentifiableElement("IS_BUTTON"),
 );

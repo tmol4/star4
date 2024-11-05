@@ -605,13 +605,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@darkroom.engineering/tempus@npm:^0.0.46":
-  version: 0.0.46
-  resolution: "@darkroom.engineering/tempus@npm:0.0.46"
-  checksum: 10c0/20c48ff5b6a1a0dc1b9af253de3b06ac7d66c6ffefa86a0b2efe06f2a9a96135fd1e7b7ac72e8d347489564521e8ac7aa12e13cb60a1ffd0908cca78b764c584
-  languageName: node
-  linkType: hard
-
 "@emotion/hash@npm:^0.9.0":
   version: 0.9.2
   resolution: "@emotion/hash@npm:0.9.2"
@@ -1175,6 +1168,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/material-symbols-outlined@npm:^5.1.3":
+  version: 5.1.3
+  resolution: "@fontsource-variable/material-symbols-outlined@npm:5.1.3"
+  checksum: 10c0/728f3b2f0a88640ab467b406fc78a06b61dbae0811c8fa8645a65f1a4480d0a2b2cf3d769486187af114fab9ef78ae65ed501a85fa939df8e95e8edec4433685
+  languageName: node
+  linkType: hard
+
 "@fontsource-variable/material-symbols-rounded@npm:^5.1.3":
   version: 5.1.3
   resolution: "@fontsource-variable/material-symbols-rounded@npm:5.1.3"
@@ -1654,12 +1654,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@solidjs/router@npm:^0.15.0":
-  version: 0.15.0
-  resolution: "@solidjs/router@npm:0.15.0"
+"@solidjs/router@npm:^0.15.1":
+  version: 0.15.1
+  resolution: "@solidjs/router@npm:0.15.1"
   peerDependencies:
     solid-js: ^1.8.6
-  checksum: 10c0/1d1b92c89823aeb1ab9075a66ede739c0e17e29457446122897788691398e070e9e8f00c033b15d7ea346b11af1951451cc29c63d94c8184750757eb959c0a1d
+  checksum: 10c0/0170e58f70c4157b48935de85c766ed4033e907887022954b1eaf0ab5b2fb7b02e0bd68e2e92341810216a40952de66350d05a641a862c3dc157747a2304c466
   languageName: node
   linkType: hard
 
@@ -1683,12 +1683,12 @@ __metadata:
     "@fontsource-variable/raleway": "npm:^5.1.0"
     "@fontsource-variable/roboto-flex": "npm:^5.1.0"
     "@solidjs/meta": "npm:^0.29.4"
-    "@solidjs/router": "npm:^0.15.0"
+    "@solidjs/router": "npm:^0.15.1"
     "@star4/config": "workspace:^"
     "@star4/solid": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
@@ -1706,7 +1706,7 @@ __metadata:
   dependencies:
     "@floating-ui/dom": "npm:^1.6.12"
     "@star4/config": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     clsx: "npm:^2.1.1"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
@@ -1718,6 +1718,7 @@ __metadata:
   resolution: "@star4/example-react@workspace:examples/react"
   dependencies:
     "@fontsource-variable/manrope": "npm:^5.1.0"
+    "@fontsource-variable/material-symbols-outlined": "npm:^5.1.3"
     "@fontsource-variable/material-symbols-rounded": "npm:^5.1.3"
     "@fontsource-variable/material-symbols-sharp": "npm:^5.1.3"
     "@fontsource-variable/open-sans": "npm:^5.1.0"
@@ -1727,7 +1728,7 @@ __metadata:
     "@star4/react": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vanilla-extract/css": "npm:^1.16.0"
@@ -1756,7 +1757,7 @@ __metadata:
     "@star4/solid": "workspace:^"
     "@star4/theme": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
@@ -1785,7 +1786,7 @@ __metadata:
     "@floating-ui/dom": "npm:^1.6.12"
     "@star4/config": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     clsx: "npm:^2.1.1"
@@ -1805,14 +1806,14 @@ __metadata:
     "@star4/config": "workspace:^"
     "@star4/react-utils": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
     clsx: "npm:^2.1.1"
-    lenis: "npm:^1.1.14"
+    lenis: "npm:^1.1.15"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     tsup: "npm:^8.3.5"
@@ -1842,13 +1843,13 @@ __metadata:
     "@solid-primitives/utils": "npm:^6.2.3"
     "@star4/config": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
-    "@types/node": "npm:^22.8.6"
+    "@types/node": "npm:^22.9.0"
     "@vanilla-extract/css": "npm:^1.16.0"
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
     clsx: "npm:^2.1.1"
     esbuild-plugin-solid: "npm:^0.6.0"
-    lenis: "npm:^1.1.14"
+    lenis: "npm:^1.1.15"
     solid-js: "npm:^1.9.3"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
@@ -2075,12 +2076,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.8.6":
-  version: 22.8.6
-  resolution: "@types/node@npm:22.8.6"
+"@types/node@npm:^22.9.0":
+  version: 22.9.0
+  resolution: "@types/node@npm:22.9.0"
   dependencies:
     undici-types: "npm:~6.19.8"
-  checksum: 10c0/d3a11f2549234a91a4c5d0ff35ab4bdcb7ba34db4d3f1d189be39b8bd41c19aac98d117150a95a9c5a9d45b1014135477ea240b2b8317c86ae3d3cf1c3b3f8f4
+  checksum: 10c0/3f46cbe0a49bab4ba30494025e4c8a6e699b98ac922857aa1f0209ce11a1313ee46e6808b8f13fe5b8b960a9d7796b77c8d542ad4e9810e85ef897d5593b5d51
   languageName: node
   linkType: hard
 
@@ -3477,11 +3478,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lenis@npm:^1.1.14":
-  version: 1.1.14
-  resolution: "lenis@npm:1.1.14"
-  dependencies:
-    "@darkroom.engineering/tempus": "npm:^0.0.46"
+"lenis@npm:^1.1.15":
+  version: 1.1.15
+  resolution: "lenis@npm:1.1.15"
   peerDependencies:
     react: ">=17.0.0"
     vue: ">=3.0.0"
@@ -3490,7 +3489,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10c0/426cee9d1cf1d816ad5d7dd051698c17ab1e3b276e3248d602e9314794114a9322b051fc3c8cd27e5f4cab94cabb7aa21445d4f84bccf3518304cd730ef792b0
+  checksum: 10c0/5219cbfa6369548629d3378dc92e9db2b923dc66c447a924a1684685b6b690523c9ae4dc0ac982c4c080d8fd78919b17a6516ab68388a1b42c39b2e6995fbc52
   languageName: node
   linkType: hard
 

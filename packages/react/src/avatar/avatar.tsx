@@ -54,7 +54,7 @@ export namespace Avatar {
  * ```
  */
 export const Avatar = forwardRef<Avatar.Element, Avatar.Props>(
-  (
+  function Avatar(
     {
       type,
       className,
@@ -62,7 +62,7 @@ export const Avatar = forwardRef<Avatar.Element, Avatar.Props>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLElement>(null);
     useImperativeHandle(
       forwardedRef,

@@ -35,7 +35,7 @@ export namespace Ripple {
 }
 
 export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
-  (
+  function Ripple(
     {
       for: target,
       className,
@@ -43,7 +43,7 @@ export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLDivElement>(null);
     const surfaceRef = useRef<HTMLDivElement>(null);
 
@@ -286,7 +286,11 @@ export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
 
     useEffect(
       () => {
-        if(!target.current || forcedColors) return;
+        if(!target.current || disabled || forcedColors) {
+          setHovered(false);
+          setPressed(false);
+          return;
+        }
 
         const element = target.current;
 
@@ -308,7 +312,7 @@ export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
           element.removeEventListener("contextmenu", onContextmenu);
         };
       },
-      [target, forcedColors],
+      [target, disabled, forcedColors],
     );
 
     return (

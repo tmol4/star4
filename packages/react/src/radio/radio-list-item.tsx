@@ -16,7 +16,7 @@ export namespace RadioListItem {
 }
 
 export const RadioListItem = forwardRef<RadioListItem.Element, RadioListItem.Props<Radio.Value>>(
-  (
+  function RadioListItem(
     {
       checked,
       groupValue,
@@ -28,7 +28,7 @@ export const RadioListItem = forwardRef<RadioListItem.Element, RadioListItem.Pro
       secondary,
     },
     forwardedRef
-  ) => {
+  ) {
     const id = useId();
     const manual = useMemo(() => checked !== undefined, [checked]);
     const isChecked = useMemo(() => manual ? checked : value === groupValue, [manual, checked, value, groupValue]);

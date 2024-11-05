@@ -27,7 +27,7 @@ const InternalModalContext = createContext<InternalModalContextData | undefined>
 const useInternalModalContext = () => useContext(InternalModalContext);
 
 const NativeModal = forwardRef<Modal.Element, Modal.Props>(
-  (
+  function Modal(
     {
       className,
       open = false,
@@ -36,7 +36,7 @@ const NativeModal = forwardRef<Modal.Element, Modal.Props>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLDialogElement>(null);
     useImperativeHandle(
       forwardedRef,
@@ -82,7 +82,7 @@ const NativeModal = forwardRef<Modal.Element, Modal.Props>(
 );
 
 const PortalModal = forwardRef<Modal.Element, Modal.Props>(
-  (
+  function Modal(
     {
       className,
       open = false,
@@ -91,7 +91,7 @@ const PortalModal = forwardRef<Modal.Element, Modal.Props>(
       ...rest
     },
     forwardedRef
-  ) => {
+  ) {
     const ref = useRef<HTMLDivElement>(null);
     useImperativeHandle(
       forwardedRef,
@@ -137,13 +137,13 @@ export namespace Modal {
 }
 
 const Backdrop = forwardRef<Modal.Backdrop.Element, Modal.Backdrop.Props>(
-  (
+  function ModalBackdrop(
     {
       className,
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const { isOpen, close } = useInternalModalContext()!;
 
     return (

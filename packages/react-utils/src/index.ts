@@ -4,3 +4,5 @@ export * from "./use-media-query";
 export * from "./use-presence";
 
 export type * from "./types";
+
+export * from "./is";

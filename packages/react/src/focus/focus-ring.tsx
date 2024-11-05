@@ -26,14 +26,14 @@ export namespace FocusRing {
 }
 
 export const FocusRing = forwardRef<FocusRing.Element, FocusRing.Props>(
-  (
+  function FocusRing(
     {
       for: target,
       className,
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const visible = useFocusVisible(target);
 
     return (

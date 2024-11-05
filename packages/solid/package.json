@@ -1,6 +1,6 @@
 {
   "name": "@star4/solid",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "publishConfig": {
     "access": "public"
   },
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@star4/config": "workspace:^",
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.9.0",
     "esbuild-plugin-solid": "^0.6.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
@@ -66,7 +66,7 @@
     "@vanilla-extract/dynamic": "^2.1.2",
     "@vanilla-extract/recipes": "^0.5.5",
     "clsx": "^2.1.1",
-    "lenis": "^1.1.14",
+    "lenis": "^1.1.15",
     "solid-js": "^1.9.3"
   }
 }

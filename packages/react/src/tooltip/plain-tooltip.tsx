@@ -43,7 +43,7 @@ export const PlainTooltip = forwardRef<
   PlainTooltip.Element,
   PlainTooltip.Props
 >(
-  ({}, forwardedRef) => {
+  function PlainTooltip({}, forwardedRef) {
     const [isOpen, setIsOpen] = useState(false);
     const { isMounted, isVisible } = usePresence({
       source: isOpen,

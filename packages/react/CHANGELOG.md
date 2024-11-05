@@ -1,5 +1,15 @@
 # @star4/react
 
+## 0.0.17
+
+### Patch Changes
+
+- WIP tabs component
+- Update dependencies
+- Updated dependencies
+- Updated dependencies
+  - @star4/react-utils@0.0.5
+
 ## 0.0.16
 
 ### Patch Changes

@@ -1,4 +1,3 @@
-import { Hct } from "@star4/theme/material";
 import { createTheme } from "@star4/vanilla-extract";
 
 
@@ -29,7 +28,7 @@ export const { contract, theme } = createTheme({
   },
   component: {
     materialSymbol: {
-      font: fontFamily("Material Symbols Rounded Variable"),
+      font: fontFamily("Material Symbols Outlined Variable"),
     },
   }
 });

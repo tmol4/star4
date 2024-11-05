@@ -50,7 +50,7 @@ export namespace ListItem {
 // }
 
 export const ListItem = forwardRef<ListItem.Element, ListItem.Props>(
-  (
+  function ListItem(
     {
       selected = false,
       multiline,
@@ -63,7 +63,7 @@ export const ListItem = forwardRef<ListItem.Element, ListItem.Props>(
       ...rest
     },
     forwardedRef,
-  ) => {
+  ) {
     const ref = useRef<HTMLElement>(null);
     useImperativeHandle(
       forwardedRef,

@@ -182,7 +182,8 @@ const TabBarComponent = forwardRef<TabBar.Element, TabBar.Props<TabBar.Value>>(
           className,
         )}
         role="tablist"
-        options={{
+        adapter="lenis"
+        lenis={{
           autoRaf: true,
           orientation: "horizontal",
         }}

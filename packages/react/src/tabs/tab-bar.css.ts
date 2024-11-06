@@ -7,8 +7,6 @@ const container = recipe({
     position: "relative",
     height: 48,
 
-
-
     borderRadius: THEME.shape.corner.full,
     backgroundColor: THEME.color.secondaryContainer,
     isolation: "isolate",

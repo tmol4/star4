@@ -6,8 +6,16 @@ import clsx from "clsx/lite";
 import { styles } from "./scrollable.css";
 
 export namespace Scrollable {
-  export type Props = {
-
+  export type VanillaProps = {
+    adapter?: never;
+    lenis?: never;
+  }
+  export type LenisProps = {
+    adapter: "lenis";
+    lenis?: Omit<
+      LenisOptions,
+      "wrapper" | "content"
+    >;
   }
 
   export interface Element {
@@ -23,11 +31,8 @@ export namespace Scrollable {
         HTMLAttributes<HTMLDivElement>,
         "children"
       >
+      & (Scrollable.VanillaProps | Scrollable.LenisProps)
       & {
-        options?: Omit<
-          LenisOptions,
-          "wrapper" | "content"
-        >;
         children: ReactNode;
       };
     export interface Element extends HTMLElement {}
@@ -36,7 +41,7 @@ export namespace Scrollable {
 
 const ScrollableWrapperComponent = forwardRef<Scrollable.Wrapper.Element, Scrollable.Wrapper.Props>(
   function ScrollableWrapper(
-    { className, options = {}, children, ...rest },
+    { className, adapter, lenis: options = {}, children, ...rest },
     forwardedRef
   ) {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -60,11 +65,12 @@ const ScrollableWrapperComponent = forwardRef<Scrollable.Wrapper.Element, Scroll
         "[star4]: <Scrollable.Wrapper> must have exactly 1 child of type <Scrollable.Wrapper>"
       );
     }
-
-    const [lenis, setLenis] = useState<Lenis>();
+    // const [lenis, setLenis] = useState<Lenis>();
 
     useEffect(
       () => {
+        if(!adapter) return;
+
         const wrapper = wrapperRef.current;
         const content = contentRef.current;
         if(!wrapper || !content) return;
@@ -74,14 +80,14 @@ const ScrollableWrapperComponent = forwardRef<Scrollable.Wrapper.Element, Scroll
           content,
           autoRaf: true,
         });
-        setLenis(lenis);
+        // setLenis(lenis);
 
         return () => {
           lenis.destroy();
-          setLenis(undefined);
+          // setLenis(undefined);
         };
       },
-      [JSON.stringify(options)],
+      [adapter, JSON.stringify(options)],
     );
 
     const context = useMemo<InternalScrollableContext>(

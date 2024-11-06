@@ -1,5 +1,12 @@
 # @star4/react
 
+## 0.0.19
+
+### Patch Changes
+
+- Add adapter to Scrollable
+- Added missing fallback (portal) modal styles
+
 ## 0.0.18
 
 ### Patch Changes

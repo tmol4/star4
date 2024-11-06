@@ -24,6 +24,11 @@ const native = style({
 });
 const portal = style({
   isolation: "isolate",
+  overflow: "hidden",
+
+  position: "fixed",
+  inset: 0,
+  zIndex: 1,
 });
 const backdrop = recipe({
   base: {

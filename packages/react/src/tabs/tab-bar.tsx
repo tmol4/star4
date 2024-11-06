@@ -1,10 +1,12 @@
-import { createIdentifiableElement, type ComposableForwardRefExoticComponent, type ForwardRefExoticComponentProps } from "@star4/react-utils";
-import { Children, cloneElement, createContext, forwardRef, useCallback, useContext, useEffect, useMemo, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
+import { createIdentifiableElement, usePreviousState, type ComposableForwardRefExoticComponent, type ForwardRefExoticComponentProps } from "@star4/react-utils";
+import { Children, cloneElement, createContext, forwardRef, memo, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
 import { Tab } from "./tab";
-import { styles } from "./tab-bar.css";
-
-import clsx from "clsx/lite";
+import { Scrollable } from "../scrollable";
 import { TabIndicator } from "./tab-indicator";
+import { THEME } from "@star4/vanilla-extract";
+import clsx from "clsx/lite";
+
+import { styles } from "./tab-bar.css";
 
 export namespace TabBar {
   export type Props<T extends Value> =
@@ -24,9 +26,11 @@ export namespace TabBar {
 }
 
 type InternalTabBarContext = {
-  index: number;
+  getIndicator: (value: TabBar.Value) => ReactNode;
   isSelected: (value: TabBar.Value) => boolean;
   setSelected: (value: TabBar.Value) => void;
+  observe: (value: TabBar.Value, element: Tab.Element) => void;
+  unobserve: (value: TabBar.Value, element: Tab.Element) => void;
 }
 
 const InternalTabBarContext = createContext<InternalTabBarContext | undefined>(undefined);
@@ -51,23 +55,16 @@ const TabBarComponent = forwardRef<TabBar.Element, TabBar.Props<TabBar.Value>>(
     },
     forwardedRef,
   ) {
+    const ref = useRef<HTMLDivElement>(null);
+    useImperativeHandle(
+      forwardedRef,
+      () => ref.current!,
+      [],
+    );
+    const listRef = useRef<HTMLDivElement>(null);
     const indicatorRef = useRef<TabIndicator.Element>(null);
-    // const refs = useRef<Tab.Element[]>([]);
-    // const [refs, setRefs] = useState<(Tab.Element | undefined)[]>([]);
-    // const [refs, setRefs] = useState(new Map<number, Tab.Element>());
-    // const [refs, setRefs] = useState(new Map<Tab.Element>());
-    // const onTabChange = useCallback(
-    //   (newElement: Tab.Element | null, index: number) => {
-    //     setRefs(refs => {
-    //       if(newElement == null) refs.delete(index);
-    //       else refs.set(index, newElement);
-    //       return new Map(refs);
-    //     });
-    //   },
-    //   []
-    // );
-    const tabs = useMemo(
-      () => Children.toArray(children)
+
+    const tabs = Children.toArray(children)
         .filter(node => {
           const is = Tab.is(node);
           if(!is) {
@@ -77,107 +74,154 @@ const TabBarComponent = forwardRef<TabBar.Element, TabBar.Props<TabBar.Value>>(
             );
           }
           return is;
-        })
-        .map((tab, index) => cloneElement<Tab.PropsWithRef<Tab.Value>>(
-          tab,
-          {
-            // ref: (newElement) => {
-            //   //* Map version
-            //   // onTabChange(newElement, index);
+        });
 
-            //   //* useRef version
-            //   // const elements = refs.current;
-            //   // if(!elements) return;
-            //   // if(newElement == null) { // Delete ref if it is gone
-            //   //   delete elements[index];
-            //   // } else { // Update ref
-            //   //   elements[index] = newElement;
-            //   // }
 
-            //   //* useState version
-            //   // setRefs(
-            //   //   elements => elements
-            //   //     .map((element, i) => {
-            //   //       if(i === index) {
-            //   //         return newElement == null ? undefined : newElement;
-            //   //       } else return element;
-            //   //     })
-            //   // );
-            // },
-          },
-        ))
-        .map(
-          (children, index) => (
-            <InternalTabBarContext.Provider
-              key={index}
-              value={{
-                index,
-                isSelected: (other) => value === other,
-                setSelected: (value) => onValueChange?.(value),
-              }}
-              children={children} />
-          )
-        ),
-      [children]
+    const [refs, setRefs] = useState(new Map<TabBar.Value, Tab.Element>);
+
+    // Scrollable detection
+    const [scrollable, setScrollable] = useState(false);
+    const resizeObserver = useRef(
+      new ResizeObserver((entries) => {
+        const wrapper = ref.current;
+        const content = ref.current;
+        if(!wrapper || !content) return;
+        setScrollable(wrapper.scrollWidth > wrapper!.clientWidth);
+      }),
     );
+    useEffect(() => {
+      const element = ref.current;
+      if(!element) return;
+      const observer = resizeObserver.current;
+      observer.observe(element);
+      return () => {
+        observer.disconnect();
+      };
+    }, []);
 
-    // const selectedIndex = useMemo(
-    //   () => {
-    //     return refs.entries().find(
-    //       ([index, element]) => element.value = ""
-    //     )
-    //   }
-    // );
+    // Indicator animation
 
-    const [rects, setRects] = useState<DOMRect[]>([]);
-    const resizeObserver = new ResizeObserver(
-      (entries) => {
-        const rects = entries.map(entry => entry.target.getBoundingClientRect());
-        setRects(rects);
-      },
+    const currentTab = useMemo(
+      () => refs.get(value),
+      [refs, value],
     );
-
+    const previousTab = usePreviousState(currentTab);
     useEffect(
       () => {
-        // const selected = refs.get();
-        // if(!selected) return;
-        // resizeObserver.observe()
+        const indicator = indicatorRef.current;
+        if(!indicator || !previousTab || !currentTab) return;
+
+        const prevRect = previousTab.getBoundingClientRect();
+        const nextRect = currentTab.getBoundingClientRect();
+
+        // if(nextValue !== prevValue) {
+        if(ref.current != null) {
+          const rect = ref.current.getBoundingClientRect();
+          if(nextRect.left < rect.left || nextRect.right > rect.right) {
+            // lenisRef.instance.scrollTo(
+            //   nextTab,
+            //   {
+            //     duration: 0.3,
+            //     // lerp: 1,
+            //     force: true,
+            //     // easing: x => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+            //   },
+            // );
+          }
+        }
+
+        const relativeRect = globalToLocal(nextRect, prevRect);
+        const prevLeft = relativeRect.left;
+        const prevRight = nextRect.width - relativeRect.right;
+
+        const easing = resolveProperty(THEME.motion.easing.emphasized, indicator);
+        const options: KeyframeAnimationOptions = {
+          composite: "accumulate",
+          easing,
+          duration: 500,
+          fill: "none",
+        };
+        indicator.animate({
+          left: [`${prevLeft}px`, "0"],
+          right: [`${prevRight}px`, "0"],
+        }, options);
       },
-      [],
+      [currentTab],
     );
 
+    // Context
+    const indicator = <TabIndicator ref={indicatorRef} />;
     const context = useMemo<InternalTabBarContext>(
       () => ({
-        index: 0,
+        getIndicator: (other) => value === other ? indicator : undefined,
         isSelected: (other) => value === other,
         setSelected: (value) => onValueChange?.(value),
+        observe: (value, element) => {
+          setRefs(refs => new Map(refs.set(value, element)));
+        },
+        unobserve: (value, element) => {
+          const currentElement = refs.get(value);
+          if(currentElement !== element) return;
+          setRefs(refs => {
+            refs.delete(value);
+            return new Map(refs);
+          });
+        },
       }),
       [value],
     );
 
     return (
-      <div
+      <Scrollable.Wrapper
+        ref={ref}
         className={clsx(
-          styles.container({}),
+          styles.container({
+            // animate: true,
+            // scrollable,
+          }),
           className,
         )}
         role="tablist"
+        options={{
+          autoRaf: true,
+          orientation: "horizontal",
+        }}
         {...rest}>
-          <TabIndicator ref={indicatorRef} />
-          <InternalTabBarContext.Provider value={context}>
-            {tabs}
-          </InternalTabBarContext.Provider>
-      </div>
+          <Scrollable.Content ref={listRef} className={styles.list()}>
+            <InternalTabBarContext.Provider
+              value={context}
+              children={tabs} />
+          </Scrollable.Content>
+      </Scrollable.Wrapper>
     );
   },
-) as ComposableForwardRefExoticComponent<
-  ExoticProps<TabBar.Value>,
-  <T extends TabBar.Value>(props: ExoticProps<T>) => ReactNode
->;
+);
 
 type ExoticProps<T extends TabBar.Value> = ForwardRefExoticComponentProps<TabBar.Element, TabBar.Props<T>>;
 
 export const TabBar = Object.assign(
-  TabBarComponent,
+  memo(TabBarComponent) as ComposableForwardRefExoticComponent<
+    ExoticProps<TabBar.Value>,
+    <T extends TabBar.Value>(props: ExoticProps<T>) => ReactNode
+  >,
   createIdentifiableElement<TabBar.Props<TabBar.Value>>("IS_TAB_BAR"),
 );
+
+
+const globalToLocal = (parent: DOMRect, child: DOMRect): DOMRect => {
+  return new DOMRect(
+    child.x - parent.x,
+    child.y - parent.y,
+    child.width,
+    child.height,
+  );
+}
+
+const getVarName = (variable: string) => {
+  const matches = variable.match(/^var\((.*)\)$/);
+  return matches?.[1] ?? variable;
+}
+
+const resolveProperty = (property: string, element: Element) => {
+  return getComputedStyle(element).getPropertyValue(getVarName(property));
+}

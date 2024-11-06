@@ -1,7 +1,8 @@
 import { splitProps, type Component, type JSX, type Ref } from "solid-js";
 import clsx from "clsx/lite";
 import { styles } from "./tab-indicator.css";
-import { forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
+import { forwardRef, memo, type ForwardedRef, type HTMLAttributes } from "react";
+import { createIdentifiableElement } from "@star4/react-utils";
 
 export namespace TabIndicator {
   export type Props =
@@ -13,7 +14,7 @@ export namespace TabIndicator {
   export interface Element extends HTMLElement {}
 }
 
-export const TabIndicator = forwardRef<TabIndicator.Element, TabIndicator.Props>(
+const TabIndicatorComponent = forwardRef<TabIndicator.Element, TabIndicator.Props>(
   function TabIndicator({ className, ...rest }, forwardedRef) {
     return (
       <div
@@ -28,21 +29,7 @@ export const TabIndicator = forwardRef<TabIndicator.Element, TabIndicator.Props>
     );
   }
 );
-
-// export const TabIndicator: Component<TabIndicator.Props> = (props) => {
-//   const [local, others] = splitProps(
-//     props,
-//     ["ref", "class"]
-//   )
-//   return (
-//     <div
-//       ref={local.ref as HTMLDivElement}
-//       class={clsx(
-//         styles.container,
-//         local.class,
-//       )}
-//       {...others}>
-//         <div class={styles.indicator} />
-//     </div>
-//   );
-// }
+export const TabIndicator = Object.assign(
+  memo(TabIndicatorComponent),
+  createIdentifiableElement("IS_TAB_INDICATOR"),
+);

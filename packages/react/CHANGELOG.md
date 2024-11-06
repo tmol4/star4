@@ -1,5 +1,15 @@
 # @star4/react
 
+## 0.0.18
+
+### Patch Changes
+
+- Added memo to most components
+- Create Scrollable component
+- Implement basic tabs
+- Updated dependencies
+  - @star4/react-utils@0.0.6
+
 ## 0.0.17
 
 ### Patch Changes

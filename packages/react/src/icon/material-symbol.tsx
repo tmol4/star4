@@ -1,6 +1,7 @@
-import { forwardRef, type HTMLAttributes } from "react";
+import { forwardRef, memo, type HTMLAttributes } from "react";
 import clsx from "clsx/lite";
 import { styles } from "./material-symbol.css";
+import { createIdentifiableElement } from "@star4/react-utils";
 
 export namespace MaterialSymbol {
   export type Props =
@@ -14,6 +15,19 @@ export namespace MaterialSymbol {
   export interface Element extends HTMLElement {}
 }
 
+const MaterialSymbolComponent = forwardRef<MaterialSymbol.Element, MaterialSymbol.Props>(
+  function MaterialSymbol({ name, className, "aria-hidden": ariaHidden, ...rest }, forwardedRef) {
+    return (
+      <span
+        ref={forwardedRef}
+        className={clsx(styles.icon, className)}
+        aria-hidden={ariaHidden !== false}
+        {...rest}
+        children={name} />
+    )
+  },
+);
+
 /**
  * Icon, which uses the {@link https://fonts.google.com/icons|Material Symbols} font.
  *
@@ -25,15 +39,7 @@ export namespace MaterialSymbol {
  *
  * @see {@link https://m3.material.io/styles/icons/overview|Icons - Material Design 3}
  */
-export const MaterialSymbol = forwardRef<MaterialSymbol.Element, MaterialSymbol.Props>(
-  function MaterialSymbol({ name, className, "aria-hidden": ariaHidden, ...rest }, forwardedRef) {
-    return (
-      <span
-        ref={forwardedRef}
-        className={clsx(styles.icon, className)}
-        aria-hidden={ariaHidden !== false}
-        {...rest}
-        children={name} />
-    )
-  },
+export const MaterialSymbol = Object.assign(
+  memo(MaterialSymbolComponent),
+  createIdentifiableElement("IS_MATERIAL_SYMBOL"),
 );

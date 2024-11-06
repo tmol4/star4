@@ -1,7 +1,7 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState, type HTMLAttributes, type RefObject } from "react";
+import { forwardRef, memo, useEffect, useImperativeHandle, useRef, useState, type HTMLAttributes, type RefObject } from "react";
 import { styles } from "./ripple.css";
 import clsx from "clsx/lite";
-import { useMediaQuery } from "@star4/react-utils";
+import { createIdentifiableElement, useMediaQuery } from "@star4/react-utils";
 
 const wait = (timeout: number) => new Promise<void>(resolve => setTimeout(resolve, timeout));
 
@@ -34,7 +34,7 @@ export namespace Ripple {
     };
 }
 
-export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
+const RippleComponent = forwardRef<HTMLElement, Ripple.Props>(
   function Ripple(
     {
       for: target,
@@ -330,3 +330,7 @@ export const Ripple = forwardRef<HTMLElement, Ripple.Props>(
   }
 );
 
+export const Ripple = Object.assign(
+  memo(RippleComponent),
+  createIdentifiableElement("IS_RIPPLE"),
+);

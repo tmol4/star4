@@ -5,9 +5,10 @@ import { recipe } from "@vanilla-extract/recipes";
 const container = recipe({
   base: {
     WebkitTapHighlightColor: "transparent",
-    background: "transparent",
-    outline: "none",
+
     border: "none",
+    outline: "none",
+    background: "none",
 
     position: "relative",
 
@@ -28,10 +29,7 @@ const container = recipe({
         pointerEvents: "none",
       },
     }
-  },
-  defaultVariants: {
-    selected: false,
-  },
+  }
 });
 
 const content = recipe({
@@ -66,6 +64,7 @@ const content = recipe({
     }
   },
 });
+
 const stateLayer = style({
   inset: 4,
   vars: {

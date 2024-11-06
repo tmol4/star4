@@ -1,5 +1,5 @@
 import { createIdentifiableElement, type ComposableForwardRefExoticComponent, type ForwardRefExoticComponentProps } from "@star4/react-utils";
-import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import clsx from "clsx/lite";
 import { Ripple } from "../ripple";
 import { FocusRing } from "../focus";
@@ -33,7 +33,7 @@ const TabComponent = forwardRef<Tab.Element, Tab.Props<Tab.Value>>(
     },
     forwardedRef,
   ) {
-    const { isSelected, setSelected } = useInternalTabBarContext();
+    const { isSelected, setSelected, observe, unobserve, getIndicator } = useInternalTabBarContext();
 
 
     const ref = useRef<HTMLButtonElement>(null);
@@ -44,13 +44,20 @@ const TabComponent = forwardRef<Tab.Element, Tab.Props<Tab.Value>>(
     );
 
     const selected = useMemo(() => isSelected(value), [value, isSelected]);
-
+    const indicator = useMemo(() => getIndicator(value), [value, getIndicator]);
 
     useEffect(
       () => {
+        const element = ref.current;
+        if(!element) return;
 
+        observe(value, element);
+
+        return () => {
+          unobserve(value, element);
+        };
       },
-      [],
+      [value],
     );
 
     return (
@@ -68,6 +75,7 @@ const TabComponent = forwardRef<Tab.Element, Tab.Props<Tab.Value>>(
         {...rest}>
           <Ripple for={ref} className={styles.stateLayer} />
           <FocusRing for={ref} />
+          {indicator}
           <span className={styles.content({ selected })}>
             {icon}
             {label}
@@ -75,12 +83,12 @@ const TabComponent = forwardRef<Tab.Element, Tab.Props<Tab.Value>>(
       </button>
     )
   },
-) as ComposableForwardRefExoticComponent<
-  Tab.PropsWithRef<Tab.Value>,
-  <T extends Tab.Value>(props: Tab.PropsWithRef<T>) => ReactNode
->;
+);
 
 export const Tab = Object.assign(
-  TabComponent,
+  memo(TabComponent) as ComposableForwardRefExoticComponent<
+    Tab.PropsWithRef<Tab.Value>,
+    <T extends Tab.Value>(props: Tab.PropsWithRef<T>) => ReactNode
+  >,
   createIdentifiableElement<Tab.Props<Tab.Value>>("IS_TAB"),
 );

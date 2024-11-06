@@ -18,6 +18,7 @@ export * from "./checkbox";
 // Utility components
 export * from "./modal";
 export * from "./popover";
+export * from "./scrollable";
 
 // Non-components
 export * from "./utils";

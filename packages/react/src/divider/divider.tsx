@@ -1,7 +1,8 @@
-import { forwardRef, type ForwardedRef, type HTMLAttributes } from "react";
+import { forwardRef, memo, type ForwardedRef, type HTMLAttributes } from "react";
 import clsx from "clsx/lite";
 
 import { styles } from "./divider.css";
+import { createIdentifiableElement } from "@star4/react-utils";
 
 export namespace Divider {
   export type Props =
@@ -14,7 +15,7 @@ export namespace Divider {
   export interface Element extends HTMLElement {}
 }
 
-export const Divider = forwardRef<Divider.Element, Divider.Props>(
+const DividerComponent = forwardRef<Divider.Element, Divider.Props>(
   function Divider(
     {
       className,
@@ -29,4 +30,9 @@ export const Divider = forwardRef<Divider.Element, Divider.Props>(
         {...rest} />
     )
   },
+);
+
+export const Divider = Object.assign(
+  memo(DividerComponent),
+  createIdentifiableElement("IS_DIVIDER"),
 );

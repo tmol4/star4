@@ -1,4 +1,4 @@
-import { forwardRef, isValidElement, useImperativeHandle, useRef, type ButtonHTMLAttributes, type ReactElement, type ReactNode } from "react";
+import { forwardRef, isValidElement, memo, useImperativeHandle, useRef, type ButtonHTMLAttributes, type ReactElement, type ReactNode } from "react";
 import { FocusRing } from "../focus";
 import { Ripple } from "../ripple";
 import clsx from "clsx";
@@ -22,7 +22,7 @@ export namespace Button {
   export interface Element extends HTMLButtonElement {}
 }
 
-const Component = forwardRef<Button.Element, Button.Props>(
+const ButtonComponent = forwardRef<Button.Element, Button.Props>(
   function Button(
     {
       className,
@@ -68,6 +68,6 @@ const Component = forwardRef<Button.Element, Button.Props>(
 );
 
 export const Button = Object.assign(
-  Component,
+  memo(ButtonComponent),
   createIdentifiableElement("IS_BUTTON"),
 );

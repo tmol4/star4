@@ -1,8 +1,9 @@
-import { forwardRef, type ForwardedRef, type HTMLAttributes, type Ref, type RefObject } from "react";
+import { forwardRef, memo, type ForwardedRef, type HTMLAttributes, type Ref, type RefObject } from "react";
 import clsx from "clsx/lite";
 import { useFocusVisible } from "../utils";
 
 import { styles } from "./focus-ring.css";
+import { createIdentifiableElement } from "@star4/react-utils";
 
 
 export namespace FocusRing {
@@ -25,7 +26,7 @@ export namespace FocusRing {
   }
 }
 
-export const FocusRing = forwardRef<FocusRing.Element, FocusRing.Props>(
+const FocusRingComponent = forwardRef<FocusRing.Element, FocusRing.Props>(
   function FocusRing(
     {
       for: target,
@@ -46,4 +47,9 @@ export const FocusRing = forwardRef<FocusRing.Element, FocusRing.Props>(
         {...rest} />
     )
   },
+);
+
+export const FocusRing = Object.assign(
+  memo(FocusRingComponent),
+  createIdentifiableElement("IS_FOCUS_RING"),
 );

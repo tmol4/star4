@@ -1,5 +1,5 @@
 import { Dialog, FocusRing, Ripple, Button, Radio, MaterialSymbol, ListItem, Avatar, RadioListItem, Menu, usePresence, TabBar, Tab } from "@star4/react";
-import { forwardRef, useRef, useState, type FC, type ReactNode } from "react";
+import { Children, forwardRef, useRef, useState, type FC, type ReactNode } from "react";
 import { THEME } from "~/theme";
 
 const Example1 = () => <div>Hello world!</div>;
@@ -162,8 +162,8 @@ function TabsExample() {
   }
 
   return (
-    <Example headline="Tabs" >
-      {/* <TabBar value={value} onValueChange={setValue}>
+    <Example headline="Tabs" supportingText="Tabs organize groups of related content that are at the same level of hierarchy.">
+      <TabBar value={value} onValueChange={setValue}>
         <Tab
           value={0}
           icon={<MaterialSymbol name="explore" />}
@@ -171,20 +171,20 @@ function TabsExample() {
         <Tab
           value={1}
           icon={<MaterialSymbol name="flight" />}
-          label="Travel" />
+          label="Flights" />
         <Tab
           value={2}
-          icon={<MaterialSymbol name="history" />}
-          label="Drums" />
+          icon={<MaterialSymbol name="luggage" />}
+          label="Trips" />
         <Tab
           value={3}
-          icon={<MaterialSymbol name="history" />}
-          label="Bass" />
+          icon={<MaterialSymbol name="explore_nearby" />}
+          label="Nearby" />
         <Tab
           value={4}
-          icon={<MaterialSymbol name="history" />}
-          label="Saxophone" />
-      </TabBar> */}
+          icon={<MaterialSymbol name="map" />}
+          label="Map" />
+      </TabBar>
       <Button variant="filledTonal" icon={<MaterialSymbol name="add" />} label="Add tab" onClick={() => setCount(prev => prev + 1)} />
       <Button variant="filledTonal" icon={<MaterialSymbol name="remove" />} label="Remove tab" onClick={() => setCount(prev => prev > 1 ? prev - 1 : 1)} />
       <TabBar value={value2} onValueChange={setValue2}>
@@ -259,7 +259,7 @@ export const App: FC = () => {
           onClick={() => setExample(Examples.Tabs)}
           icon={<MaterialSymbol name={example === Examples.Tabs ? "check" : "tab"} />}
           label="Tabs" />
-      </div>
+        </div>
       <div style={{
         transformOrigin: "top center",
         filter: isExiting || !isVisible ? `blur(6px)` : undefined,

@@ -1,5 +1,5 @@
 import { THEME } from "@star4/vanilla-extract";
-import { style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css"
 
 const container = style({
   position: "absolute",

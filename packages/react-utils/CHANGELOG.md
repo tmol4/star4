@@ -1,5 +1,11 @@
 # @star4/react-utils
 
+## 0.0.6
+
+### Patch Changes
+
+- Add usePrevious hook
+
 ## 0.0.5
 
 ### Patch Changes

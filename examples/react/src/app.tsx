@@ -14,47 +14,6 @@ import { DialogsView, ListsView, MenusView, RadioView, TabsView } from "./views"
 //   "Orange"
 // ];
 
-
-// type ExampleProps = {
-//   headline: ReactNode;
-//   supportingText?: ReactNode;
-//   children?: ReactNode;
-// }
-// function Example({ headline, supportingText, children }: ExampleProps) {
-//   return <View headline={headline} supportingText={supportingText} children={children} />
-// }
-
-// function DialogExample() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   return (
-//     <Example headline="Dialogs" supportingText="Dialogs provide important prompts in a user flow.">
-//       <Button
-//         variant="outlined"
-//         onClick={() => setIsOpen(true)}
-//         disabled={isOpen}
-//         icon={<MaterialSymbol name="delete" />}
-//         label="Delete" />
-//       <Dialog
-//         open={isOpen}
-//         onCancel={() => setIsOpen(false)}
-//         icon={<MaterialSymbol name="delete" />}
-//         headline="Permanently delete?"
-//         content="Deleting the selected photos will also remove them from all synced devices."
-//         actions={
-//           <>
-//             <Button
-//               variant="text"
-//               onClick={() => setIsOpen(false)}
-//               label="Cancel" />
-//             <Button
-//               variant="text"
-//               onClick={() => setIsOpen(false)}
-//               label="Delete" />
-//           </>
-//         } />
-//     </Example>
-//   );
-// }
 // function MenuExample() {
 //   const [items, setItems] = useState(3);
 
@@ -94,74 +53,6 @@ import { DialogsView, ListsView, MenusView, RadioView, TabsView } from "./views"
 //   );
 // }
 
-// function RadioExample() {
-//   return (
-//     <Example headline="Radio button" supportingText="Radio buttons let people select one option from a set of options.">
-
-//     </Example>
-//   )
-// }
-
-// function TabsExample() {
-//   const [value, setValue] = useState(0);
-
-//   const [count, setCount] = useState(3);
-//   const [value2, setValue2] = useState(0);
-
-//   const tabs: ReactNode[] = [];
-//   for(let i = 0; i < count; i++) {
-//     tabs.push(<Tab key={i} value={i} label={`Tab ${i + 1}`} />)
-//   }
-
-//   return (
-//     <Example headline="Tabs" supportingText="Tabs organize groups of related content that are at the same level of hierarchy.">
-//       <TabBar value={value} onValueChange={setValue}>
-//         <Tab
-//           value={0}
-//           icon={<MaterialSymbol name="explore" />}
-//           label="Explore" />
-//         <Tab
-//           value={1}
-//           icon={<MaterialSymbol name="flight" />}
-//           label="Flights" />
-//         <Tab
-//           value={2}
-//           icon={<MaterialSymbol name="luggage" />}
-//           label="Trips" />
-//         <Tab
-//           value={3}
-//           icon={<MaterialSymbol name="explore_nearby" />}
-//           label="Nearby" />
-//         <Tab
-//           value={4}
-//           icon={<MaterialSymbol name="map" />}
-//           label="Map" />
-//       </TabBar>
-//       <Button variant="filledTonal" icon={<MaterialSymbol name="add" />} label="Add tab" onClick={() => setCount(prev => prev + 1)} />
-//       <Button variant="filledTonal" icon={<MaterialSymbol name="remove" />} label="Remove tab" onClick={() => setCount(prev => prev > 1 ? prev - 1 : 1)} />
-//       <TabBar value={value2} onValueChange={setValue2}>
-//         {tabs}
-//       </TabBar>
-
-//     </Example>
-//   );
-// }
-
-// const enum Examples {
-//   Menu,
-//   Dialog,
-//   Radio,
-//   Checkbox,
-//   Tabs,
-// }
-// const ExamplesMap = {
-//   [Examples.Dialog]: DialogExample,
-//   [Examples.Menu]: MenuExample,
-//   [Examples.Radio]: RadioExample,
-//   [Examples.Checkbox]: RadioExample,
-//   [Examples.Tabs]: TabsExample,
-// }
-
 
 const enum Views {
   Dialogs,
@@ -185,7 +76,7 @@ export const App: FC = () => {
 
   const { mountedItem, isEntering, isExiting, isVisible } = usePresence({
     source: example,
-    transitionDuration: 250,
+    transitionDuration: [400, 200],
     initialEnter: true,
   });
   const Mounted = VIEWS_MAP[mountedItem];
@@ -223,7 +114,7 @@ export const App: FC = () => {
         filter: isExiting || !isVisible ? `blur(6px)` : undefined,
         transform: isExiting || !isVisible ? `scale(0.96)` : undefined,
         transitionProperty: "transform, opacity, filter",
-        transitionDuration: "250ms",
+        transitionDuration: isEntering ? "400ms" : isExiting ? "200ms" : undefined,
         opacity: isExiting || !isVisible ? 0 : 1,
         transitionTimingFunction: isEntering ? THEME.motion.easing.emphasizedDecelerate : isExiting ? THEME.motion.easing.emphasizedAccelerate : undefined,
       }}>

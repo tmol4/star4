@@ -6,6 +6,7 @@ export namespace View {
   export type Props = {
     headline: ReactNode;
     supportingText?: ReactNode;
+    image?: ReactNode;
     children?: ReactNode;
   }
 }
@@ -14,6 +15,7 @@ function View(
   {
     headline,
     supportingText,
+    image,
     children,
   }: View.Props,
 ) {
@@ -28,8 +30,16 @@ function View(
           children={supportingText} />
       </div>
       <div className={styles.imageCard}>
-        <MaterialSymbol name="block" />
-        <span>No image</span>
+        {/* <MaterialSymbol name="block" />
+        <span>No image</span> */}
+        <div
+          style={{
+            display: "block",
+            width: "100%",
+            objectFit: "cover",
+          }}
+          children={image}>
+        </div>
       </div>
       <div className={styles.container}>
         <Divider style={{ marginBlockEnd: 16 }} />
@@ -40,5 +50,4 @@ function View(
 }
 
 const ViewMemo = memo(View);
-
-export {  ViewMemo as View };
+export { ViewMemo as View };

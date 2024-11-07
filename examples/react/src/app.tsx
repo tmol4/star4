@@ -3,57 +3,6 @@ import { useState, type FC } from "react";
 import { THEME } from "~/theme";
 import { DialogsView, ListsView, MenusView, RadioView, TabsView } from "./views";
 
-// const MENU_ITEMS = [
-//   "Apple",
-//   "Apricot",
-//   "Avocado",
-//   "Banana",
-//   "Cucumber",
-//   "Grapes",
-//   "Olive",
-//   "Orange"
-// ];
-
-// function MenuExample() {
-//   const [items, setItems] = useState(3);
-
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   return (
-//     <Example headline="Menus" supportingText="Menus display a list of choices on a temporary surface.">
-//       <div style={{ display: "grid", gridTemplateColumns: "minmax(112px, 280px) 1fr 1fr", gridTemplateRows: "auto 1fr", gridAutoFlow: "column", gap: 16, minHeight: 360  }}>
-//         <Button
-//           variant={isMenuOpen ? "filledTonal" : "filled"}
-//           icon={<MaterialSymbol name={isMenuOpen ? "close" : "menu"} />}
-//           label={isMenuOpen ? "Close" : "Open"}
-//           onClick={() => setIsMenuOpen(prev => !prev)}
-//           style={{ gridColumn: 1 }}/>
-//         <Menu open={isMenuOpen}>
-//           {
-//             MENU_ITEMS
-//               .filter((_, index) => index + 1 <= items)
-//               .map((value, index) => <Menu.Item key={index} headline={value} />)
-//           }
-//         </Menu>
-//         <Button
-//           variant="filledTonal"
-//           icon={<MaterialSymbol name="remove" />}
-//           label="Remove"
-//           onClick={() => setItems(prev => prev > 1 ? prev - 1 : 1)}
-//           disabled={items <= 1}
-//           style={{ gridColumn: 2 }} />
-//         <Button
-//           variant="filledTonal"
-//           icon={<MaterialSymbol name="add" />}
-//           label="Add"
-//           onClick={() => setItems(prev => prev < MENU_ITEMS.length ? prev + 1 : MENU_ITEMS.length)}
-//           disabled={items >= MENU_ITEMS.length}
-//           style={{ gridColumn: 3 }} />
-//       </div>
-//     </Example>
-//   );
-// }
-
-
 const enum Views {
   Dialogs,
   Menus,
@@ -62,6 +11,7 @@ const enum Views {
   Tabs,
   Lists,
 }
+
 const VIEWS_MAP = {
   [Views.Dialogs]: DialogsView,
   [Views.Menus]: MenusView,
@@ -76,7 +26,7 @@ export const App: FC = () => {
 
   const { mountedItem, isEntering, isExiting, isVisible } = usePresence({
     source: example,
-    transitionDuration: [400, 200],
+    transitionDuration: [500, 200],
     initialEnter: true,
   });
   const Mounted = VIEWS_MAP[mountedItem];
@@ -111,10 +61,10 @@ export const App: FC = () => {
       </TabBar>
       <div style={{
         transformOrigin: "top center",
-        filter: isExiting || !isVisible ? `blur(6px)` : undefined,
-        transform: isExiting || !isVisible ? `scale(0.96)` : undefined,
+        filter: isExiting || !isVisible ? `blur(4px)` : undefined,
+        transform: isExiting || !isVisible ? `scale(0.98)` : undefined,
         transitionProperty: "transform, opacity, filter",
-        transitionDuration: isEntering ? "400ms" : isExiting ? "200ms" : undefined,
+        transitionDuration: isEntering ? "500ms" : isExiting ? "200ms" : undefined,
         opacity: isExiting || !isVisible ? 0 : 1,
         transitionTimingFunction: isEntering ? THEME.motion.easing.emphasizedDecelerate : isExiting ? THEME.motion.easing.emphasizedAccelerate : undefined,
       }}>

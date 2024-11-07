@@ -43,30 +43,7 @@ const textCard = style([
     },
   },
 ]);
-const imageCard = style([
-  card,
-  {
-    gridColumn: 2,
-    // minHeight: 64,
-    color: THEME.color.onSurfaceVariant,
 
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-
-    paddingInline: 24,
-    paddingBlock: 16,
-
-    "@media": {
-      [MEDIA_COMPACT]: {
-        gridRow: 1,
-        gridColumn: 1,
-      },
-    },
-  },
-]);
 
 const headline = style({
   marginBlockEnd: 8,
@@ -91,6 +68,33 @@ const supportingText = style({
     },
   },
 });
+
+const imageCard = style([
+  card,
+  {
+    gridColumn: 2,
+    // minHeight: 64,
+    color: THEME.color.onSurfaceVariant,
+
+    // display: "flex",
+    // flexDirection: "column",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // gap: 8,
+
+    // paddingInline: 24,
+    // paddingBlock: 16,
+
+    overflow: "hidden",
+
+    "@media": {
+      [MEDIA_COMPACT]: {
+        gridRow: 1,
+        gridColumn: 1,
+      },
+    },
+  },
+]);
 
 const container = style({
   gridRow: 2,

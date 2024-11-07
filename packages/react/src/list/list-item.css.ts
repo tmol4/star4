@@ -89,6 +89,7 @@ const supportingText = recipe({
     ...THEME.typescale.body.large,
     color: THEME.color.onSurfaceVariant,
     textOverflow: "ellipsis",
+    textWrap: "nowrap",
     overflow: "hidden",
   },
   variants: {

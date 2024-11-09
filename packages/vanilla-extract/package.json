@@ -42,7 +42,7 @@
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0",
     "@star4/theme": "workspace:^",
-    "@vanilla-extract/css": "^1.16.0",
-    "@star4/tokens": "workspace:^"
+    "@star4/tokens": "workspace:^",
+    "@vanilla-extract/css": "^1.16.0"
   }
 }

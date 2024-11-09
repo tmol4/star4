@@ -1,0 +1,48 @@
+*, *::before, *::after
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  color-scheme: light dark;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--star4-color-surface);
+  color: var(--star4-color-on-surface);
+
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--star4-typescale-body-large-font-family);
+  font-size: var(--star4-typescale-body-large-font-size);
+  font-weight: var(--star4-typescale-body-large-font-weight);
+  line-height: var(--star4-typescale-body-large-line-height);
+  letter-spacing: var(--star4-typescale-body-large-letter-spacing);
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p, li, figcaption {
+  text-wrap: pretty;
+}
+
+ul[role="list"], ol[role="list"] {
+  list-style: none;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  isolation: isolate;
+}

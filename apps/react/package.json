@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@star4/example-react",
+  "name": "@star4/dev-react",
   "type": "module",
   "packageManager": "yarn@4.5.1",
   "scripts": {

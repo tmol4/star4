@@ -31,6 +31,7 @@ const FocusRingComponent = forwardRef<FocusRing.Element, FocusRing.Props>(
     {
       for: target,
       className,
+      show,
       ...rest
     },
     forwardedRef,
@@ -41,7 +42,7 @@ const FocusRingComponent = forwardRef<FocusRing.Element, FocusRing.Props>(
       <div
         ref={forwardedRef as ForwardedRef<HTMLDivElement>}
         className={clsx(
-          styles.focusRing({ visible }),
+          styles.focusRing({ visible: show ?? visible }),
           className,
         )}
         {...rest} />

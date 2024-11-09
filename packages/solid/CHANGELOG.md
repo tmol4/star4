@@ -1,5 +1,13 @@
 # @star4/solid
 
+## 0.0.14
+
+### Patch Changes
+
+- Merge all .d.ts files into a single file for memory optimization during development
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.12
+
 ## 0.0.13
 
 ### Patch Changes

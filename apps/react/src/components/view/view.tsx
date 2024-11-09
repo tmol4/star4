@@ -1,6 +1,7 @@
 import { forwardRef, memo, type ReactNode } from "react";
 import { styles } from "./view.css";
 import { Divider, MaterialSymbol } from "@star4/react";
+import { ViewSection } from "./view-section";
 
 export namespace View {
   export type Props = {
@@ -9,9 +10,13 @@ export namespace View {
     image?: ReactNode;
     children?: ReactNode;
   }
+
+  export namespace Section {
+    export type Props = ViewSection.Props;
+  }
 }
 
-function View(
+function ViewComponent(
   {
     headline,
     supportingText,
@@ -49,5 +54,9 @@ function View(
   );
 }
 
-const ViewMemo = memo(View);
-export { ViewMemo as View };
+export const View = Object.assign(
+  memo(ViewComponent),
+  {
+    Section: ViewSection,
+  },
+);

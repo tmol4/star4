@@ -1,4 +1,4 @@
-import { Button, MaterialSymbol, Tab, TabBar } from "@star4/react";
+import { Button, IconButton, MaterialSymbol, Tab, TabBar } from "@star4/react";
 import { useState, type ReactNode } from "react";
 import { View } from "~/components/view";
 
@@ -7,6 +7,7 @@ export function TabsView() {
 
   const [count, setCount] = useState(3);
   const [value2, setValue2] = useState(0);
+  const [value3, setValue3] = useState(0);
 
   const tabs: ReactNode[] = [];
   for(let i = 0; i < count; i++) {
@@ -15,6 +16,7 @@ export function TabsView() {
 
   return (
     <View headline="Tabs" supportingText="Tabs organize groups of related content that are at the same level of hierarchy.">
+      <h2>Tabs with icons</h2>
       <TabBar value={value} onValueChange={setValue}>
         <Tab
           value={0}
@@ -37,12 +39,51 @@ export function TabsView() {
           icon={<MaterialSymbol name="map" />}
           label="Map" />
       </TabBar>
-      <Button variant="filledTonal" icon={<MaterialSymbol name="add" />} label="Add tab" onClick={() => setCount(prev => prev + 1)} />
-      <Button variant="filledTonal" icon={<MaterialSymbol name="remove" />} label="Remove tab" onClick={() => setCount(prev => prev > 1 ? prev - 1 : 1)} />
-      <TabBar value={value2} onValueChange={setValue2}>
-        {tabs}
-      </TabBar>
 
+      <h2>Dynamic tabs</h2>
+      <p style={{ marginBottom: 8 }}>This example showcases dynamically adding and removing tabs from a tab bar.</p>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <TabBar value={value2} onValueChange={setValue2} style={{ width: "100%", /* or flexGrow: 1 */ }}>
+          {tabs}
+        </TabBar>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+          <IconButton
+            variant="outlined"
+            disabled={count <= 2}
+            selected={false}
+            onClick={() => {
+              setCount(prev => {
+                if(prev + 1 >= value2) setValue2(0);
+                return Math.max(prev - 1, 2);
+              });
+            }}
+            icon={<MaterialSymbol name="remove" />} />
+          <IconButton
+            variant="filled"
+            onClick={() => setCount(prev => prev + 1)}
+            icon={<MaterialSymbol name="add" />} />
+        </div>
+      </div>
+      <h2>Controllable tabs</h2>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+        <IconButton
+          variant="filledTonal"
+          disabled={value3 <= 0}
+          onClick={() => setValue3(prev => Math.max(prev - 1, 0))}
+          icon={<MaterialSymbol name="chevron_left" />} />
+        <TabBar value={value3} onValueChange={setValue3} style={{ flexGrow: 1 }}>
+          <Tab value={0} label="Dogs" />
+          <Tab value={1} label="Cats" />
+          <Tab value={2} label="Parrots" />
+        </TabBar>
+        <IconButton
+          variant="filledTonal"
+          disabled={value3 >= VALUE3_MAX}
+          onClick={() => setValue3(prev => Math.min(prev + 1, VALUE3_MAX))}
+          icon={<MaterialSymbol name="chevron_right" />} />
+      </div>
     </View>
   );
 }
+
+const VALUE3_MAX = 2;

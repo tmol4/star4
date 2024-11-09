@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 import { THEME } from "~/theme";
 
@@ -102,6 +102,9 @@ const container = style({
   minWidth: 0,
   minHeight: 0,
 
+  width: "100%",
+  maxWidth: "max(100%, 980px)",
+
   "@media": {
     [MEDIA_COMPACT]: {
       gridRow: 3,
@@ -118,3 +121,23 @@ export const styles = {
   supportingText,
   container,
 };
+
+
+
+
+
+
+globalStyle(
+  `${container} h2`,
+  {
+    ...THEME.typescale.headline.small,
+    color: THEME.color.onSurface,
+  },
+);
+globalStyle(
+  `${container} h3`,
+  {
+    ...THEME.typescale.title.large,
+    color: THEME.color.onSurface,
+  },
+);

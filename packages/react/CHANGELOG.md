@@ -1,5 +1,17 @@
 # @star4/react
 
+## 0.0.22
+
+### Patch Changes
+
+- Slider: bare bones implementation
+- Merge all .d.ts files into a single file for memory optimization during development
+- Focus ring: implement show prop
+- Add icon buttons
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.12
+  - @star4/react-utils@0.0.9
+
 ## 0.0.21
 
 ### Patch Changes

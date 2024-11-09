@@ -42,7 +42,7 @@ export default defineConfig(config => {
       platform: "browser",
       format: watching ? "esm" : ["esm", "cjs"],
       clean: !watching, // && i === 0 for the first config
-      dts: true,
+      dts: "src/index.ts",
       // entry: ["src/**/*.ts", "!src/tokens/**/*.ts"],
       entry: ["src/**/*.ts"],
       outDir: "dist",

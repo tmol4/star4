@@ -1,5 +1,12 @@
 # @star4/react-utils
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.12
+
 ## 0.0.8
 
 ### Patch Changes

@@ -15,15 +15,16 @@ const fontFamily = (...args: FontFamily): string => {
     .join(", ");
 }
 
-const fontSource = (family: string) => [`${family}`, `${family} Variable`];
+const fontSource = (family: string) => [`${family} Variable`, `${family}`];
 
 export const { contract, theme } = createTheme({
+  // color: {},
   color: {
     variant: "tonalSpot",
-    sourceColor: "#0000ff",
+    sourceColor: "#00ff00",
   },
   typeface: {
-    plain: fontFamily(fontSource("Roboto Flex"), fontSource("Open Sans"), "Roboto",  "system-ui", "Arial", "sans-serif"),
+    plain: fontFamily(fontSource("Open Sans"), fontSource("Roboto Flex"), "Roboto",  "system-ui", "Arial", "sans-serif"),
     brand: fontFamily(fontSource("Raleway"), fontSource("Manrope"), "sans-serif"),
   },
   component: {

@@ -1,28 +1,34 @@
 import { MaterialSymbol, usePresence, TabBar, Tab } from "@star4/react";
 import { useState, type FC } from "react";
 import { THEME } from "~/theme";
-import { DialogsView, ListsView, MenusView, RadioView, TabsView } from "./views";
+import { ButtonsView, DialogsView, IconButtonsView, ListsView, MenusView, RadioView, SlidersView, TabsView } from "./views";
 
 const enum Views {
+  Buttons,
+  IconButtons,
   Dialogs,
   Menus,
   Radio,
   Checkbox,
   Tabs,
   Lists,
+  Sliders,
 }
 
 const VIEWS_MAP = {
+  [Views.Buttons]: ButtonsView,
+  [Views.IconButtons]: IconButtonsView,
   [Views.Dialogs]: DialogsView,
   [Views.Menus]: MenusView,
   [Views.Checkbox]: TabsView,
   [Views.Tabs]: TabsView,
   [Views.Radio]: RadioView,
   [Views.Lists]: ListsView,
+  [Views.Sliders]: SlidersView,
 } satisfies Record<Views, FC>;
 
 export const App: FC = () => {
-  const [example, setExample] = useState(Views.Dialogs);
+  const [example, setExample] = useState(Views.Buttons);
 
   const { mountedItem, isEntering, isExiting, isVisible } = usePresence({
     source: example,
@@ -34,6 +40,14 @@ export const App: FC = () => {
   return (
     <div className="demo" style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
       <TabBar value={example} onValueChange={setExample}>
+        <Tab
+          value={Views.Buttons}
+          icon={<MaterialSymbol name="buttons_alt" />}
+          label="Buttons" />
+        <Tab
+          value={Views.IconButtons}
+          icon={<MaterialSymbol name="play_circle" />}
+          label="Icon Buttons" />
         <Tab
           value={Views.Dialogs}
           icon={<MaterialSymbol name="dialogs" />}
@@ -58,6 +72,10 @@ export const App: FC = () => {
           value={Views.Lists}
           icon={<MaterialSymbol name="list" />}
           label="Lists" />
+        <Tab
+          value={Views.Sliders}
+          icon={<MaterialSymbol name="sliders" />}
+          label="Sliders" />
       </TabBar>
       <div style={{
         transformOrigin: "top center",

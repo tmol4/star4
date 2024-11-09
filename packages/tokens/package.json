@@ -1,13 +1,13 @@
 {
-  "name": "@star4/vanilla-extract",
-  "version": "0.0.10",
+  "name": "@star4/tokens",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/tmol4/star4.git",
-    "directory": "packages/vanilla-extract"
+    "directory": "packages/tokens"
   },
   "homepage": "https://tmol4.github.io/star4",
   "files": [
@@ -40,8 +40,6 @@
   },
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0",
-    "@star4/theme": "workspace:^",
-    "@vanilla-extract/css": "^1.16.0",
-    "@star4/tokens": "workspace:^"
+    "@star4/theme": "workspace:^"
   }
 }

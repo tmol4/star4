@@ -1,5 +1,14 @@
 # @star4/react
 
+## 0.0.20
+
+### Patch Changes
+
+- e95dcb9: List item: fix supporting text overflow
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.10
+  - @star4/react-utils@0.0.7
+
 ## 0.0.19
 
 ### Patch Changes

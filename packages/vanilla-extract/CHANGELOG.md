@@ -1,5 +1,11 @@
 # @star4/vanilla-extract
 
+## 0.0.10
+
+### Patch Changes
+
+- Create a separate tokens package
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1867,6 +1867,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@star4/tokens@workspace:packages/tokens":
+  version: 0.0.0-use.local
+  resolution: "@star4/tokens@workspace:packages/tokens"
+  dependencies:
+    "@material/material-color-utilities": "npm:^0.3.0"
+    "@star4/config": "workspace:^"
+    "@star4/theme": "workspace:^"
+    tsup: "npm:^8.3.5"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@star4/vanilla-extract@workspace:^, @star4/vanilla-extract@workspace:packages/vanilla-extract":
   version: 0.0.0-use.local
   resolution: "@star4/vanilla-extract@workspace:packages/vanilla-extract"

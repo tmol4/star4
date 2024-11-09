@@ -1,5 +1,14 @@
 # @star4/solid
 
+## 0.0.13
+
+### Patch Changes
+
+- 596992e: Add missing license
+- Updated dependencies [260faa9]
+- Updated dependencies [596992e]
+  - @star4/vanilla-extract@0.0.11
+
 ## 0.0.12
 
 ### Patch Changes

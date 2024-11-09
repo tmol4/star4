@@ -1,5 +1,16 @@
 # @star4/vanilla-extract
 
+## 0.0.11
+
+### Patch Changes
+
+- 260faa9: Try out global variables for theme contract (--star4-\*)
+- 596992e: Add missing license
+- Updated dependencies [260faa9]
+- Updated dependencies [596992e]
+  - @star4/tokens@0.0.2
+  - @star4/theme@0.0.10
+
 ## 0.0.10
 
 ### Patch Changes

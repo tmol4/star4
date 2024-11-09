@@ -1,5 +1,14 @@
 # @star4/react-utils
 
+## 0.0.8
+
+### Patch Changes
+
+- 596992e: Add missing license
+- Updated dependencies [260faa9]
+- Updated dependencies [596992e]
+  - @star4/vanilla-extract@0.0.11
+
 ## 0.0.7
 
 ### Patch Changes

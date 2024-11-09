@@ -1,5 +1,11 @@
 # @star4/theme
 
+## 0.0.10
+
+### Patch Changes
+
+- 596992e: Add missing license
+
 ## 0.0.9
 
 ### Patch Changes

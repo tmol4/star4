@@ -3,7 +3,7 @@
 > - **Documentation website**:\
 > *It takes great time to build a docs website for a multi-framework library, you know?*
 > - **Documentation comments**:\
-> *Unstable APIs may change frequently, so we would have to rewrite JSDoc comments without a break.*
+> *Unstable APIs may change frequently, so we would have to rewrite TypeDoc comments without a break.*
 > - **Examples**:\
 > *Projects in the [examples](examples) directory are actively used during development, but they do not yet serve as actual example projects.*
 > - **Development pipeline**
@@ -15,7 +15,7 @@
   <p>Our official design system and UI library</p>
 </div>
 
-[~~Documentation~~](#) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
+[~~Documentation~~](https://tmol4.github.io/star4) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
 
 <details>
 <summary><h3>Table of contents</h3></summary>

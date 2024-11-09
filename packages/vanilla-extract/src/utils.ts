@@ -3,6 +3,14 @@ import { Hct } from "@star4/theme/material";
 
 declare const TYPE_VALUE: unique symbol;
 
+export type Tokens = {
+  [key: string]: unknown | Tokens;
+}
+
+export type Remap<T extends Tokens> = {
+  [P in keyof T]: T[P] extends Tokens ? Remap<T[P]> : string;
+}
+
 export type ValueToken = {
   [TYPE_VALUE]: true;
 };

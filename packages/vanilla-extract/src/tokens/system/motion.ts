@@ -1,40 +1,6 @@
-import { createThemeContract } from "@vanilla-extract/css";
-import type { CSSVarFunction, ResolveTokens, ValueToken } from "../../utils";
+import type { MotionTokens } from "..";
+import type { Remap } from "../../utils";
 
-export type MotionEasing =
-  | "linear"
-  | "emphasized"
-  | "emphasizedDecelerate"
-  | "emphasizedAccelerate"
-  | "standard"
-  | "standardDecelerate"
-  | "standardAccelerate"
-  | "legacy"
-  | "legacyDecelerate"
-  | "legacyAccelerate";
-
-export type MotionDuration =
-  | "short1"
-  | "short2"
-  | "short3"
-  | "short4"
-  | "medium1"
-  | "medium2"
-  | "medium3"
-  | "medium4"
-  | "long1"
-  | "long2"
-  | "long3"
-  | "long4"
-  | "extraLong1"
-  | "extraLong2"
-  | "extraLong3"
-  | "extraLong4";
-
-export type MotionTokens = {
-  easing: Record<MotionEasing, ValueToken>;
-  duration: Record<MotionDuration, ValueToken>;
-}
 
 const EMPHASIZED_OPTIMIZED = `linear(
   0, 0.00245 1.753%, 0.00994 3.55%, 0.03415 6.402%, 0.07376 9.061%,
@@ -293,7 +259,7 @@ const EMPHASIZED_FULL = `linear(
 )`;
 const EMPHASIZED_FALLBACK = "cubic-bezier(0.2, 0, 0, 1)";
 
-export const MOTION_DEFAULTS: ResolveTokens<MotionTokens, string> = {
+export const MOTION_DEFAULTS: Remap<MotionTokens> = {
   easing: {
     linear: "linear",
     emphasized: EMPHASIZED_OPTIMIZED,
@@ -325,38 +291,3 @@ export const MOTION_DEFAULTS: ResolveTokens<MotionTokens, string> = {
     extraLong4: "1000ms",
   },
 };
-
-export const MOTION_TOKENS = createThemeContract<
-  ResolveTokens<MotionTokens, string>
->({
-  easing: {
-    linear: "",
-    emphasized: "",
-    emphasizedAccelerate: "",
-    emphasizedDecelerate: "",
-    standard: "",
-    standardDecelerate: "",
-    standardAccelerate: "",
-    legacy: "",
-    legacyAccelerate: "",
-    legacyDecelerate: "",
-  },
-  duration: {
-    short1: "",
-    short2: "",
-    short3: "",
-    short4: "",
-    medium1: "",
-    medium2: "",
-    medium3: "",
-    medium4: "",
-    long1: "",
-    long2: "",
-    long3: "",
-    long4: "",
-    extraLong1: "",
-    extraLong2: "",
-    extraLong3: "",
-    extraLong4: "",
-  },
-});

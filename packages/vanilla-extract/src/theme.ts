@@ -1,15 +1,18 @@
 import { createDynamicColorScheme, createStaticColorScheme, hexFromArgb, type Brightness, type DynamicColorScheme, type DynamicColorSchemeVariant, type StaticColorScheme } from "@star4/theme/material";
-import { SHAPE_DEFAULTS, THEME, type ColorTokens, type ShapeTokens, type ThemeTokens } from "./tokens";
-import { resolveHct, type DeepPartial, type MaybeHct, type ResolveTokens } from "./utils";
-import { TYPEFACE_DEFAULTS, type TypefaceTokens } from "./tokens/reference/typeface.css";
-import { TYPESCALE_DEFAULTS } from "./tokens/system/typescale.css";
-import { MOTION_DEFAULTS } from "./tokens/system/motion.css";
-import { STATE_DEFAULTS, type StateTokens } from "./tokens/system/state.css";
+import { THEME, type ColorTokens, type ShapeTokens, type StateTokens, type ThemeTokens, type TypefaceTokens } from "./tokens";
+import { resolveHct, type DeepPartial, type MaybeHct, type Remap } from "./utils";
+import { TYPEFACE_DEFAULTS } from "./tokens/reference/typeface";
+import { TYPESCALE_DEFAULTS } from "./tokens/system/typescale";
+import { MOTION_DEFAULTS } from "./tokens/system/motion";
+import { STATE_DEFAULTS } from "./tokens/system/state";
 import { COMPONENT_DEFAULTS } from "./tokens/components";
-import { ICON_DEFAULTS } from "./tokens/components/icon.css";
-import { MATERIAL_SYMBOL_DEFAULTS } from "./tokens/components/material-symbols.css";
-import { RIPPLE_DEFAULTS } from "./tokens/components/ripple.css";
-import { RADIO_DEFAULTS, RADIO_TOKENS } from "./tokens/components/radio.css";
+import { ICON_DEFAULTS } from "./tokens/components/icon";
+import { MATERIAL_SYMBOL_DEFAULTS } from "./tokens/components/material-symbols";
+import { RIPPLE_DEFAULTS } from "./tokens/components/ripple";
+import { RADIO_DEFAULTS } from "./tokens/components/radio";
+import { createTokens } from "@star4/tokens";
+import { createGlobalThemeContract } from "@vanilla-extract/css";
+import { SHAPE_DEFAULTS } from "./tokens/system/shape";
 
 export type CreateContractOptions = {
 
@@ -39,10 +42,13 @@ export type DynamicColorSchemeOptions = {
 }
 
 export type CreateThemeOptions = {
+  // global: false | {
+  //   prefix: string;
+  // };
   color: StaticColorSchemeOptions | DynamicColorSchemeOptions;
-  typeface?: DeepPartial<ResolveTokens<TypefaceTokens, string>>;
-  shape?: DeepPartial<ResolveTokens<ShapeTokens, string>>;
-  state?: DeepPartial<ResolveTokens<StateTokens, string>>;
+  typeface?: DeepPartial<Remap<TypefaceTokens>>;
+  shape?: DeepPartial<Remap<ShapeTokens>>;
+  state?: DeepPartial<Remap<StateTokens>>;
   component: {
     materialSymbol: {
       font: string;
@@ -52,12 +58,17 @@ export type CreateThemeOptions = {
 
 export const createTheme = (
   {
+    // global = false,
     typeface,
     state,
     shape,
     ...options
   }: CreateThemeOptions,
 ) => {
+  // if(global) {
+  //   const tokens = createTokens({ prefixes: ["star4"] })
+  //   const globalContract = createGlobalThemeContract(tokens);
+  // }
   return {
     contract: () => {
       return THEME;
@@ -76,7 +87,7 @@ export const createTheme = (
         scheme = createStaticColorScheme({ brightness });
       }
 
-      const color: ResolveTokens<ColorTokens, string> = {
+      const color: Remap<ColorTokens> = {
         highestSurface: hexFromArgb(scheme.highestSurface.toInt()),
         surface: hexFromArgb(scheme.surface.toInt()),
         surfaceDim: hexFromArgb(scheme.surfaceDim.toInt()),
@@ -127,7 +138,7 @@ export const createTheme = (
         onTertiaryFixedVariant: hexFromArgb(scheme.onTertiaryFixedVariant.toInt()),
       };
 
-      const defaults: ResolveTokens<ThemeTokens, string> = {
+      const defaults: Remap<ThemeTokens> = {
         color,
         shape: {
           corner: {

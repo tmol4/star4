@@ -1,0 +1,31 @@
+import type { Remap } from "../../utils";
+import { THEME, type ComponentTokens } from "..";
+
+export const RADIO_DEFAULTS: Remap<ComponentTokens["radio"]> = {
+  disabledSelectedIconColor: THEME.color.onSurface,
+  disabledSelectedIconOpacity: "0.38",
+  disabledUnselectedIconColor: THEME.color.onSurface,
+  disabledUnselectedIconOpacity: "0.38",
+  iconSize: "20px",
+  selectedFocusIconColor: THEME.color.primary,
+  selectedFocusStateLayerColor: THEME.color.primary,
+  selectedFocusStateLayerOpacity: THEME.state.focusStateLayerOpacity,
+  selectedHoverIconColor: THEME.color.primary,
+  selectedHoverStateLayerColor: THEME.color.primary,
+  selectedHoverStateLayerOpacity: THEME.state.hoverStateLayerOpacity,
+  selectedIconColor: THEME.color.primary,
+  selectedPressedIconColor: THEME.color.primary,
+  selectedPressedStateLayerColor: THEME.color.primary,
+  selectedPressedStateLayerOpacity: THEME.state.pressedStateLayerOpacity,
+  stateLayerSize: "40px",
+  unselectedFocusIconColor: THEME.color.onSurface,
+  unselectedFocusStateLayerColor: THEME.color.onSurface,
+  unselectedFocusStateLayerOpacity: THEME.state.focusStateLayerOpacity,
+  unselectedHoverIconColor: THEME.color.onSurface,
+  unselectedHoverStateLayerColor: THEME.color.onSurface,
+  unselectedHoverStateLayerOpacity: THEME.state.hoverStateLayerOpacity,
+  unselectedIconColor: THEME.color.onSurfaceVariant,
+  unselectedPressedIconColor: THEME.color.onSurface,
+  unselectedPressedStateLayerColor: THEME.color.onSurface,
+  unselectedPressedStateLayerOpacity: THEME.state.pressedStateLayerOpacity,
+};

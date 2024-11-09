@@ -1,4 +1,5 @@
 import { COLOR } from "./color";
+import { COMPONENT } from "./component";
 import { MOTION } from "./motion";
 import { SHAPE } from "./shape";
 import { STATE } from "./state";
@@ -12,4 +13,5 @@ export const TOKENS = {
   typescale: TYPESCALE,
   typeface: TYPEFACE,
   shape: SHAPE,
+  component: COMPONENT,
 } as const;

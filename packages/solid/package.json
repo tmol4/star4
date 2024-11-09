@@ -10,6 +10,7 @@
     "directory": "packages/solid"
   },
   "homepage": "https://tmol4.github.io/star4",
+  "license": "MIT",
   "files": [
     "dist/**/*"
   ],

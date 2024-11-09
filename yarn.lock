@@ -1109,7 +1109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:^9.13.0":
+"@eslint/js@npm:^9.14.0":
   version: 9.14.0
   resolution: "@eslint/js@npm:9.14.0"
   checksum: 10c0/a423dd435e10aa3b461599aa02f6cbadd4b5128cb122467ee4e2c798e7ca4f9bb1fce4dcea003b29b983090238cf120899c1af657cf86300b399e4f996b83ddc
@@ -1754,14 +1754,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@star4/example-react-javascript@workspace:examples/react/javascript"
   dependencies:
-    "@eslint/js": "npm:^9.13.0"
-    "@star4/react": "workspace:^"
-    "@star4/vanilla-extract": "workspace:^"
+    "@eslint/js": "npm:^9.14.0"
+    "@star4/react": "npm:^0.0.22"
+    "@star4/vanilla-extract": "npm:^0.0.12"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vanilla-extract/vite-plugin": "npm:^4.0.17"
-    "@vitejs/plugin-react-swc": "npm:^3.5.0"
-    globals: "npm:^15.11.0"
+    "@vitejs/plugin-react-swc": "npm:^3.7.1"
+    globals: "npm:^15.12.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     vite: "npm:^5.4.10"
@@ -1796,7 +1796,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@star4/react@workspace:^, @star4/react@workspace:packages/react":
+"@star4/react@npm:^0.0.22, @star4/react@workspace:^, @star4/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@star4/react@workspace:packages/react"
   dependencies:
@@ -1812,7 +1812,7 @@ __metadata:
     "@vanilla-extract/dynamic": "npm:^2.1.2"
     "@vanilla-extract/recipes": "npm:^0.5.5"
     clsx: "npm:^2.1.1"
-    lenis: "npm:^1.1.15"
+    lenis: "npm:^1.1.16"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     tsup: "npm:^8.3.5"
@@ -1848,7 +1848,7 @@ __metadata:
     "@vanilla-extract/recipes": "npm:^0.5.5"
     clsx: "npm:^2.1.1"
     esbuild-plugin-solid: "npm:^0.6.0"
-    lenis: "npm:^1.1.15"
+    lenis: "npm:^1.1.16"
     solid-js: "npm:^1.9.3"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
@@ -1878,7 +1878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@star4/vanilla-extract@workspace:^, @star4/vanilla-extract@workspace:packages/vanilla-extract":
+"@star4/vanilla-extract@npm:^0.0.12, @star4/vanilla-extract@workspace:^, @star4/vanilla-extract@workspace:packages/vanilla-extract":
   version: 0.0.0-use.local
   resolution: "@star4/vanilla-extract@workspace:packages/vanilla-extract"
   dependencies:
@@ -2208,7 +2208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react-swc@npm:^3.5.0, @vitejs/plugin-react-swc@npm:^3.7.1":
+"@vitejs/plugin-react-swc@npm:^3.7.1":
   version: 3.7.1
   resolution: "@vitejs/plugin-react-swc@npm:3.7.1"
   dependencies:
@@ -3215,7 +3215,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^15.11.0":
+"globals@npm:^15.12.0":
   version: 15.12.0
   resolution: "globals@npm:15.12.0"
   checksum: 10c0/f34e0a1845b694f45188331742af9f488b07ba7440a06e9d2039fce0386fbbfc24afdbb9846ebdccd4092d03644e43081c49eb27b30f4b88e43af156e1c1dc34
@@ -3497,9 +3497,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lenis@npm:^1.1.15":
-  version: 1.1.15
-  resolution: "lenis@npm:1.1.15"
+"lenis@npm:^1.1.16":
+  version: 1.1.16
+  resolution: "lenis@npm:1.1.16"
   peerDependencies:
     react: ">=17.0.0"
     vue: ">=3.0.0"
@@ -3508,7 +3508,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 10c0/5219cbfa6369548629d3378dc92e9db2b923dc66c447a924a1684685b6b690523c9ae4dc0ac982c4c080d8fd78919b17a6516ab68388a1b42c39b2e6995fbc52
+  checksum: 10c0/b64137f50a37271faa3b53328f9cf7b984284b4bf78ab75b6e9a1defacbe5da46d8440da675322acc2925def320fc778a29c60d3b10fed1e51286b4c673bcb02
   languageName: node
   linkType: hard
 

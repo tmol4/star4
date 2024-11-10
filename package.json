@@ -25,11 +25,16 @@
     "example:solid-typescript:preview": "yarn : @star4/example-solid preview",
     "packages:dev": "turbo dev --filter=\"./packages/*\"",
     "packages:build": "turbo build --filter=\"./packages/*\"",
-    "packages:publish": "changeset version && turbo publish && changeset tag"
+    "packages:publish": "changeset version && turbo publish && changeset tag",
+    "packages:test": "vitest"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
     "@star4/config": "workspace:^",
-    "turbo": "^2.2.3"
+    "@vitest/browser": "^2.1.4",
+    "@vitest/ui": "^2.1.4",
+    "playwright": "^1.48.2",
+    "turbo": "^2.2.3",
+    "vitest": "^2.1.4"
   }
 }

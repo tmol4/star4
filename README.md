@@ -1,3 +1,5 @@
+**English** · [Русский](./README.ru.md)
+
 > [!WARNING]
 > Since the library is in active development, many developer-friendly and organizational features are not yet present, for example:
 > - **Documentation website**:\
@@ -448,6 +450,33 @@ export function OnlyButtons({ children }: { children: ReactNode }) {
 
   return buttons;
 }
+```
+
+> [!WARNING]
+> Name and return value of the `createIdentifiableElement` function might change in the future.
+
+Making your own components identifiable is also possible via the `createIdentifiableElement` helper. We advice you to follow the naming convention shown in the example:
+```tsx
+import { createIdentifiableElement } from "@star4/react";
+
+// forwardRef may also be used instead of direct assignment
+const ExampleComponent = function Example() {
+
+}
+
+export const Example = Object.assign(
+  // memo(ExampleComponent) may also be used for memoization
+  ExampleComponent,
+  // IS_EXAMPLE is the description of
+  // a Symbol created to identify the element
+  createIdentifiableElement("IS_EXAMPLE"),
+);
+
+// Use the component
+<Example />
+
+// Identify the element
+Example.is(something)
 ```
 
 ## Acknowledgements

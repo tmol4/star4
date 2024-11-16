@@ -25,7 +25,7 @@ export const { contract, theme } = createTheme({
   },
   typeface: {
     plain: fontFamily(fontSource("Open Sans"), fontSource("Roboto Flex"), "Roboto",  "system-ui", "Arial", "sans-serif"),
-    brand: fontFamily(fontSource("Raleway"), fontSource("Manrope"), "sans-serif"),
+    brand: fontFamily(fontSource("Manrope"), fontSource("Raleway"),  "sans-serif"),
   },
   component: {
     materialSymbol: {

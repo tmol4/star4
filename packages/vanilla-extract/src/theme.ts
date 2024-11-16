@@ -13,6 +13,7 @@ import { RADIO_DEFAULTS } from "./tokens/components/radio";
 import { createTokens } from "@star4/tokens";
 import { createGlobalThemeContract } from "@vanilla-extract/css";
 import { SHAPE_DEFAULTS } from "./tokens/system/shape";
+import { CIRCULAR_PROGRESS_DEFAULTS } from "./tokens/components/circular-progress";
 
 export type CreateContractOptions = {
 
@@ -162,6 +163,7 @@ export const createTheme = (
           ...state,
         },
         component: {
+          circularProgress: CIRCULAR_PROGRESS_DEFAULTS,
           ripple: RIPPLE_DEFAULTS,
           icon: ICON_DEFAULTS,
           materialSymbol: {

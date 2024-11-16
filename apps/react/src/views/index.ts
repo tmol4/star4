@@ -6,3 +6,4 @@ export * from "./lists";
 export * from "./tabs";
 export * from "./radio";
 export * from "./sliders";
+export * from "./progress-indicators";

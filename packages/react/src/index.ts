@@ -16,11 +16,13 @@ export * from "./slider";
 export * from "./menu";
 export * from "./switch";
 export * from "./checkbox";
+export * from "./progress";
 
 // Utility components
 export * from "./modal";
 export * from "./popover";
 export * from "./scrollable";
+
 
 // Non-components
 export * from "./utils";

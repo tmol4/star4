@@ -1,5 +1,11 @@
 # @star4/tokens
 
+## 0.0.3
+
+### Patch Changes
+
+- Add circular progress tokens
+
 ## 0.0.2
 
 ### Patch Changes

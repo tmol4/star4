@@ -1,5 +1,13 @@
 # @star4/vanilla-extract
 
+## 0.0.13
+
+### Patch Changes
+
+- Add circular progress tokens
+- Updated dependencies
+  - @star4/tokens@0.0.3
+
 ## 0.0.12
 
 ### Patch Changes

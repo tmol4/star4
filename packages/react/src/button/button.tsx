@@ -46,6 +46,7 @@ const ButtonComponent = forwardRef<Button.Element, Button.Props>(
         ref={ref}
         className={clsx(
           styles.container({
+            withIcon: !!icon,
             variant,
             disabled,
           }),

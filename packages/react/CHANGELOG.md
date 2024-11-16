@@ -1,5 +1,16 @@
 # @star4/react
 
+## 0.0.23
+
+### Patch Changes
+
+- Button: apply padding according the the Material Design 3 specification
+- Button: use circular progress tokens to apply a custom theme if one is used as an icon
+- Implement CircularProgress component (intermediate animation only)
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.13
+  - @star4/react-utils@0.0.10
+
 ## 0.0.22
 
 ### Patch Changes

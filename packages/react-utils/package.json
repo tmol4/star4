@@ -1,6 +1,6 @@
 {
   "name": "@star4/react-utils",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publishConfig": {
     "access": "public"
   },

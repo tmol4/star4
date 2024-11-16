@@ -1,5 +1,12 @@
 # @star4/solid
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies
+  - @star4/vanilla-extract@0.0.13
+
 ## 0.0.14
 
 ### Patch Changes

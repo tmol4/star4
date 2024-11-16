@@ -46,6 +46,14 @@ const container = recipe({
     vars: {
       [THEME.component.icon.size]: "18px",
       [THEME.component.materialSymbol.opticalSize]: "18",
+
+      [THEME.component.circularProgress.containerSize]: "18px",
+      [THEME.component.circularProgress.activeIndicatorColor]: "currentcolor",
+      [THEME.component.circularProgress.activeIndicatorThickness]: "2px",
+      [THEME.component.circularProgress.activeIndicatorShape]: "0px",
+      [THEME.component.circularProgress.trackColor]: "transparent",
+      [THEME.component.circularProgress.trackThickness]: "0px",
+      [THEME.component.circularProgress.trackShape]: "0px",
     },
 
     // Touch target
@@ -60,6 +68,11 @@ const container = recipe({
     },
   },
   variants: {
+    withIcon: {
+      true: {
+        paddingInline: "16px 24px",
+      },
+    },
     variant: {
       elevated: {
         backgroundColor: THEME.color.surfaceContainerLow,

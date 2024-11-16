@@ -17,7 +17,7 @@
   <p>Our official design system and UI library</p>
 </div>
 
-[~~Documentation~~](https://tmol4.github.io/star4) · [Report an bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
+[~~Documentation~~](https://tmol4.github.io/star4) · [Report a bug](https://github.com/tmol4/star4/issues) · [Request a feature](https://github.com/tmol4/star4/issues)
 
 <details>
 <summary><h3>Table of contents</h3></summary>

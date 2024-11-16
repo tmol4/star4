@@ -1,15 +1,11 @@
 [English](./README.md) · **Русский**
 
 > [!WARNING]
-> Since the library is in active development, many developer-friendly and organizational features are not yet present, for example:
-> - **Documentation website**:\
-> *It takes great time to build a docs website for a multi-framework library, you know?*
-> - **Documentation comments**:\
-> *Unstable APIs may change frequently, so we would have to rewrite TypeDoc comments without a break.*
-> - **Examples**:\
-> *Projects in the [examples](examples) directory are actively used during development, but they do not yet serve as actual example projects.*
-> - **Development pipeline**
-> - **Developer workflow**
+> Поскольку библиотека находится в активной разработке, большинство функций, удобных для разработчиков и организационных функций ещё не реализованы, например:
+> - **Вебсайт с документацией**
+> - **Комментарии с документацией**
+> - **Примеры**
+> - **Рабочий процесс разработки**
 
 <div>
   <img src=".github/images/sparkles.svg" align="left" width="64" height="64" />
@@ -25,13 +21,13 @@
 - [Функции](#функции)
 - [Использование](#использование)
   - [Установка](#установка)
-  - [Theming](#theming)
-    - [Creating a theme](#creating-a-theme)
-    - [Applying styles](#applying-styles)
-    - [Color schemes](#color-schemes)
-    - [Fonts](#fonts)
+  - [Тематизация](#тематизация)
+    - [Создание темы](#создание-темы)
+    - [Применение стилей](#применение-стилей)
+    - [Цветовые схемы](#цветовые-схемы)
+    - [Шрифты](#шрифты)
   - [Components](#components)
-    - [Identifiable components (React only)](#identifiable-components-react-only)
+    - [Идентифицируемые компоненты (только React)](#идентифицируемые-компоненты-только-react)
 - [Благодарности](#благодарности)
 
 </details>
@@ -50,19 +46,19 @@
 
 ### Установка
 
-1. Add the Vanilla Extract plugin to the project\
+1. Добавьте Vanilla Extract plugin в проект\
 \
-  The library can be used in any project which supports [Vanilla Extract](https://vanilla-extract.style "vanilla-extract.style"). All available integrations can be found at [*"Bundler Integration"*](https://vanilla-extract.style/documentation/getting-started/#bundler-integration "vanilla-extract.style/documentation/getting-started#bundler-integration"). Here's a list of currently supported integrations *(at the moment of writing)*:
-   - [Astro](https://vanilla-extract.style/documentation/integrations/astro "vanilla-extract.style/documentation/integrations/astro") (via `@vanilla-extract/vite-plugin`)
-   - [esbuild](https://vanilla-extract.style/documentation/integrations/esbuild "vanilla-extract.style/documentation/integrations/esbuild") (via `@vanilla-extract/esbuild-plugin`)
-   - [Gatsby](https://vanilla-extract.style/documentation/integrations/gatsby "vanilla-extract.style/documentation/integrations/gatsby") (via `gatsby-plugin-vanilla-extract`)
-   - [Next.js](https://vanilla-extract.style/documentation/integrations/next "vanilla-extract.style/documentation/integrations/next") (via `@vanilla-extract/next-plugin`)
-   - [Parcel](https://vanilla-extract.style/documentation/integrations/parcel "vanilla-extract.style/documentation/integrations/parcel") (via `@vanilla-extract/parcel-transformer`)
-   - [Remix](https://vanilla-extract.style/documentation/integrations/remix "vanilla-extract.style/documentation/integrations/remix") (via `@vanilla-extract/vite-plugin`)
-   - [Rollup](https://vanilla-extract.style/documentation/integrations/rollup "vanilla-extract.style/documentation/integrations/rollup") (via `@vanilla-extract/rollup-plugin`)
-   - [Vite](https://vanilla-extract.style/documentation/integrations/vite "vanilla-extract.style/documentation/integrations/vite") (via `@vanilla-extract/vite-plugin`)
-   - [Webpack](https://vanilla-extract.style/documentation/integrations/webpack "vanilla-extract.style/documentation/integrations/webpack") (via `@vanilla-extract/webpack-plugin`)
-1. Add the Vanilla Extract core library ([`@vanilla-extract/css`](https://npmjs.com/package/@vanilla-extract/css)):
+  Эта библиотека может быть использована в любом проекте, который поддерживает [Vanilla Extract](https://vanilla-extract.style "vanilla-extract.style"). Все доступные интеграции расположены по ссылке: [*"Bundler Integration"*](https://vanilla-extract.style/documentation/getting-started/#bundler-integration "vanilla-extract.style/documentation/getting-started#bundler-integration"). Вот список интеграций, поддерживающихся на момент написания:
+   - [Astro](https://vanilla-extract.style/documentation/integrations/astro "vanilla-extract.style/documentation/integrations/astro") (при помощи `@vanilla-extract/vite-plugin`)
+   - [esbuild](https://vanilla-extract.style/documentation/integrations/esbuild "vanilla-extract.style/documentation/integrations/esbuild") (при помощи `@vanilla-extract/esbuild-plugin`)
+   - [Gatsby](https://vanilla-extract.style/documentation/integrations/gatsby "vanilla-extract.style/documentation/integrations/gatsby") (при помощи `gatsby-plugin-vanilla-extract`)
+   - [Next.js](https://vanilla-extract.style/documentation/integrations/next "vanilla-extract.style/documentation/integrations/next") (при помощи `@vanilla-extract/next-plugin`)
+   - [Parcel](https://vanilla-extract.style/documentation/integrations/parcel "vanilla-extract.style/documentation/integrations/parcel") (при помощи `@vanilla-extract/parcel-transformer`)
+   - [Remix](https://vanilla-extract.style/documentation/integrations/remix "vanilla-extract.style/documentation/integrations/remix") (при помощи `@vanilla-extract/vite-plugin`)
+   - [Rollup](https://vanilla-extract.style/documentation/integrations/rollup "vanilla-extract.style/documentation/integrations/rollup") (при помощи `@vanilla-extract/rollup-plugin`)
+   - [Vite](https://vanilla-extract.style/documentation/integrations/vite "vanilla-extract.style/documentation/integrations/vite") (при помощи `@vanilla-extract/vite-plugin`)
+   - [Webpack](https://vanilla-extract.style/documentation/integrations/webpack "vanilla-extract.style/documentation/integrations/webpack") (при помощи `@vanilla-extract/webpack-plugin`)
+1. Добавьте основную библиотеку Vanilla Extract ([`@vanilla-extract/css`](https://npmjs.com/package/@vanilla-extract/css)):
    <details>
       <summary><a href="https://npmjs.com">npm</a></summary>
 
@@ -91,7 +87,7 @@
       bun add @vanilla-extract/css
       ```
     </details>
-1. Install star4's Vanilla Extract utility package ([`@star4/vanilla-extract`](https://npmjs.com/package/@star4/vanilla-extract)):
+2. Установите пакет star4 с утилитами для Vanilla Extract ([`@star4/vanilla-extract`](https://npmjs.com/package/@star4/vanilla-extract)):
    <details>
       <summary><a href="https://npmjs.com">npm</a></summary>
 
@@ -120,7 +116,7 @@
       bun add @star4/vanilla-extract
       ```
     </details>
-1. Install star4's framework package
+3. Установите пакет star4 для выбранного фреймворка:
      - React ([`@star4/react`](https://npmjs.com/package/@star4/react)):
        <details>
          <summary><a href="https://npmjs.com">npm</a></summary>
@@ -180,11 +176,11 @@
          ```
        </details>
 
-### Theming
+### Тематизация
 
-In order to start using star4, you must first setup a theme. This can be done using the [`@star4/vanilla-extract`](https://npmjs.com/package/@star4/vanilla-extract) package.
+Для того, что начать использовать star4, необходимо настроить тему. Это может сделано при помощи пакета [`@star4/vanilla-extract`](https://npmjs.com/package/@star4/vanilla-extract).
 
-#### Creating a theme
+#### Создание темы
 
 A theme object can be created in an ordinary (non `.css.*`) file using the `createTheme` helper function:
 ```ts
@@ -214,24 +210,24 @@ export const { contract, theme } = createTheme({
 });
 ```
 
-#### Applying styles
+#### Применение стилей
 
-The `createTheme` helper returns an object containing two functions: `contract` and `theme`.
+Функция `createTheme` возвращает объект, содержащий две функции: `contract` и `theme`.
 
-First, create a theme contract using the `contract` helper:
+Сначала создайте "контракт", используя вспомогательную функцию `contract`:
 ```ts
-// THIS EXAMPLES ASSUMES:
-// - a star4 theme was created
-// - `contract` was imported into this file
+// ДАННЫЙ ПРИМЕР ПРЕДПОЛАГАЕТ:
+// - тема star4 была создана
+// - `contract` был импортирован в файл
 
 export const THEME = contract();
 ```
 
-The `theme` function returns an object filled with CSS values, ready to be applied using ([`@vanilla-extract/css`](https://npmjs.com/package/@vanilla-extract/css)) inside of a `.css.*` file. You can use any Vanilla Extract API, depending on your needs.
+Вспомогательная функция `theme` возвращает объект, заполненный CSS значениями, готовый к применению при помощи ([`@vanilla-extract/css`](https://npmjs.com/package/@vanilla-extract/css)) внутри `.css.*` файла. Можно использовать любой API Vanilla Extract, в зависимости от ваших нужд.
 
 Example creating a theme which follows system preference, using [`globalStyle`](https://vanilla-extract.style/documentation/global-api/global-style "vanilla-extract.style/documentation/global-api/global-style") and [`assignVars`](https://vanilla-extract.style/documentation/api/assign-vars "vanilla-extract.style/documentation/api/assign-vars") APIs:
 ```ts
-// THIS EXAMPLES ASSUMES:
+// ДАННЫЙ ПРИМЕР ПРЕДПОЛАГАЕТ:
 // - a star4 theme was created
 // - a theme contract named `THEME` was created
 // - `theme` helper and `THEME` were imported into this file
@@ -258,7 +254,7 @@ globalStyle(
 ```
 Here is a more complicated example, allowing overriding the current theme mode using a data attribute:
 ```ts
-// THIS EXAMPLES ASSUMES:
+// ДАННЫЙ ПРИМЕР ПРЕДПОЛАГАЕТ:
 // - a star4 theme was created
 // - a theme contract named `THEME` was created
 // - `theme` helper and `THEME` were imported into this file
@@ -327,16 +323,27 @@ globalStyle(
 );
 ```
 
-#### Color schemes
+#### Цветовые схемы
 
 star4 uses the [Material You color system](https://m3.material.io/styles/color/system "m3.material.io/styles/color/system"), which provides two options for creating color schemes: [**static**](https://m3.material.io/styles/color/static/baseline "m3.material.io/styles/color/static/baseline") and [**dynamic**](https://m3.material.io/styles/color/dynamic "m3.material.io/styles/color/dynamic"). See [*Choosing a scheme*](https://m3.material.io/styles/color/choosing-a-scheme "m3.material.io/styles/color/choosing-a-scheme") for advice.
 
+<details>
+  <summary><b>Статическая цветовая схема</b></summary>
+  <br>
+  <p>Светлая</p>
+  <img src="./.github/images/color-scheme-static-light.png">
+  <br>
+  <br>
+  <p>Тёмная</p>
+  <img src="./.github/images/color-scheme-static-dark.png">
+</details>
+
 > [!WARNING]
-> The behaviour of the `color` property might change in the future
+> Поведение свойства `color` может быть изменено в будущем.
 
 The `color` property is responsible for color scheme configuration. Settings it to an empty object `{}` will assert a static scheme, while creating a dynamic scheme requires specifying a few properties.
 
-Example of a static color scheme:
+Пример статической цветовой схемы:
 ```ts
 export const { contract, theme } = createTheme({
   // Empty object - using a static color scheme
@@ -344,7 +351,8 @@ export const { contract, theme } = createTheme({
   /* ... other fields... */
 });
 ```
-Example of a dynamic color scheme:
+
+Пример динамической цветовой схемы:
 ```ts
 export const { contract, theme } = createTheme({
   color: {
@@ -359,7 +367,7 @@ export const { contract, theme } = createTheme({
 });
 ```
 
-#### Fonts
+#### Шрифты
 
 Font family names containing spaces must be quoted in CSS.
 
@@ -423,17 +431,15 @@ export const { contract, theme } = createTheme({
 
 star4 framework packages export all available components, most of them contain documentation comments and code samples, so documentation for each component will not be provided here.
 
-#### Identifiable components (React only)
+#### Идентифицируемые компоненты (только React)
 
-The [`@star4/react`](https://npmjs.com/package/@star4/react) package provides an additional helper with each component: `.is()`. This is a function which can be used to identify if a React element is a specific element. It is useful for filtering out children elements.
-
-Example:
+Пакет [`@star4/react`](https://npmjs.com/package/@star4/react) содержит вспомогательную функцию `.is()` для каждого компонента. Эта функция может быть использована для определения, является ли React элемент экземпляром конкретного компонента. Она прекрасно подходит для фильтрации дочерних элементов:
 ```tsx
 import { Children, type ReactNode } from "react";
 import { Button } from "@star4/react";
 
-// This component only displays buttons
-// Warns when other elements are passed as children
+// Данный компонент отображает только экземпляры Button
+// Выводит предупреждение, если передаются прочие элементы
 export function OnlyButtons({ children }: { children: ReactNode }) {
   const buttons = Children.toArray(children)
     .filter(node => {
@@ -450,29 +456,29 @@ export function OnlyButtons({ children }: { children: ReactNode }) {
 ```
 
 > [!WARNING]
-> Name and return value of the `createIdentifiableElement` function might change in the future.
+> Название и возвращаемое значение функции `createIdentifiableElement` могут измениться в будущем
 
-Making your own components identifiable is also possible via the `createIdentifiableElement` helper. We advice you to follow the naming convention shown in the example:
+Свои компоненты можно сделать идентифицируемыми, используя функцию `createIdentifiableElement`. Мы рекомендуем именовать ваши компоненты, как в примере:
 ```tsx
 import { createIdentifiableElement } from "@star4/react";
 
-// forwardRef may also be used instead of direct assignment
+// forwardRef также может быть использована вместо прямого присвоения
 const ExampleComponent = function Example() {
 
 }
 
 export const Example = Object.assign(
-  // memo(ExampleComponent) may also be used for memoization
+  // memo(ExampleComponent) также может быть использовано для мемоизации
   ExampleComponent,
-  // IS_EXAMPLE is the description of
-  // a Symbol created to identify the element
+  // IS_EXAMPLE - это описание объекта Symbol,
+  // созданного для идентификации элемента
   createIdentifiableElement("IS_EXAMPLE"),
 );
 
-// Use the component
+// Используйте компонент
 <Example />
 
-// Identify the element
+// Идентифицируйте элемент
 Example.is(something)
 ```
 

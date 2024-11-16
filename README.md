@@ -8,7 +8,6 @@
 > *Unstable APIs may change frequently, so we would have to rewrite TypeDoc comments without a break.*
 > - **Examples**:\
 > *Projects in the [examples](examples) directory are actively used during development, but they do not yet serve as actual example projects.*
-> - **Development pipeline**
 > - **Developer workflow**
 
 <div>
@@ -334,6 +333,17 @@ globalStyle(
 
 star4 uses the [Material You color system](https://m3.material.io/styles/color/system "m3.material.io/styles/color/system"), which provides two options for creating color schemes: [**static**](https://m3.material.io/styles/color/static/baseline "m3.material.io/styles/color/static/baseline") and [**dynamic**](https://m3.material.io/styles/color/dynamic "m3.material.io/styles/color/dynamic"). See [*Choosing a scheme*](https://m3.material.io/styles/color/choosing-a-scheme "m3.material.io/styles/color/choosing-a-scheme") for advice.
 
+<details>
+  <summary><b>Static color scheme</b></summary>
+  <br>
+  <p>Light</p>
+  <img src="./.github/images/color-scheme-static-light.png">
+  <br>
+  <br>
+  <p>Dark</p>
+  <img src="./.github/images/color-scheme-static-dark.png">
+</details>
+
 > [!WARNING]
 > The behaviour of the `color` property might change in the future
 
@@ -428,9 +438,7 @@ star4 framework packages export all available components, most of them contain d
 
 #### Identifiable components (React only)
 
-The [`@star4/react`](https://npmjs.com/package/@star4/react) package provides an additional helper with each component: `.is()`. This is a function which can be used to identify if a React element is a specific element. It is useful for filtering out children elements.
-
-Example:
+The [`@star4/react`](https://npmjs.com/package/@star4/react) package provides an additional helper with each component: `.is()`. This is a function which can be used to identify if a React element is a specific element. It is useful for filtering out children elements:
 ```tsx
 import { Children, type ReactNode } from "react";
 import { Button } from "@star4/react";

@@ -15,8 +15,6 @@ const createThemeSelector = (
   const attributes = values.map(
     theme => `[data-theme="${theme}"]`,
   );
-
-  // return `:root${attribute}, ${attribute} ::backdrop`;
   let is = `:is(${attributes.join(",")})`;
   if(not) is = `:not(${is})`;
   return `:root${is}, ${is} ::backdrop`;

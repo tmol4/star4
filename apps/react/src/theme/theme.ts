@@ -15,7 +15,7 @@ const fontFamily = (...args: FontFamily): string => {
     .join(", ");
 }
 
-const fontSource = (family: string) => [`${family} Variable`, `${family}`];
+const fontSource = (family: string) => [`${family}`, `${family} Variable`];
 
 export const { contract, theme } = createTheme({
   // color: {},

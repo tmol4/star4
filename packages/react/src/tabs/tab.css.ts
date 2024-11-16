@@ -45,6 +45,20 @@ const content = recipe({
     transitionProperty: "color, font-variation-settings",
     transitionDuration: THEME.motion.duration.long2,
     transitionTimingFunction: THEME.motion.easing.emphasized,
+
+    vars: {
+      [THEME.component.icon.size]: "18px",
+      [THEME.component.materialSymbol.opticalSize]: "18",
+
+      [THEME.component.circularProgress.containerSize]: "18px",
+      [THEME.component.circularProgress.activeIndicatorColor]: "currentcolor",
+      [THEME.component.circularProgress.activeIndicatorThickness]: "2px",
+      [THEME.component.circularProgress.activeIndicatorShape]: "1px",
+      [THEME.component.circularProgress.trackColor]: "transparent",
+      [THEME.component.circularProgress.trackThickness]: "0px",
+      [THEME.component.circularProgress.trackShape]: "0px",
+
+    },
   },
   variants: {
     selected: {

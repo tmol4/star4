@@ -1,4 +1,4 @@
-import { MaterialSymbol, usePresence, TabBar, Tab } from "@star4/react";
+import { MaterialSymbol, usePresence, TabBar, Tab, CircularProgress } from "@star4/react";
 import { useState, type FC } from "react";
 import { THEME } from "~/theme";
 import { ButtonsView, DialogsView, IconButtonsView, ListsView, MenusView, ProgressIndicatorsView, RadioView, SlidersView, TabsView } from "./views";
@@ -60,7 +60,8 @@ export const App: FC = () => {
           label="Menus" />
         <Tab
           value={Views.ProgressIndicators}
-          icon={<MaterialSymbol name="progress_activity" />}
+          // icon={<MaterialSymbol name="progress_activity" />}
+          icon={<CircularProgress />}
           label="Progress indicators" />
         <Tab
           value={Views.Radio}

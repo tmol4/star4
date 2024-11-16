@@ -169,7 +169,7 @@ const arc = recipe({
         "::after": {
           width: THEME.component.circularProgress.activeIndicatorThickness,
           height: THEME.component.circularProgress.activeIndicatorShape,
-          backgroundColor: THEME.color.primary,
+          backgroundColor: THEME.component.circularProgress.activeIndicatorColor,
           borderRadius: `0 0 ${THEME.component.circularProgress.activeIndicatorShape} ${THEME.component.circularProgress.activeIndicatorShape}`,
         },
       },
@@ -181,7 +181,7 @@ const arc = recipe({
         "::after": {
           width: THEME.component.circularProgress.trackThickness,
           height: THEME.component.circularProgress.trackShape,
-          backgroundColor: THEME.color.secondaryContainer,
+          backgroundColor: THEME.component.circularProgress.trackColor,
           borderRadius: `0 0 ${THEME.component.circularProgress.trackShape} ${THEME.component.circularProgress.trackShape}`,
         },
       },

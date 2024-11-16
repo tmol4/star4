@@ -5,7 +5,7 @@ import { THEME } from "~/theme";
 
 // https://firebasestorage.googleapis.com/v0/b/design-spec/o/projects%2Fgoogle-material-3%2Fimages%2Flx1i8fz8-1P-progress-indicator-guidelines-types-determinate-indeterminate%202.mp4?alt=media&token=c408967f-7cd4-49db-8518-e032692dd6b0
 
-export function ProgressIndicatorsView() {
+export default function ProgressIndicatorsView() {
   return (
     <View
       headline="Progress indicators"

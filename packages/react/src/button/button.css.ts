@@ -50,7 +50,7 @@ const container = recipe({
       [THEME.component.circularProgress.containerSize]: "18px",
       [THEME.component.circularProgress.activeIndicatorColor]: "currentcolor",
       [THEME.component.circularProgress.activeIndicatorThickness]: "2px",
-      [THEME.component.circularProgress.activeIndicatorShape]: "0px",
+      [THEME.component.circularProgress.activeIndicatorShape]: "1px",
       [THEME.component.circularProgress.trackColor]: "transparent",
       [THEME.component.circularProgress.trackThickness]: "0px",
       [THEME.component.circularProgress.trackShape]: "0px",

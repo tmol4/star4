@@ -1,5 +1,11 @@
 # @star4/vanilla-extract
 
+## 0.0.14
+
+### Patch Changes
+
+- 12b84d7: Implement an optimized version of Vanilla Extract's getVarName
+
 ## 0.0.13
 
 ### Patch Changes

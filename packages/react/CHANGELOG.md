@@ -1,5 +1,17 @@
 # @star4/react
 
+## 0.0.24
+
+### Patch Changes
+
+- aaea94c: CircularProgress: fix usage of active indicator and track color tokens in rounded parts
+- 12b84d7: Implement an optimized version of Vanilla Extract's getVarName
+- aaea94c: Tab: apply custom theme to icon and circular progress
+- aaea94c: Button: change circular progress shape to be round
+- Updated dependencies [12b84d7]
+  - @star4/vanilla-extract@0.0.14
+  - @star4/react-utils@0.0.11
+
 ## 0.0.23
 
 ### Patch Changes

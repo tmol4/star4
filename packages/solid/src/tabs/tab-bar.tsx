@@ -5,7 +5,7 @@ import { styles } from "./tab-bar.css";
 import { TabIndicator } from "./tab-indicator";
 import { Tab } from "./tab";
 import { Refs } from "@solid-primitives/refs";
-import { THEME } from "@star4/vanilla-extract";
+import { getVarName, THEME } from "@star4/vanilla-extract";
 import { Lenis } from "../lenis";
 import { createResizeObserver } from "@solid-primitives/resize-observer";
 import { leadingAndTrailing, throttle } from "@solid-primitives/scheduled";
@@ -25,11 +25,6 @@ const globalToLocal = (parent: DOMRect, child: DOMRect): DOMRect => {
     child.width,
     child.height,
   );
-}
-
-const getVarName = (variable: string) => {
-  const matches = variable.match(/^var\((.*)\)$/);
-  return matches?.[1] ?? variable;
 }
 
 const resolveProperty = (property: string, element: Element) => {

@@ -3,7 +3,7 @@ import { Children, cloneElement, createContext, forwardRef, memo, useCallback, u
 import { Tab } from "./tab";
 import { Scrollable } from "../scrollable";
 import { TabIndicator } from "./tab-indicator";
-import { THEME } from "@star4/vanilla-extract";
+import { getVarName, THEME } from "@star4/vanilla-extract";
 import clsx from "clsx/lite";
 
 import { styles } from "./tab-bar.css";
@@ -216,11 +216,6 @@ const globalToLocal = (parent: DOMRect, child: DOMRect): DOMRect => {
     child.width,
     child.height,
   );
-}
-
-const getVarName = (variable: string) => {
-  const matches = variable.match(/^var\((.*)\)$/);
-  return matches?.[1] ?? variable;
 }
 
 const resolveProperty = (property: string, element: Element) => {

@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.0.25
+
+### Patch Changes
+
+- e831d88: fix: remove solid-js import
+
 ## 0.0.24
 
 ### Patch Changes

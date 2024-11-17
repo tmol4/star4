@@ -1,4 +1,3 @@
-import { splitProps, type Component, type JSX, type Ref } from "solid-js";
 import clsx from "clsx/lite";
 import { styles } from "./tab-indicator.css";
 import { forwardRef, memo, type ForwardedRef, type HTMLAttributes } from "react";

@@ -43,14 +43,14 @@ export const App: FC = () => {
 
   return (
     <Lenis>
-      <Lenis.Wrapper className="TEST" style={{ overflowX: "hidden", overflowY: "auto", width: 360, maxHeight: 200, border: `1px solid ${THEME.color.outline}`, borderRadius: 12, }}>
+      {/* <Lenis.Wrapper className="TEST" style={{ overflowX: "hidden", overflowY: "auto", width: 360, maxHeight: 200, border: `1px solid ${THEME.color.outline}`, borderRadius: 12, }}>
         <Lenis.Content>
           <ListItem headline="Apple" />
           <ListItem headline="Apple" />
           <ListItem headline="Apple" />
           <ListItem headline="Apple" />
         </Lenis.Content>
-      </Lenis.Wrapper>
+      </Lenis.Wrapper> */}
       <div className="demo" style={{ padding: 16, display: "flex", flexDirection: "column", gap: 16 }}>
         <TabBar value={example} onValueChange={setExample}>
           <Tab

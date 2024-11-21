@@ -1,5 +1,18 @@
 # @star4/react
 
+## 0.1.0
+
+### Minor Changes
+
+- 913f323: breaking: replace Scrollable with Lenis
+
+### Patch Changes
+
+- 913f323: Animated icons experimental implementation
+- 913f323: Add action buttons
+- Updated dependencies [913f323]
+  - @star4/react-utils@0.0.12
+
 ## 0.0.25
 
 ### Patch Changes

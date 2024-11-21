@@ -1,5 +1,11 @@
 # @star4/react-utils
 
+## 0.0.12
+
+### Patch Changes
+
+- 913f323: Add nanostores integration
+
 ## 0.0.11
 
 ### Patch Changes

@@ -7,3 +7,6 @@ export type * from "./types";
 
 export * from "./is";
 export * from "./use-previous";
+
+
+export * from "./store";

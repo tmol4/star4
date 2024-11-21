@@ -8,6 +8,7 @@ import "@fontsource-variable/raleway";
 
 import "~/styles/theme.css";
 import "~/styles/reset.css";
+import "~/styles/lenis.css";
 
 
 createRoot(

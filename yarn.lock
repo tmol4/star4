@@ -1506,6 +1506,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nanostores/react@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@nanostores/react@npm:0.8.0"
+  peerDependencies:
+    nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0
+    react: ">=18.0.0"
+  checksum: 10c0/b66fee969105d4f6fa1af58a4f2c2d98cb9a5e76638ae11fa9ce000b3b1271f29d78dfad7efee445c56feda65bede58fe6d8b11a51ebebaa6431b68091650fb7
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1986,8 +1996,8 @@ __metadata:
   resolution: "@star4/example-react-javascript@workspace:examples/react/javascript"
   dependencies:
     "@eslint/js": "npm:^9.15.0"
-    "@star4/react": "npm:^0.0.22"
-    "@star4/vanilla-extract": "npm:^0.0.12"
+    "@star4/react": "npm:^0.0.25"
+    "@star4/vanilla-extract": "npm:^0.0.14"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     "@vanilla-extract/vite-plugin": "npm:^4.0.17"
@@ -2018,12 +2028,14 @@ __metadata:
   resolution: "@star4/react-utils@workspace:packages/react-utils"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.12"
+    "@nanostores/react": "npm:^0.8.0"
     "@star4/config": "workspace:^"
     "@star4/vanilla-extract": "workspace:^"
     "@types/node": "npm:^22.9.0"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
     clsx: "npm:^2.1.1"
+    nanostores: "npm:^0.11.3"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     tsup: "npm:^8.3.5"
@@ -2031,7 +2043,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@star4/react@npm:^0.0.22, @star4/react@workspace:^, @star4/react@workspace:packages/react":
+"@star4/react@npm:^0.0.25, @star4/react@workspace:^, @star4/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@star4/react@workspace:packages/react"
   dependencies:
@@ -2119,7 +2131,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@star4/vanilla-extract@npm:^0.0.12, @star4/vanilla-extract@workspace:^, @star4/vanilla-extract@workspace:packages/vanilla-extract":
+"@star4/vanilla-extract@npm:^0.0.14, @star4/vanilla-extract@workspace:^, @star4/vanilla-extract@workspace:packages/vanilla-extract":
   version: 0.0.0-use.local
   resolution: "@star4/vanilla-extract@workspace:packages/vanilla-extract"
   dependencies:
@@ -4515,6 +4527,13 @@ __metadata:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: 10c0/e3fb661aa083454f40500473bb69eedb85dc160e763150b9a2c567c7e9ff560ce028a9f833123b618a6ea742e311138b591910e795614a629029e86e180660f3
+  languageName: node
+  linkType: hard
+
+"nanostores@npm:^0.11.3":
+  version: 0.11.3
+  resolution: "nanostores@npm:0.11.3"
+  checksum: 10c0/a21490e59cd493945de9536d4674edac6355a6041bde15e447cf5b0b683aabcb030b16fe89b6e11d9dff092c9fe6dde2384b58f7dc4281bf399e2ac50c385dc3
   languageName: node
   linkType: hard
 

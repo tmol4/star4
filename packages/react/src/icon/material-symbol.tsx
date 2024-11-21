@@ -1,4 +1,4 @@
-import { forwardRef, memo, type HTMLAttributes } from "react";
+import { forwardRef, memo, type FC, type ForwardRefExoticComponent, type ForwardRefRenderFunction, type HTMLAttributes, type PropsWithoutRef, type RefAttributes } from "react";
 import clsx from "clsx/lite";
 import { styles } from "./material-symbol.css";
 import { createIdentifiableElement } from "@star4/react-utils";
@@ -28,6 +28,60 @@ const MaterialSymbolComponent = forwardRef<MaterialSymbol.Element, MaterialSymbo
   },
 );
 
+
+
+
+
+export namespace MaterialSymbol {
+  export namespace Animated {
+    export type Name =
+      | "north_east";
+
+    export type BaseProps = {
+
+    }
+
+    export type Props =
+      & BaseProps
+      & {
+        name: Name;
+      };
+
+    export interface Element extends HTMLElement {}
+  }
+}
+
+const ANIMATED_MATERIAL_SYMBOLS: Record<
+  MaterialSymbol.Animated.Name,
+  ForwardRefExoticComponent<
+    & PropsWithoutRef<MaterialSymbol.Animated.BaseProps>
+    & RefAttributes<MaterialSymbol.Animated.Element>
+  >
+> = {
+  north_east: forwardRef(
+    function AnimatedMaterialSymbolNorthEast() {
+      return (
+        <div>
+
+        </div>
+      );
+    },
+  ),
+};
+
+const AnimatedMaterialSymbolComponent = forwardRef<MaterialSymbol.Animated.Element, MaterialSymbol.Animated.Props>(
+  function AnimatedMaterialSymbol({ name, ...rest }, forwardedRef) {
+    const Component = ANIMATED_MATERIAL_SYMBOLS[name];
+    return <Component {...rest} />
+  },
+);
+
+const AnimatedMaterialSymbol = Object.assign(
+  AnimatedMaterialSymbolComponent,
+  createIdentifiableElement("IS_ANIMATED_MATERIAL_SYMBOL"),
+);
+
+
 /**
  * Icon, which uses the {@link https://fonts.google.com/icons|Material Symbols} font.
  *
@@ -41,5 +95,8 @@ const MaterialSymbolComponent = forwardRef<MaterialSymbol.Element, MaterialSymbo
  */
 export const MaterialSymbol = Object.assign(
   memo(MaterialSymbolComponent),
-  createIdentifiableElement("IS_MATERIAL_SYMBOL"),
+  {
+    ...createIdentifiableElement("IS_MATERIAL_SYMBOL"),
+    Animated: AnimatedMaterialSymbol,
+  },
 );

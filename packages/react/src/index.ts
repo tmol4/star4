@@ -1,5 +1,6 @@
 // Presentation components
 export * from "./divider";
+export * from "./action-button";
 export * from "./button";
 export * from "./icon-button";
 export * from "./radio";
@@ -21,7 +22,7 @@ export * from "./progress";
 // Utility components
 export * from "./modal";
 export * from "./popover";
-export * from "./scrollable";
+export * from "./lenis";
 
 
 // Non-components

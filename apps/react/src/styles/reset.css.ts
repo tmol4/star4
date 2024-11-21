@@ -71,4 +71,3 @@ globalStyle(
     isolation: "isolate",
   },
 );
-

@@ -1,12 +1,12 @@
 import { createIdentifiableElement, usePreviousState, type ComposableForwardRefExoticComponent, type ForwardRefExoticComponentProps } from "@star4/react-utils";
 import { Children, cloneElement, createContext, forwardRef, memo, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
 import { Tab } from "./tab";
-import { Scrollable } from "../scrollable";
 import { TabIndicator } from "./tab-indicator";
 import { getVarName, THEME } from "@star4/vanilla-extract";
 import clsx from "clsx/lite";
 
 import { styles } from "./tab-bar.css";
+import { Lenis } from "../lenis";
 
 export namespace TabBar {
   export type Props<T extends Value> =
@@ -172,7 +172,7 @@ const TabBarComponent = forwardRef<TabBar.Element, TabBar.Props<TabBar.Value>>(
     );
 
     return (
-      <Scrollable.Wrapper
+      <Lenis.Wrapper
         ref={ref}
         className={clsx(
           styles.container({
@@ -182,18 +182,14 @@ const TabBarComponent = forwardRef<TabBar.Element, TabBar.Props<TabBar.Value>>(
           className,
         )}
         role="tablist"
-        adapter="lenis"
-        lenis={{
-          autoRaf: true,
-          orientation: "horizontal",
-        }}
+        orientation="horizontal"
         {...rest}>
-          <Scrollable.Content ref={listRef} className={styles.list()}>
+          <Lenis.Content ref={listRef} className={styles.list()}>
             <InternalTabBarContext.Provider
               value={context}
               children={tabs} />
-          </Scrollable.Content>
-      </Scrollable.Wrapper>
+          </Lenis.Content>
+      </Lenis.Wrapper>
     );
   },
 );

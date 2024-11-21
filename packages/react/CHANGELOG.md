@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.1
+
+### Patch Changes
+
+- fix: remove console log
+
 ## 0.1.0
 
 ### Minor Changes

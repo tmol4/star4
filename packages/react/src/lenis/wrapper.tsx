@@ -150,8 +150,6 @@ const LenisWrapperComponent = forwardRef<LenisWrapper.Element, LenisWrapper.Prop
       lenis: lenis!,
     };
 
-    console.log(clsx(styles.container, className));
-
     return (
       <div ref={wrapperRef} className={clsx(styles.container, className)} {...rest}>
         <LenisContext.Provider value={context}>

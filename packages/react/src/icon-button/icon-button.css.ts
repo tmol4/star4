@@ -20,9 +20,12 @@ const container = recipe({
     placeContent: "center",
 
     borderRadius: THEME.shape.corner.full,
+    ...THEME.typescale.label.large,
 
     userSelect: "none",
     textDecoration: "none",
+    isolation: "isolate",
+
   },
   variants: {
     variant: {

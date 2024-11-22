@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.3
+
+### Patch Changes
+
+- popover: add styles
+
 ## 0.1.2
 
 ### Patch Changes

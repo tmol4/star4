@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@star4/react": "^0.1.5",
+    "@star4/react": "^0.1.6",
     "@star4/vanilla-extract": "^0.0.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

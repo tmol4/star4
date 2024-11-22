@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.6
+
+### Patch Changes
+
+- 5c684eb: popover: hide overflow
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.5
+
+### Patch Changes
+
+- 3a9fd9c: action-button: add forwarded attributes
+
 ## 0.1.4
 
 ### Patch Changes

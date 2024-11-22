@@ -1,5 +1,12 @@
 # @star4/react
 
+## 0.1.2
+
+### Patch Changes
+
+- 9190eda: Implement checkbox
+- ab16fcb: Icon button: add label text styles
+
 ## 0.1.1
 
 ### Patch Changes

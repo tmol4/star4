@@ -1,7 +1,7 @@
 import { MaterialSymbol, usePresence, TabBar, Tab, CircularProgress, Lenis, ListItem } from "@star4/react";
 import { useState, type FC } from "react";
 import { THEME } from "~/theme";
-import { ActionButtonsView, ButtonsView, DialogsView, IconButtonsView, ListsView, MenusView, ProgressIndicatorsView, RadioView, SlidersView, TabsView } from "./views";
+import { ActionButtonsView, ButtonsView, CheckboxView, DialogsView, IconButtonsView, ListsView, MenusView, ProgressIndicatorsView, RadioView, SlidersView, TabsView } from "./views";
 
 const enum Views {
   ActionButtons,
@@ -23,16 +23,16 @@ const VIEWS_MAP = {
   [Views.IconButtons]: IconButtonsView,
   [Views.Dialogs]: DialogsView,
   [Views.Menus]: MenusView,
-  [Views.Checkbox]: TabsView,
   [Views.Tabs]: TabsView,
   [Views.ProgressIndicators]: ProgressIndicatorsView,
+  [Views.Checkbox]: CheckboxView,
   [Views.Radio]: RadioView,
   [Views.Lists]: ListsView,
   [Views.Sliders]: SlidersView,
 } satisfies Record<Views, FC>;
 
 export const App: FC = () => {
-  const [example, setExample] = useState(Views.ActionButtons);
+  const [example, setExample] = useState(Views.Checkbox);
 
   const { mountedItem, isEntering, isExiting, isVisible } = usePresence({
     source: example,
@@ -78,13 +78,13 @@ export const App: FC = () => {
             icon={<MaterialSymbol name="progress_activity" />}
             label="Progress indicators" />
           <Tab
-            value={Views.Radio}
-            icon={<MaterialSymbol name="radio_button_checked" />}
-            label="Radio" />
-          <Tab
             value={Views.Checkbox}
             icon={<MaterialSymbol name="check_box" />}
             label="Checkbox" />
+          <Tab
+            value={Views.Radio}
+            icon={<MaterialSymbol name="radio_button_checked" />}
+            label="Radio" />
           <Tab
             value={Views.Tabs}
             icon={<MaterialSymbol name="tab" />}

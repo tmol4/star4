@@ -2,7 +2,15 @@ import { recipe } from "@vanilla-extract/recipes";
 
 const native = recipe({
   base: {
+    outline: "none",
+    border: "none",
+    background: "none",
+    boxSizing: "border-box",
+    margin: 0,
+    padding: 0,
 
+    maxWidth: "100%",
+    maxHeight: "100%",
   },
   variants: {
     open: {
@@ -10,7 +18,6 @@ const native = recipe({
         display: "none",
       },
       true: {
-        display: "none",
       },
     }
   },
@@ -20,7 +27,8 @@ const native = recipe({
 });
 const portal = recipe({
   base: {
-
+    position: "fixed",
+    inset: 0,
   },
   variants: {
     open: {
@@ -28,7 +36,6 @@ const portal = recipe({
         display: "none",
       },
       true: {
-        display: "none",
       },
     }
   },

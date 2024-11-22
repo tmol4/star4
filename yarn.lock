@@ -1996,7 +1996,7 @@ __metadata:
   resolution: "@star4/example-react-javascript@workspace:examples/react/javascript"
   dependencies:
     "@eslint/js": "npm:^9.15.0"
-    "@star4/react": "npm:^0.1.0"
+    "@star4/react": "npm:^0.1.2"
     "@star4/vanilla-extract": "npm:^0.0.14"
     "@types/react": "npm:^18.3.12"
     "@types/react-dom": "npm:^18.3.1"
@@ -2043,7 +2043,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@star4/react@npm:^0.1.0, @star4/react@workspace:^, @star4/react@workspace:packages/react":
+"@star4/react@npm:^0.1.2, @star4/react@workspace:^, @star4/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@star4/react@workspace:packages/react"
   dependencies:

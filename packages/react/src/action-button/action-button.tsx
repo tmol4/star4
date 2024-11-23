@@ -1,22 +1,32 @@
-import { forwardRef, memo, useRef, useState, type ReactNode } from "react";
+import { forwardRef, memo, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
 import { Ripple } from "../ripple";
 import { createIdentifiableElement } from "@star4/react-utils";
 import { iconStyles, styles } from "./action-button.css";
 import { AnimatedIconDataProvider, MaterialSymbol } from "../icon";
+import clsx from "clsx/lite";
 
 export namespace ActionButton {
-  export type Props = {
-    icon?: ReactNode;
-    label?: ReactNode;
-  }
+  export type Props =
+    & Omit<
+      HTMLAttributes<HTMLButtonElement>,
+      "children"
+    >
+    & {
+      icon?: ReactNode;
+      label?: ReactNode;
+    };
   export interface Element extends HTMLElement {}
 }
 
 const ActionButtonComponent = forwardRef<ActionButton.Element, ActionButton.Props>(
   function ActionButton(
     {
+      className,
+      onPointerEnter,
+      onPointerLeave,
       icon,
       label,
+      ...rest
     },
     forwardedRef
   ) {
@@ -26,9 +36,18 @@ const ActionButtonComponent = forwardRef<ActionButton.Element, ActionButton.Prop
     return (
       <button
         ref={ref}
-        className={styles.container()}
-        onPointerEnter={() => setHovered(true)}
-        onPointerLeave={() => setHovered(false)}>
+        className={clsx(styles.container(), className)}
+        onPointerEnter={(event) => {
+          onPointerEnter?.(event);
+          if(event.defaultPrevented) return;
+          setHovered(true);
+        }}
+        onPointerLeave={(event) => {
+          onPointerLeave?.(event);
+          if(event.defaultPrevented) return;
+          setHovered(false);
+        }}
+        {...rest}>
           <Ripple for={ref} />
           <div className={styles.content()}>
             {label}

@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.7
+
+### Patch Changes
+
+- dc85a9a: list-item: fix incorrect supporting text typescale
+
 ## 0.1.6
 
 ### Patch Changes

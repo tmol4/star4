@@ -86,7 +86,7 @@ const headline = style({
 
 const supportingText = recipe({
   base: {
-    ...THEME.typescale.body.large,
+    ...THEME.typescale.body.medium,
     color: THEME.color.onSurfaceVariant,
     textOverflow: "ellipsis",
     textWrap: "nowrap",

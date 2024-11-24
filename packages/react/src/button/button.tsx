@@ -17,6 +17,8 @@ export namespace Button {
     & {
       variant: Variant;
       icon?: ReactNode;
+      leadingIcon?: ReactNode;
+      trailingIcon?: ReactNode;
       label: ReactNode;
     };
   export interface Element extends HTMLButtonElement {}
@@ -29,6 +31,8 @@ const ButtonComponent = forwardRef<Button.Element, Button.Props>(
       disabled,
       variant,
       icon,
+      leadingIcon = icon,
+      trailingIcon,
       label,
       ...rest
     },
@@ -46,7 +50,8 @@ const ButtonComponent = forwardRef<Button.Element, Button.Props>(
         ref={ref}
         className={clsx(
           styles.container({
-            withIcon: !!icon,
+            withLeadingIcon: !!leadingIcon,
+            withTrailingIcon: !!trailingIcon,
             variant,
             disabled,
           }),
@@ -61,8 +66,9 @@ const ButtonComponent = forwardRef<Button.Element, Button.Props>(
               styles.outline({ disabled })
             } />
           )}
-          {icon}
+          {leadingIcon}
           <span>{label}</span>
+          {trailingIcon}
       </button>
     )
   },

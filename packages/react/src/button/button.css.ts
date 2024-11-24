@@ -68,9 +68,14 @@ const container = recipe({
     },
   },
   variants: {
-    withIcon: {
+    withLeadingIcon: {
       true: {
-        paddingInline: "16px 24px",
+        paddingInlineStart: 16,
+      },
+    },
+    withTrailingIcon: {
+      true: {
+        paddingInlineEnd: 16,
       },
     },
     variant: {

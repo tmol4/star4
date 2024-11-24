@@ -1,5 +1,11 @@
 # @star4/react
 
+## 0.1.8
+
+### Patch Changes
+
+- 4125807: button: support trailing icon
+
 ## 0.1.7
 
 ### Patch Changes
